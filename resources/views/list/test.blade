@@ -1,0 +1,11 @@
+@foreach($items as $item)
+    @if($item->list_menu == 1)
+        @foreach($search as $id)
+            @if($object->id == $id)
+                <?php echo ' <th><a href=/list/'.$object->id.'>'.$object->{$item->name_eng}.'</a></th>'; ?>
+            @endif
+
+        @endforeach
+    @endif
+
+@endforeach

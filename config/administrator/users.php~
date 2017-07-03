@@ -1,0 +1,16 @@
+<?php
+return [
+
+    'title' => 'Users',
+    'single' => 'users',
+    'model' => 'App\User',
+    'columns' => [
+        'id',
+        'email'
+    ],
+    'edit_fields' => [
+        'email' => [
+            'type' => 'text',
+        ],
+    ],
+];
