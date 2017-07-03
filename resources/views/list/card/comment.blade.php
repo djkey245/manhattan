@@ -11,11 +11,11 @@
     </tr>
     <tr>
         <td><select id="mark" class="form-control">
-                <option value="2">Крас</option>
-                <option value="1">Добр</option>
-                <option value="0" selected>Норм</option>
-                <option value="-1">Лаж</option>
-                <option value="-2">Козл</option>
+                <option value="5">Крас</option>
+                <option value="4">Добр</option>
+                <option value="3" selected>Норм</option>
+                <option value="2">Лаж</option>
+                <option value="1">Козл</option>
             </select></td>
     </tr>
     <tr>

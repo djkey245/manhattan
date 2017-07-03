@@ -48,9 +48,25 @@
     </div>
     @if(Auth::user()->actual == 2)
     <div class="container">
+        <?php $sum = 0; ;?>
+        @foreach($comments as $comment)
+            <?php
+                $count_comments = count($comments);
+                $sum += $comment['mark'] ;
+                $mark = $sum/$count_comments; ?>
+        @endforeach
         <div class="row">
             <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
-            <h3 id="comments" class="text-center">Історія роботи з користувачем!</h3>
+            <h3 id="comments" class="text-center" >Історія роботи з користувачем!
+                @if($mark>3)
+                    <div style="display: inline" class="text-success"> ({{$mark}}#)</div>
+                @elseif($mark<3)
+                            <div style="display: inline" class="text-danger" > ({{$mark}}#)</div>
+                        @else
+                            <div style="display: inline" class="text-warning"> ({{$mark}}#)</div>
+                    @endif
+            </h3>
+
             </div>
             <?php
             $count_comments = count($comments);
@@ -61,17 +77,17 @@
             $i = 1;
             ?>
 
-                <div class="col-md-6">
-                    <table class="table">
+                <div style="margin-top: 1%" class="col-md-6">
+                    <table class="table" >
 
                             @foreach($comments as $comment)
                                 @if($i <= $count_comments/2)
-                                @if($comment['mark']>0)
+                                @if($comment['mark']>3)
                                     <tr class="success">
-                                @elseif($comment['mark']<0)
+                                @elseif($comment['mark']<3)
                                     <tr class="danger">
                                 @else
-                                    <tr>
+                                    <tr class="warning">
                                         @endif
                                         <td>{{$comment['data']}}</td>
                                         <td>{{$comment['comment']}}</td>
@@ -97,7 +113,7 @@
                 </div>
 
 
-            <div class="col-md-6">
+            <div style="margin-top: 1%" class="col-md-6">
                 <table class="table">
                     <?php $i = 1;?>
                     @foreach($comments as $comment)
