@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Slug;
 use App\Http\Requests;
+use Auth;
 
 class ListController extends Controller
 {
@@ -72,21 +73,17 @@ class ListController extends Controller
         //$itempost['mas'] += [ 'created_at' => date("Y-m-j H:i:s")];
         $item = array_combine($itempost['keys'], $tempvalue);
         $item += ['created_at' => date("Y-m-j H:i:s")];
+
+        $this->history('2' ,'insert', 'peoples', $item['name']);
+
         $peoples->insert($item);
 
 
 
-        print_r($item);
 
 
     }
-    public function register_a(Request $request, Peoples $peoples){
 
-        $itempost = $request->input();
-        $itempost += [ 'created_at' => date("Y-m-j H:i:s")];
-        $peoples->registration_a($itempost['mas']);
-        return 'Person '.$itempost['name'].' successfully registered';
-    }
     public function delete($id,Peoples $peoples){
 
 

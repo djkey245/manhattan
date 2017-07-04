@@ -93,8 +93,10 @@
                 data:{'_token':"{{csrf_token()}}"},
 
                 success: function(msg){
-                    var del = document.getElementById('person_'+msg);
-                    del.remove();
+
+                    alert(msg);
+                    //var del = document.getElementById('person_'+msg);
+                    //del.remove();
 
 
                 }

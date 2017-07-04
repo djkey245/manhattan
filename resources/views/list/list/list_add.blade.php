@@ -85,7 +85,7 @@
 <script>
     var mas = <?php  echo $add; ?>;
     var len = mas.length;
-
+    var id_user = <?php echo Auth::user()->id; ?>;
 
     var a = [];
         function register() {
@@ -101,6 +101,7 @@
          '_token': "{{csrf_token()}}",
             'val': a,
             'keys': mas,
+             'id_user': id_user
          },
          success: function (msg) {
 
