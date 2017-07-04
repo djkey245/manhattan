@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
+use App\History;
+use App\Menus;
+use App\Peoples;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
@@ -26,8 +30,18 @@ class IndexController extends Controller
                // }
             //else
                // {
-                    $user->register($itempost);
+
                 //}
+        $user->register($itempost);
+
+
+
+        //history
+        $data = $user->select('id')->where(['name' => $itempost['name'], 'surname' => $itempost['surname']])->get();
+        $id_user = $itempost['id_user'];
+        $this->history( $id_user ,'insert', 'user', $data );
+        //
+
 
         return 'User '.$itempost['name'].' successfully registered';
 
@@ -47,13 +61,34 @@ class IndexController extends Controller
         $itempost += [ 'updated_at' => date("Y-m-j H:i:s"),];
         //$itempost['pass'] = Hash::make($itempost['pass']);
         $user->updater($itempost);
+
+
+
+        //history
+        $data = $itempost['id'];
+        $id_user = $itempost['id_user'];
+        $this->history( $id_user ,'update', 'user', $data );
+        //
+
+
+
         return 'User '.$itempost['name'].' successfully updated';
     }
 
-    public function delete($id,User $user){
-
+    public function delete($id,User $user, Request $request){
+        $itempost = $request->input();
         $user_id = $id;
+        $name = $user->where(['id' => $id])->get();
+        $names = $name['0']->name.' '.$name['0']->surname;
         $user->delusr($user_id);
+
+        //history
+        $id_user = $itempost['id_user'];
+        $data = $names;
+
+        $this->history( $id_user ,'delete', 'user', $data );
+        //
+
         return $user_id;
 
     }
@@ -61,5 +96,16 @@ class IndexController extends Controller
     public function userAjax($id,User $user){
         $this->data['user'] = $user->search_id($id);
         return view('list.ajax.edit_user', $this->data);
+    }
+
+    public function history_page(History $history, Menus $menus, Peoples $peoples, User $user, Comments $comments){
+
+        $this->data['history'] = $history->orderBy('id', 'desc')->get();
+        $this->data['menus'] = $menus->get();
+        $this->data['peoples'] = $peoples->get();
+        $this->data['users'] = $user->get();
+        $this->data['comments'] = $comments->get();
+
+        return view('list.history', $this->data);
     }
 }

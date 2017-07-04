@@ -77,6 +77,8 @@ class ListController extends Controller
 
         $peoples->insert($item);
 
+
+        //history
         $data = $peoples->select('id')->where(['name' => $item['name'], 'surname' => $item['surname']])->get();
         $this->history( $id_user ,'insert', 'peoples', $data );
 
@@ -88,8 +90,10 @@ class ListController extends Controller
 
     public function delete($id,Peoples $peoples,Request $request){
         $itempost = $request->input();
+        $name = $peoples->where(['id' => $id])->get();
+        $name = $name['0']->name.' '.$name['0']->surname;
         $id_user = $itempost['id_user'];
-        $this->history( $id_user ,'delete', 'peoples', $id );
+        $this->history( $id_user ,'delete', 'peoples', $name );
 
         $peoples->delusr($id);
         return $id;

@@ -13,7 +13,7 @@ class Controller extends BaseController
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
 
-    public function history($id_user, $event, $model, $data){
+    public function history($id_user, $event, $model, $data, $plus = ""){
 
 
         $date = date("Y-m-j H:i:s");
@@ -26,7 +26,7 @@ class Controller extends BaseController
         else{
             $id_data = $data;
         }
-        $log = ['id_user' => $id_user, 'event' => $event, 'model' => $model, 'data' => $id_data, 'date' => $date ];
+        $log = ['id_user' => $id_user, 'event' => $event, 'model' => $model, 'data' => $id_data, 'date' => $date , 'plus' => $plus];
         History::insert($log);
 
 

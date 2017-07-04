@@ -4,7 +4,7 @@
         <td>Коментар:</td>
     </tr>
     <tr>
-        <td><input type="text" class="form-control" id="comment"></td>
+        <td><textarea type="text" class="form-control" id="comment"></textarea></td>
     </tr>
     <tr>
         <td>Оцінка:</td>

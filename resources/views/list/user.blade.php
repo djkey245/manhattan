@@ -10,12 +10,15 @@
     <script>
          function delete_user(id) {
              if (confirm("Ви впевнені?") == true) {
+                 var id_user = <?php echo Auth::user()->id; ?> ;
                  $.ajax({
 
 
                      type:'POST',
                      url:'/delete_user/'+id,
-                     data:{'_token':"{{csrf_token()}}"},
+                     data:{'_token':"{{csrf_token()}}",
+                            'id_user': id_user
+                     },
 
                      success: function(msg){
                          var del = document.getElementById('user_'+msg);

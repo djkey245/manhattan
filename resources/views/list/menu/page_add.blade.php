@@ -111,6 +111,7 @@
         var active = document.getElementById('active').value;
         var actual = document.getElementById('actual').value;
         var list_menu = document.getElementById('list_menu').value;
+        var id_user = <?php echo Auth::user()->id; ?> ;
         alert(name_ukr);
 
         $.ajax(
@@ -126,7 +127,8 @@
                     'option_name': option_name,
                     'active': active,
                     'actual': actual,
-                    'list_menu': list_menu
+                    'list_menu': list_menu,
+                    'id_user': id_user
                 },
                 success: function(msg){
 

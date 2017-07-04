@@ -30,7 +30,8 @@ class MenuController extends Controller
         unset($itempost['_token']);
         $name_eng = $itempost['name_eng'];
         $itempost += ['created_at' => date("Y-m-j H:i:s"), 'menu_id' => 1];
-
+        $id_user = $itempost['id_user'];
+        unset($itempost['id_user']);
         $menu->insert($itempost);
         if($itempost['type'] == 'text'){
             $peoples->add_column('string',$name_eng);
@@ -53,20 +54,33 @@ class MenuController extends Controller
         if($itempost['type'] == 'email'){
             $peoples->add_column('string',$name_eng);
         }
+        //history
+        $data = $menu->select('id')->where(['name_eng' => $itempost['name_eng']])->get();
+        $this->history( $id_user ,'insert', 'menus', $data );
+        //
     }
-    public function delete($id,Menus $menu, Peoples $people){
+    public function delete($id,Menus $menu, Peoples $people, Request $request){
         $items = $menu->column_id($id);
+        $itempost = $request->input();
+        $id_user = $itempost['id_user'];
         $name = $items['0']->name_eng;
+        $name_ukr = $items['0']->name_ukr;
         $people->delete_column($name);
         $menu->delete_item($id);
+        $this->history( $id_user ,'delete', 'menus', $name_ukr );
+
     }
     public function edit(Request $request, Menus $menus){
         $itempost = $request->input();
         $id = $itempost['id'];
+        $id_user = $itempost['id_user'];
         unset($itempost['id']);
+        unset($itempost['id_user']);
         unset($itempost['_token']);
         $itempost += ['updated_at' => date("Y-m-j H:i:s")];
         $menus->where(['id' => $id])->update($itempost);
+        $this->history( $id_user ,'update', 'menus', $id );
+
 
     }
 

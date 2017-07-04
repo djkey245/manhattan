@@ -99,7 +99,9 @@
     var active = document.getElementById('edit_active').value;
     var actual = document.getElementById('edit_actual').value;
     var list_menu = document.getElementById('edit_list_menu').value;
-    $.ajax(
+        var id_user = <?php echo Auth::user()->id; ?> ;
+
+        $.ajax(
         {   type: 'post',
             url: '/menu/edit',
             data:{'_token':"{{csrf_token()}}",
@@ -111,7 +113,9 @@
                 'option': option,
                 'active': active,
                 'actual': actual,
-                'list_menu': list_menu
+                'list_menu': list_menu,
+                'id_user': id_user
+
             },
             success: function (msg) {
                 location.reload(true);

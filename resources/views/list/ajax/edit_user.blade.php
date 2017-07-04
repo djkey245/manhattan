@@ -141,7 +141,7 @@
         var surname = InpObjSurname.value;
         var actual = InpObjActual.value;
         var id = InpObjId.value;
-
+        var id_user  = <?php echo Auth::user()->id;?> ;
         $.ajax({
 
 
@@ -153,6 +153,7 @@
                 'actual' : actual,
                 'id' : id,
                 'surname': surname,
+                'id_user': id_user
 
 
             },

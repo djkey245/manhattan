@@ -91,8 +91,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/menu') }}"><i class="fa fa-btn"></i>Меню Працівники</a></li>
-                                    <li><a href="{{ url('/users') }}"><i class="fa fa-btn"></i>Список користувачів</a></li>
+                                    <li><a href="{{ url('/menu') }}"><i class="fa fa-btn"></i>Пункти меню</a></li>
+                                    <li><a href="{{ url('/users') }}"><i class="fa fa-btn"></i>Користувачі</a></li>
+                                    <li><a href="{{ url('/history') }}"><i class="fa fa-btn"></i>Історія</a></li>
 
                                 </ul>
 

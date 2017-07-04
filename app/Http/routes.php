@@ -71,6 +71,12 @@ Route::post('/card/comment_add', [
     'middleware' => 'auth',
     'uses' => 'CardController@comment_add']);
 
+//history
+Route::get('/history', [
+    'middleware' => 'auth',
+    'uses' => 'IndexController@history_page']);
+
+
 
 //users
 Route::get('/users',   [

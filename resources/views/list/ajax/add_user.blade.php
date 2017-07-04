@@ -150,6 +150,8 @@
         var email = InpObjEmail.value;
         var pass = InpObjPass.value;
         var actual = InpObjActual.value;
+        var id_user  = <?php echo Auth::user()->id;?> ;
+
         $.ajax({
 
 
@@ -160,7 +162,8 @@
                 'surname': surname,
                 'email' : email,
                 'pass' : pass,
-                'actual' : actual
+                'actual' : actual,
+                'id_user': id_user
 
 
             },
