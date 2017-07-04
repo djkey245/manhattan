@@ -20,6 +20,7 @@ class CardController extends Controller
         $com = $request->input();
         unset($com['_token']);
         $com += ['data' => date("Y-m-j H:i:s")];
+        $this->history( $com['id_user'] ,'comment', 'comments', $com['id_people'] );
         $comments->insert($com);
 
 

@@ -58,12 +58,14 @@
         <div class="row">
             <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
             <h3 id="comments" class="text-center" >Історія роботи з користувачем!
-                @if($mark>3)
-                    <div style="display: inline" class="text-success"> ({{$mark}}#)</div>
-                @elseif($mark<3)
-                            <div style="display: inline" class="text-danger" > ({{$mark}}#)</div>
-                        @else
-                            <div style="display: inline" class="text-warning"> ({{$mark}}#)</div>
+                @if(!empty($mark))
+                        @if($mark>3)
+                            <div style="display: inline" class="text-success"> ({{$mark}}#)</div>
+                        @elseif($mark<3)
+                                    <div style="display: inline" class="text-danger" > ({{$mark}}#)</div>
+                                @else
+                                    <div style="display: inline" class="text-warning"> ({{$mark}}#)</div>
+                            @endif
                     @endif
             </h3>
 
