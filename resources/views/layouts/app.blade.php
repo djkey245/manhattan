@@ -158,13 +158,16 @@
 
 
         function delete_item(url1,div1) {
+            var id_user = <?php echo Auth::user()->id; ?>;
             if (confirm("Ви впевнені?") == true) {
                 $.ajax({
 
 
                     type:'POST',
                     url:url1,
-                    data:{'_token':"{{csrf_token()}}"},
+                    data:{'_token':"{{csrf_token()}}",
+                            'id_user': id_user
+                    },
 
                     success: function(){
 

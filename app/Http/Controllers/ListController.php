@@ -63,6 +63,7 @@ class ListController extends Controller
     public function register(Request $request, Peoples $peoples){
         $tempvalue;
         $itempost = $request->input();
+        $id_user = $itempost['id_user'];
         $a = count($itempost['val']);
         for($i = 0; $i<$a; $i++){
 
@@ -74,9 +75,10 @@ class ListController extends Controller
         $item = array_combine($itempost['keys'], $tempvalue);
         $item += ['created_at' => date("Y-m-j H:i:s")];
 
-        $this->history('2' ,'insert', 'peoples', $item['name']);
-
         $peoples->insert($item);
+
+        $data = $peoples->select('id')->where(['name' => $item['name'], 'surname' => $item['surname']])->get();
+        $this->history( $id_user ,'insert', 'peoples', $data );
 
 
 
@@ -84,8 +86,10 @@ class ListController extends Controller
 
     }
 
-    public function delete($id,Peoples $peoples){
-
+    public function delete($id,Peoples $peoples,Request $request){
+        $itempost = $request->input();
+        $id_user = $itempost['id_user'];
+        $this->history( $id_user ,'delete', 'peoples', $id );
 
         $peoples->delusr($id);
         return $id;
@@ -106,6 +110,12 @@ class ListController extends Controller
 
         $tempvalue;
         $itempost = $request->input();
+        //history()
+        $id_user = $itempost['id_user'];
+        $data = $itempost['id'];
+
+
+        //
         $a = count($itempost['val']);
         for($i = 0; $i<$a; $i++){
 
@@ -114,6 +124,8 @@ class ListController extends Controller
         $item = array_combine($itempost['keys'], $tempvalue);
         $item += [ 'updated_at' => date("Y-m-j H:i:s"), 'id' => $itempost['id']];
 
+
+        $this->history( $id_user ,'update', 'peoples', $data );
         $peoples->updater($item);
         return 'Person '.$item['name'].' successfully updated';
     }

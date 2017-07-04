@@ -17,7 +17,16 @@ class Controller extends BaseController
 
 
         $date = date("Y-m-j H:i:s");
-        $log = ['id_user' => $id_user, 'event' => $event, 'model' => $model, 'data' => $data, 'date' => $date ];
+        $id_data;
+        if($event == 'insert') {
+            foreach ($data as $item) {
+                $id_data = $item['id'];
+            }
+        }
+        else{
+            $id_data = $data;
+        }
+        $log = ['id_user' => $id_user, 'event' => $event, 'model' => $model, 'data' => $id_data, 'date' => $date ];
         History::insert($log);
 
 

@@ -103,6 +103,7 @@ foreach ($peoples as $people){
     var len = mas.length;
 
     var id = document.getElementById('add_id').value;
+    var id_user = <?php echo Auth::user()->id; ?>;
     var a = [];
     function updater() {
         for(var i = 0; i < len; i++){
@@ -118,6 +119,7 @@ foreach ($peoples as $people){
                 'val': a,
                 'keys': mas,
                 'id': id,
+                'id_user': id_user
             },
             success: function (msg) {
 
