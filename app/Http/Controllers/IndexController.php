@@ -100,7 +100,7 @@ class IndexController extends Controller
 
     public function history_page(History $history, Menus $menus, Peoples $peoples, User $user, Comments $comments){
 
-        $this->data['history'] = $history->orderBy('id', 'desc')->get();
+        $this->data['history'] = $history->orderBy('id', 'desc')->paginate(10);
         $this->data['menus'] = $menus->get();
         $this->data['peoples'] = $peoples->get();
         $this->data['users'] = $user->get();

@@ -26,7 +26,7 @@
                                                     додав @if($event['model'] == 'peoples' )
                                                               нового  працівника @foreach ($peoples as $people)
                                                             @if($people['id'] == $event['data'])
-                                                                {{$people['name'] .' '. $people['surname']}}
+                                                                <a href="/list/{{$event['data']}}">{{$people['name'] .' '. $people['surname']}}</a>
                                                             @endif
                                                         @endforeach
 
@@ -59,7 +59,7 @@
                                                     @if($event['model'] == 'peoples' )
                                                           працівника @foreach ($peoples as $people)
                                                             @if($people['id'] == $event['data'])
-                                                                {{$people['name'] .' '. $people['surname']}}
+                                                                <a href="/list/{{$event['data']}}"> {{$people['name'] .' '. $people['surname']}}</a>
                                                             @endif
                                                         @endforeach
 
@@ -114,7 +114,7 @@
 
                                                         працівника @foreach ($peoples as $people)
                                                             @if($people['id'] == $event['data'])
-                                                                {{$people['name'] .' '. $people['surname']}}
+                                                            <a href="/list/{{$event['data']}}">{{$people['name'] .' '. $people['surname']}}</a>
                                                             @endif
                                                         @endforeach
 
@@ -127,8 +127,10 @@
 
                                             @endif
                                         @endforeach
+
                             </tbody>
                         </table>
+                        <center><div >{{$history->links()}}</div></center>
                     </div>
                     <div class="col-md-2">
 

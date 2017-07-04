@@ -102,7 +102,7 @@ Route::post('/upload/edit_user/{id}',   [
 Route::get('/release',   [
     'middleware' => 'auth',
     'uses' =>'ReleaseController@index']);
-Route::post('/upload/release_add',   [
+Route::post('/upload/release_add/{id}',   [
     'middleware' => 'auth',
     'uses' =>'ReleaseController@add_release']);
 Route::post('/upload/release_add_reg',   [

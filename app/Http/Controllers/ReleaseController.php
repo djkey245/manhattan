@@ -21,8 +21,9 @@ class ReleaseController extends Controller
 
     }
 
-    public function add_release(Peoples $peoples){
-        $this->data['peoples'] = $peoples->list_active_people();
+    public function add_release(Peoples $peoples, $id){
+        $this->data['peoples'] = $peoples->perm($id);
+        $this->data['id'] = $id;
         return view('list.release.add',$this->data);
     }
     public function add_release_reg(Request $request, Release $release){

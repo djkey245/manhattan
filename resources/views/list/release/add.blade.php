@@ -3,13 +3,14 @@
     <tr>
         <th><div class="col-md-10"> Дія </div>
 
-            <div class="col-md-2"><div align="right"><button onclick="cancel_hide('#release_add')" class="btn btn-danger btn-xs " id="button_cansel">X</button></div> </div>
+            <div class="col-md-2"><div align="right"><button onclick="cancel_hide('#list')" class="btn btn-danger btn-xs " id="button_cansel">X</button></div> </div>
         </th>
     </tr>
     <tr>
         <th>
             <select class="form-control" id="release_event">
                 <option value="1">Звільнення</option>
+                <option value="2">Рапорт</option>
             </select>
         </th>
     </tr>
@@ -31,15 +32,8 @@
     </tr>
     <tr>
         <th>
-            <select class="form-control" id="release_person_id">
-                @foreach($peoples as $people)
+            {{$peoples['0']->surname.' '.$peoples['0']->name}}
 
-                    <option value="{{$people->id}}">{{$people->surname}} {{$people->name}}</option>
-
-
-                    @endforeach
-
-            </select>
         </th>
     </tr>
     <tr>
@@ -56,7 +50,7 @@
         <th>
             <button onclick="submit_valid()" class="btn btn-primary btn-sm" id="button_add_user">OK</button>
 
-            <button onclick="cancel_hide('#release_add')" class="btn btn-primary btn-sm" id="button_cansel">Cancel</button>
+            <button onclick="cancel_hide('#list')" class="btn btn-primary btn-sm" id="button_cansel">Cancel</button>
         </th>
     </tr>
 </table>

@@ -97,7 +97,7 @@
         </div>
 
 
-        <div class="col-md-1"><button id="open_page_add" onclick="open_page_ajax('/upload/release_add','#release_add')" class="btn btn-success btn-sm">Add new event</button>
+        <div class="col-md-1">
         </div>
         <div class="col-md-2">
             <div id="release_add"></div>
