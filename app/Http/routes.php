@@ -138,9 +138,11 @@ Route::post('/menu/edit',   [
     'middleware' => 'auth',
     'uses' =>'MenuController@edit' ]);
 
-//peoples
-Route::get('/people',   [
+
+//reports
+Route::get('/report',   [
     'middleware' => 'auth',
-    'uses' =>'PeopleController@index'] );
-
-
+    'uses' =>'ReportController@index'] );
+Route::post('/report/add_page/{office}',   [
+    'middleware' => 'auth',
+    'uses' =>'ReportController@page_add'] );
