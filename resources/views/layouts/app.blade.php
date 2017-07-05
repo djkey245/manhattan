@@ -56,7 +56,7 @@
 
                         <li class="dropdown">
                             <a href="/list" class="dropdown-toggle" data-toggle="dropdown" >
-                                Список працівників<span class="caret"></span>
+                                Працівники<span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -79,7 +79,19 @@
 
 
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/release') }}">Список подій</a></li>
+                        <li class="dropdown">
+                            <a href="{{ url('/release') }}" class="dropdown-toggle" data-toggle="dropdown" >
+                            Події<span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/release') }}"><i class="fa fa-btn"></i> Звільнення</a></li>
+                                <li><a href="{{ url('/reports') }}"><i class="fa fa-btn"></i> Рапорт</a></li>
+
+                            </ul>
+
+
+                        </li>
                     </ul>
 
                     @if(Auth::user()->actual == 2)

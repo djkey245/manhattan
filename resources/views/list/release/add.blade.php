@@ -10,7 +10,6 @@
         <th>
             <select class="form-control" id="release_event">
                 <option value="1">Звільнення</option>
-                <option value="2">Рапорт</option>
             </select>
         </th>
     </tr>
@@ -32,7 +31,7 @@
     </tr>
     <tr>
         <th>
-            {{$peoples['0']->surname.' '.$peoples['0']->name}}
+            <input type="hidden" id="release_person_id" value="{{$peoples['0']->id}}">{{$peoples['0']->surname.' '.$peoples['0']->name}}
 
         </th>
     </tr>
@@ -57,6 +56,7 @@
 <script>
     function submit_valid() {
         var InpObjReason = document.getElementById("release_reason");
+
         if(InpObjReason.value == ""){
             $('#reason1').html('<i>Enter data</i>');
         }
@@ -81,16 +81,20 @@
 
     }
     function register(){
+
         var InpObjEvent = document.getElementById("release_event");
         var InpObjReason = document.getElementById("release_reason");
         var InpObjIdUser = document.getElementById("release_id_user");
         var InpObjIdPerson = document.getElementById("release_person_id");
+        alert("kpo");
 
 
         var event = InpObjEvent.value;
         var reason = InpObjReason.value;
         var id_user = InpObjIdUser.value;
         var id_person = InpObjIdPerson.value;
+        alert("kpo");
+
         $.ajax({
 
 
