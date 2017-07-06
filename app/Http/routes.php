@@ -143,6 +143,15 @@ Route::post('/menu/edit',   [
 Route::get('/report',   [
     'middleware' => 'auth',
     'uses' =>'ReportController@index'] );
-Route::post('/report/add_page/{office}',   [
+Route::post('/report/add_page',   [
     'middleware' => 'auth',
     'uses' =>'ReportController@page_add'] );
+Route::post('/report/add_page/{office}',   [
+    'middleware' => 'auth',
+    'uses' =>'ReportController@page_add_1'] );
+Route::post('/report/report_add',   [
+    'middleware' => 'auth',
+    'uses' =>'ReportController@report_add'] );
+Route::post('/report/report_add_next',   [
+    'middleware' => 'auth',
+    'uses' =>'ReportController@report_add_next'] );
