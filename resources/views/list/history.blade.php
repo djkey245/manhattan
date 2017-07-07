@@ -124,7 +124,23 @@
                                                 <td>{{$event['date']}}</td>
 
                                             </tr>
+                                        @elseif($event['event'] == 'report')
+                                            <tr><td>
+                                                    <p>@foreach ($users as $usr)
+                                                            @if($usr['id'] == $event['id_user'])
+                                                                {{$usr['name'] .' '. $usr['surname']}}
+                                                            @endif
+                                                        @endforeach
+                                                        написав звіт
 
+                                                        відносно поїздки  <a href="/report">{{$event['data']}}</a>
+
+
+
+                                                    </p></td>
+                                                <td>{{$event['date']}}</td>
+
+                                            </tr>
                                             @endif
                                         @endforeach
 

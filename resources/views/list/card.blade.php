@@ -60,7 +60,7 @@
         @endforeach
         <div class="row">
             <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
-            <h3 id="comments" class="text-center" >Історія роботи з користувачем!
+            <h3 id="comments" class="text-center" >Історія роботи з користувачем(kоментарі)!
                 @if(!empty($mark))
                         @if($mark>3)
                             <div style="display: inline" class="text-success"> ({{$mark}}#)</div>
@@ -159,6 +159,14 @@
 
 
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
+                <h3 id="comments" class="text-center" >Звіти(рапорти) з поїздок.
+                </h3>
+            </div>
         </div>
     </div>
     @endif

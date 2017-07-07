@@ -152,6 +152,6 @@ Route::post('/report/add_page/{office}',   [
 Route::post('/report/report_add',   [
     'middleware' => 'auth',
     'uses' =>'ReportController@report_add'] );
-Route::post('/report/report_add_next',   [
+Route::post('/report/report_add_next/{office}',   [
     'middleware' => 'auth',
     'uses' =>'ReportController@report_add_next'] );

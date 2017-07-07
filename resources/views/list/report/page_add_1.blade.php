@@ -1,9 +1,9 @@
 <script>
 
-    var id_user = <?php echo Auth::user()->id; ?>;
-    var date_up = <?php echo $date_up; ?>;
-    var date_down = <?php echo $date_down; ?>;
-    var office = <?php echo $office; ?>;
+    var id_user =  document.getElementById('id_user').value;
+    var date_up = document.getElementById('date_up').value;
+    var date_down = document.getElementById('date_down').value;
+    var office = document.getElementById('office').value;
     function next_add(){
         var cbx = document.getElementById("checkid").getElementsByTagName("input");
         var id_people = [];
@@ -11,16 +11,16 @@
         for (i=0; i < cbx.length; i++) {
 
             if (cbx[i].type == "checkbox" && cbx[i].checked) {
-                id_people.push(cbx[i].value);
+                id_people += cbx[i].value+',';
 
             }
         }
-        alert(id_people);
-        var report = document.getElementById('report').val;
+
+        var report = document.getElementById('report').value;
 
         $.ajax({
             type: 'post',
-            url: '/report/report_add_next',
+            url: '/report/report_add_next/'+ office,
             data:{
                 '_token': "{{csrf_token()}}",
                 'id_user': id_user,
@@ -32,8 +32,8 @@
             },
             dataType: 'html',
             success: function (message) {
-                //$("#add_report").html(message);
-                alert(message);
+                $("#add_report").html(message);
+
             }
         });
 
@@ -52,8 +52,8 @@
 
            }
        }
-       alert(id_people);
-       var report = document.getElementById('report').val;
+
+       var report = document.getElementById('report').value;
 
        $.ajax({
            type: 'post',
@@ -67,9 +67,8 @@
                'id_peoples': id_people,
                'report': report
            },
-           success: function (message) {
-               alert(message);
-               //locations.reload();
+           success: function () {
+               location.reload(true);
            }
        });
         }
@@ -77,7 +76,10 @@
 
 
 </script>
-
+<input type="hidden" id="id_user" value="{{Auth::user()->id}}">
+<input type="hidden" id="date_up" value="{{$date_up}}">
+<input type="hidden" id="date_down" value="{{$date_down}}">
+<input type="hidden" id="office" value="{{$office}}">
 
 
 <div class="container" id="add_report">
