@@ -32,7 +32,7 @@
                                                         @endif
                                                     @endforeach
                                                 @endforeach
-                                            {{'"'.$report['report'].'"'}}
+                                            <u>{{'"'.$report['report'].'"'}}</u>
                                         @else
                                             з {{$report['date_up']}} по {{$report['date_down']}}
                                             @foreach($users as $user)
@@ -49,7 +49,7 @@
                                                         @endif
                                                     @endforeach
                                                 @endforeach
-                                            {{'"'.$report['report'].'"'}}
+                                            <u>{{'"'.$report['report'].'"'}}</u>
 
                                         @endif
                                         <br>

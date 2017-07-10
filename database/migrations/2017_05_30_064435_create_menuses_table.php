@@ -20,6 +20,7 @@ class CreateMenusesTable extends Migration
             $table->integer('min');
             $table->integer('max');
             $table->longText('option');
+            $table->longText('option_name');
             $table->boolean('active');
             $table->boolean('list_menu');
             $table->integer('actual');

@@ -155,3 +155,9 @@ Route::post('/report/report_add',   [
 Route::post('/report/report_add_next/{office}',   [
     'middleware' => 'auth',
     'uses' =>'ReportController@report_add_next'] );
+
+
+//servers
+Route::get('/server',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@index'] );

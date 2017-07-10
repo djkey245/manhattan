@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comments;
 use App\Peoples;
 use App\Menus;
+use App\Report;
 use App\User;
 use Illuminate\Http\Request;
 use Slug;
@@ -36,12 +37,26 @@ class ListController extends Controller
         //dd($this->data['objects']);
         return view('list.list', $this->data);
     }
-    public function card($slug, Peoples $peoples, Menus $menus, Comments $comments, User $user){
+    public function card($slug, Peoples $peoples, Menus $menus, Comments $comments, User $user, Report $report){
         $this->data['items'] = $peoples->getBySlug($slug);
         //dd($this->data['items']);
         $this->data['comments'] = $comments->where(['id_people' => $slug])->get();
         $this->data['menus'] = $menus->active();
         $this->data['users'] = $user->get();
+        $reps = $report->get();
+        $report_from_id = [];
+        foreach ($reps as $rep){
+
+            $id_peoples = explode(',',$rep['id_peoples']);
+            foreach ($id_peoples as $id_people){
+                if($slug == $id_people){
+                    array_push($report_from_id,$rep);
+                }
+
+            }
+
+        }
+        $this->data['reports'] = $report_from_id;
         return view('list.card', $this->data);
 
     }

@@ -89,8 +89,8 @@
 
             <div class="row">
                 <center>
-                    <button onclick="next_add()"  class="btn btn-default ">Додати звіт і продовжити</button>
-                    <button onclick="submit()"  class="btn btn-default ">Додати звіт</button>
+                    <button onclick="next_add()"  class="btn btn-default ">Додати пункт</button>
+                    <button onclick="submit()"  class="btn btn-default ">Зберегти звіт</button>
 
                 </center>
 

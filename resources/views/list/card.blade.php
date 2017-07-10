@@ -167,6 +167,20 @@
                 <h3 id="comments" class="text-center" >Звіти(рапорти) з поїздок.
                 </h3>
             </div>
+            @foreach($reports as $report)<br>
+            @foreach($users as $user)
+                @if($report['id_user'] == $user['id'])
+                    {{$user['name'].' '.$user['surname']}}
+                @endif
+            @endforeach
+            був у місті {{$report['office']}}
+            @if($report['date_up'] == $report['date_down'])
+                з {{$report['date_up']}} по {{$report['date_down']}}
+            @else {{$report['date_up']}}
+            @endif
+            і допоміг працівнику {{$items->name.' '.$items->surname}} у справі
+            <u>{{'"'.$report['report'].'"'}}</u><hr>
+            @endforeach
         </div>
     </div>
     @endif
