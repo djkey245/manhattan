@@ -161,3 +161,15 @@ Route::post('/report/report_add_next/{office}',   [
 Route::get('/server',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@index'] );
+Route::get('/server/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@card'] );
+Route::post('/server/page_add',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@page_add'] );
+Route::post('/server/page_add_1',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@page_add_1'] );
+Route::post('/server/save',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@save'] );
