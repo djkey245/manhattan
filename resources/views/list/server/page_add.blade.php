@@ -35,8 +35,8 @@
 </script>
 
 <div class="container">
-    <div class="row"><h4><center>Сервер</center></h4>
-
+    <div class="row"><h4><center>Сервер </center></h4>
+        @if(!empty($error))<h4 style="color:red"><center>{{$error}}</center></h4> @endif
         <div class="col-md-3">
             <h5>Ім’я:</h5>
             <input type="text" class="form-control" id="name">

@@ -22,17 +22,23 @@ class ServerController extends Controller
     }
     public function page_add_1(Request $request, Server $server){
         $itempost = $request->input();
+
+        if(empty($itempost['name'])){
+            $this->data['error'] = 'Не введено ім’я сервера!';
+            return view('list.server.page_add', $this->data);
+        }
+        else{
         $this->data['name'] = $itempost['name'];
         $this->data['ip'] = $itempost['ip'];
-
         $this->data['vnc'] = $itempost['vnc'];
         $this->data['rdp'] = $itempost['rdp'];
         $itempost += [ 'created_at' => date("Y-m-j H:i:s"),];
         unset($itempost['_token']);
         $server->insert($itempost);
         $id = $server->select('id')->where(['name' => $itempost['name'],])->firstOrFail();
-        $this->data['id'] = $id;
+        $this->data['id'] = $id->id;
         return view('list.server.page_add_1', $this->data);
+        }
     }
     public function save(Request $request, Virtual $virtual){
         $itempost = $request->input();
@@ -62,7 +68,49 @@ return 1;
     public function card(Server $server, Virtual $virtual, $id){
         $this->data['servers'] = $server->where(['id' => $id])->get();
         $this->data['virtuals'] = $virtual->where(['id_server' => $id])->get();
+        $this->data['id'] = $id;
         return view('list.server.card',$this->data);
+
+    }
+    public function add_virtual(Request $request){
+        $itempost = $request->input();
+        $this->data['id'] = $itempost['id'];
+        return view('list.server.page_add_1', $this->data);
+    }
+    public function delete_virtual(Request $request, Virtual $virtual){
+        $itempost = $request->input();
+        $name = $virtual->select('name')->where(['id' => $itempost['id']])->firstOrFail();
+        $virtual->where(['id' => $itempost['id']])->delete();
+
+        //return dd($itempost['id']);
+        //history
+        $data = $name->name;
+        $plus = $itempost['id_server'];
+        $id_user = $itempost['id_user'];
+
+        $this->history( $id_user ,'delete', 'virtual', $data , $plus);
+    }
+
+    public function edit_virtual_page(Request $request, Virtual $virtual){
+
+        $itempost = $request->input();
+        $this->data['virtuals'] = $virtual->where(['id' => $itempost['id']])->firstOrFail();
+
+        return view('list.server.edit_virtual_page', $this->data);
+    }
+
+    public function edit_virtual(Request $request, Virtual $virtual){
+
+        $itempost = $request->input();
+        $id_user = $itempost['id_user'];
+        $id_virtual = $itempost['id_virtual'];
+        unset($itempost['id_user']);
+        unset($itempost['id_virtual']);
+        unset($itempost['_token']);
+
+        $itempost += [ 'updated_at' => date("Y-m-j H:i:s"),];
+        $virtual->where(['id' => $id_virtual])->update($itempost);
+
 
     }
 }

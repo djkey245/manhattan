@@ -1,6 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+        function del_virtual(id){
+
+            if (confirm("Ви впевнені?") == true) {
+                var id_people = {{$items->id}};
+                var id_user = document.getElementById('id_user').value;
+
+
+                $.ajax({
+
+
+                    type: 'POST',
+                    url:'/list/delete_virtual/'+ id_people,
+                    data:{'_token':"{{csrf_token()}}",
+                        'id': id,
+                        'id_user': id_user
+                    },
+
+                    success: function(){
+                        location.reload(true);
+                        //$('#list').html(msg);
+
+                    }
+
+                });
+            } else {
+                return 0;
+            }
+
+        }
+    </script>
+    <input type="hidden" id="id_user" value="{{Auth::user()->id}}">
     <div class="container">
         <div class="row" >
 
@@ -26,12 +58,14 @@
                                             @endif
                                         
                                     </tr>
+
                 @endforeach
                 @endif
                 </table>
             </div>
             <div class="col-md-2">
                     <button class="btn btn-primary" style="width: 100%"   onclick="open_page_ajax('/list/card_edit/{{$items->id}}','#list')">Редагувати</button>
+                    <button class="btn btn-primary" style="width: 100%;margin-top: 5%;"   onclick="open_page_ajax('/list/server_edit/{{$items->id}}','#list')">Додати віртуалку</button>
                 <button onclick="cancel_hide('#list')" style="width: 100%; margin-top: 5%" class="btn btn-warning " id="button_cansel">Відмінити</button>
                 @if(Auth::user()->actual == 2)
                     <button onclick="open_page_ajax('/card/comment_page_add/{{$items->id}}','#list')" style="width: 100%; margin-top: 5%" class="btn btn-default " id="button_cansel">Додати комент</button>
@@ -50,6 +84,47 @@
     </div>
     </div>
     @if(Auth::user()->actual == 2)
+        <div class="container">
+            <div class="row">
+        <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777; margin-bottom: 2%; ">
+            <h3 id="comments" class="text-center" >Сервери та віртуалки
+            </h3>
+
+        </div>
+                <ul class="thumbnails">
+                    @foreach($virtuals as $virtual)
+
+                        <div class="col-md-4">
+
+                            <div class="thumbnail bg-success" >
+                                @foreach($servers as $server)
+                                    @if($virtual->id_server == $server->id)
+                                        <div class="caption" style="background-color:  #d9edf7;     font-size: 14px; text-align: center; border: 1px solid transparent;  border-radius: 4px;">
+                                            <button onclick="del_virtual({{$virtual->id}})" class="btn btn-sm btn-danger right" style="margin-left: 90%">x</button>
+                                            <h4 style="color: black;">{{$server->name}}</h4>
+                                            <p style="color: black;">{{$server->ip}}</p>
+                                            <p style="color: black;">RDP: {{$server->rdp}}</p>
+                                            <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                        </div>
+
+                                        <?php break; ?>
+                                        @endif
+                                    @endforeach
+                                <div class="caption" style="background-color:  #ecb342;     font-size: 14px; text-align: center; border: 1px solid transparent;  border-radius: 4px;">
+                                    <h4 style="color: white;">{{$virtual->name}}</h4>
+                                    <p style="color: white;">{{$virtual->ip}}</p>
+                                    <p style="color: white;">{{$virtual->lp}}</p>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     <div class="container">
         <?php $sum = 0; ;?>
         @foreach($comments as $comment)

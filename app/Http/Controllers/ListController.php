@@ -6,7 +6,9 @@ use App\Comments;
 use App\Peoples;
 use App\Menus;
 use App\Report;
+use App\Server;
 use App\User;
+use App\Virtual;
 use Illuminate\Http\Request;
 use Slug;
 use App\Http\Requests;
@@ -37,12 +39,36 @@ class ListController extends Controller
         //dd($this->data['objects']);
         return view('list.list', $this->data);
     }
-    public function card($slug, Peoples $peoples, Menus $menus, Comments $comments, User $user, Report $report){
+    public function card($slug, Peoples $peoples, Menus $menus, Comments $comments, User $user, Report $report, Virtual $virtual, Server $server){
         $this->data['items'] = $peoples->getBySlug($slug);
+        $people  = $peoples->getBySlug($slug);
+        $people_vrt = $people->virtuals;
+        $virtual_id_explode = explode(',', $people_vrt);
+        $num_vrt = count($virtual_id_explode);
+        $virtuals_id = [];
+
+        for($i = 0; $i<$num_vrt; $i++){
+            if(empty($virtual_id_explode[$i])){
+                unset($virtual_id_explode[$i]);
+            }
+            else{
+                $id_vrt = $virtual->where(['id' => $virtual_id_explode[$i]])->firstOrFail();
+                 array_push($virtuals_id, $id_vrt);
+            }
+
+        }
+        $servers_id = [];
+        foreach ($virtuals_id as $virtual_id){
+            $id_srv = $server->where(['id' => $virtual_id->id_server])->firstOrFail();
+            array_push($servers_id, $id_srv);
+        }
         //dd($this->data['items']);
         $this->data['comments'] = $comments->where(['id_people' => $slug])->get();
         $this->data['menus'] = $menus->active();
         $this->data['users'] = $user->get();
+        $this->data['virtuals'] = $virtuals_id;
+
+        $this->data['servers'] = $servers_id;
         $reps = $report->get();
         $report_from_id = [];
         foreach ($reps as $rep){
@@ -65,8 +91,6 @@ class ListController extends Controller
         $this->data['peoples'] = $peoples->perm($id);
         $this->data['menuses'] = $menu->active();
         return view('list.list.card', $this->data);
-
-
     }
 
     public function list_add(Peoples $peoples, Menus $menu){

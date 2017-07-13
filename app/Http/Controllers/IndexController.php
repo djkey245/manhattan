@@ -6,6 +6,8 @@ use App\Comments;
 use App\History;
 use App\Menus;
 use App\Peoples;
+use App\Server;
+use App\Virtual;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
@@ -98,13 +100,15 @@ class IndexController extends Controller
         return view('list.ajax.edit_user', $this->data);
     }
 
-    public function history_page(History $history, Menus $menus, Peoples $peoples, User $user, Comments $comments){
+    public function history_page(History $history, Menus $menus, Peoples $peoples, User $user, Comments $comments, Virtual $virtual,Server $server){
 
         $this->data['history'] = $history->orderBy('id', 'desc')->paginate(10);
         $this->data['menus'] = $menus->get();
         $this->data['peoples'] = $peoples->get();
         $this->data['users'] = $user->get();
         $this->data['comments'] = $comments->get();
+        $this->data['servers'] = $server->get();
+        $this->data['virtuals'] = $virtual->get();
 
         return view('list.history', $this->data);
     }

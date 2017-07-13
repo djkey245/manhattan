@@ -70,6 +70,19 @@ Route::post('/card/comment_page_add/{id}', [
 Route::post('/card/comment_add', [
     'middleware' => 'auth',
     'uses' => 'CardController@comment_add']);
+Route::post('/list/server_edit/{slug}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@server_edit']);
+Route::post('/list/virtual_edit/{slug}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@virtual_edit']);
+Route::post('/list/save_virtual/{slug}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@virtual_save']);
+Route::post('/list/delete_virtual/{slug}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@virtual_delete']);
+
 
 //history
 Route::get('/history', [
@@ -173,3 +186,15 @@ Route::post('/server/page_add_1',   [
 Route::post('/server/save',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@save'] );
+Route::post('/server/add_virtual',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@add_virtual'] );
+Route::put('/server/delete_virtual/',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@delete_virtual'] );
+Route::post('/server/edit_virtual_page',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@edit_virtual_page'] );
+Route::post('/server/edit_virtual',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@edit_virtual'] );

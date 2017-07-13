@@ -96,7 +96,14 @@
                                                         користувача {{$event['data']}}
                                                     @elseif($event['model'] == 'menus')
                                                         пункт меню {{$event['data']}}
+                                                    @elseif($event['model'] == 'virtual')
+                                                        віртуалку <b>{{$event['data']}}</b> з сервера
+                                                        @foreach($servers as $server)
+                                                            @if($event['plus'] == $server->id)
 
+                                                                <a href="/server/{{$server->id}}">{{$server->name}}</a>
+                                                            @endif
+                                                        @endforeach
                                                     @endif
                                                 </p></td>
                                                 <td>{{$event['date']}}</td>

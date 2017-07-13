@@ -17,7 +17,7 @@
 
 </script>
 
-<input type="hidden" id="id" value='{{$id->id}}'>
+<input type="hidden" id="id" value='{{$id}}'>
 
 <div class="container">
     <h4><center>Віртуалки </center></h4>
@@ -50,7 +50,6 @@
 
 
         var id = document.getElementById('id').value;
-
         var name_v = document.getElementsByName('name_v[]');
         var ip_v = document.getElementsByName('ip_v[]');
         var lp_v = document.getElementsByName('lp_v[]');
