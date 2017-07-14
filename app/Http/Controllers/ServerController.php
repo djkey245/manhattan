@@ -110,7 +110,32 @@ return 1;
 
         $itempost += [ 'updated_at' => date("Y-m-j H:i:s"),];
         $virtual->where(['id' => $id_virtual])->update($itempost);
+        $data = $id_virtual;
+        $this->history( $id_user ,'update', 'virtual', $data );
+
+    }
+    public function edit_server(Request $request, Server $server){
+
+        $itempost = $request->input();
+        $id_user = $itempost['id_user'];
+        $id = $itempost['id'];
+        unset($itempost['id_user']);
+        unset($itempost['id']);
+        unset($itempost['_token']);
+
+        $itempost += [ 'updated_at' => date("Y-m-j H:i:s"),];
+        $server->where(['id' => $id])->update($itempost);
 
 
+        $this->history( $id_user ,'update', 'server', $id );
+
+
+    }
+    public function edit_server_page(Request $request, Server $server){
+
+        $itempost = $request->input();
+        $this->data['servers'] = $server->where(['id' => $itempost['id']])->firstOrFail();
+
+        return view('list.server.edit_server_page', $this->data);
     }
 }

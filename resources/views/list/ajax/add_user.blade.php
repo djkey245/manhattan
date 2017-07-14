@@ -55,8 +55,9 @@
         <th>
             <select class="form-control" id="add_user_actual">
                 <option value="1">HR</option>
-                <option value="2">Admin</option>
+                <option value="2">SuperAdmin</option>
                 <option value="3">Special</option>
+                <option value="4">Admin</option>
             </select>
         </th>
     </tr>

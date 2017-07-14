@@ -7,7 +7,7 @@
 
 
 
-        function next_page_add(){
+        function next_page_add() {
             var id = document.getElementById('id').value;
 
             $.ajax({
@@ -15,8 +15,8 @@
                 type: 'post',
                 url: '/server/add_virtual',
                 dataType: 'html',
-                data:{
-                    '_token': "{{csrf_token()}}" ,
+                data: {
+                    '_token': "{{csrf_token()}}",
                     'id': id
 
 
@@ -29,12 +29,10 @@
                 }
 
 
-
             });
 
 
-
-
+        }
 
     </script>
     @foreach($servers as $server)
@@ -49,20 +47,21 @@
                         <div class="thumbnail ">
                             <div class="">
                         <div class="row">
-                            <div class="col-md-3"><h4>Ім’я:</h4></div>
-                            <div class="col-md-3"><h4>ІР:</h4></div>
+                            <div class="col-md-1"> </div>
+                            <div class="col-md-2" ><h4 >Ім’я:</h4></div>
+                            <div class="col-md-2"><h4>ІР:</h4></div>
                             <div class="col-md-2"><h4>RDP:</h4></div>
                             <div class="col-md-2"><h4>VNC:</h4></div>
-                            <div class="col-md-2"> </div>
+                            <div class="col-md-3"> </div>
                         </div>
 
                             <div class="row">
-
-                                    <div class="col-md-3">{{$server->name}}</div>
-                                    <div class="col-md-3">{{$server->ip}}</div>
-                                    <div class="col-md-2">{{$server->rdp}}</div>
-                                    <div class="col-md-2">{{$server->vnc}}</div>
-                                    <div class="col-md-2"></div>
+                                <div class="col-md-1"> </div>
+                                    <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
+                                    <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
+                                    <div class="col-md-2"><h5>{{$server->rdp}}</h5></div>
+                                    <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
+                                    <div class="col-md-3"></div>
                             </div>
                         </div>
                             <br><br><br><br>
@@ -76,8 +75,8 @@
 
                 <div class="col-md-2">
                     <button onclick="next_page_add()" style="width: 100%; margin-top: 10%" class="btn btn-success ">Додати віртуалку</button>
-                    <button onclick="next_page_add()" style="width: 100%; margin-top: 5%" class="btn btn-success ">Додати віртуалку</button>
-                    <button onclick="next_page_add()" style="width: 100%; margin-top: 5%" class="btn btn-success ">Додати віртуалку</button>
+                    <button onclick="edit_server({{$server->id}})" style="width: 100%; margin-top: 5%" class="btn btn-primary ">Редагувати сервер</button>
+                    <button onclick="delete_server({{$server->id}})" style="width: 100%; margin-top: 5%" class="btn btn-danger ">Видалити сервер</button>
                 </div>
             </div>
 
@@ -143,6 +142,64 @@
 
             });
 
+
+        }
+        function edit_server(id){
+
+
+            $.ajax({
+
+                type: 'post',
+                url: '/server/edit_server_page',
+                dataType: 'html',
+                data:{
+                    '_token': "{{csrf_token()}}" ,
+                    'id': id
+
+
+                },
+                success: function (message) {
+
+                    $("#serv").html(message);
+                    //location.reload(true);
+
+                }
+
+
+
+            });
+
+
+        }
+        function delete_virtuals(id){
+
+            if (confirm("Ви впевнені?") == true) {
+
+                var id_user = {{Auth::user()->id}};
+                var id_server = document.getElementById('id').value;
+
+                $.ajax({
+
+
+                    type: 'put',
+                    url:'/server/delete_virtual/',
+                    data:{'_token':"{{csrf_token()}}",
+                        'id': id,
+                        'id_user': id_user,
+                        'id_server': id_server
+                    },
+                    dataType: 'html',
+                    success: function(message){
+                        location.reload(true);
+                        //$("#server").html(message);
+
+
+                    }
+
+                });
+            } else {
+                return 0;
+            }
 
         }
         function delete_virtuals(id){

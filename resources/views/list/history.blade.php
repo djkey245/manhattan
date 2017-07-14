@@ -75,6 +75,21 @@
                                                                 {{$menu['name'] .' '. $menu['surname']}}
                                                             @endif
                                                         @endforeach
+                                                    @elseif($event['model'] == 'virtual')
+                                                        віртуалки @foreach($virtuals as $virtual)
+                                                            @if($event['data'] == $virtual->id)
+
+                                                                {{$virtual->name}} {{$virtual->ip}}
+                                                            @endif
+                                                        @endforeach
+                                                    @elseif($event['model'] == 'server')
+                                                        сервера @foreach($servers as $server)
+                                                            @if($event['data'] == $server->id)
+
+                                                                {{$server->name}} {{$server->ip}}
+                                                            @endif
+                                                        @endforeach
+
                                                     @endif
                                                 </p></td>
                                                 <td>{{$event['date']}}</td>

@@ -2,6 +2,7 @@
 
 
 @section('content')
+    @if(Auth::user()->actual == 2 or Auth::user()->actual == 4)
 
 
         <div class="container">
@@ -81,7 +82,7 @@
 
 
 <?php $pass = Hash::make('123456890+');
-//echo $pass; ?>
+?>
 
 
 
@@ -98,13 +99,6 @@
 
 
 
-<script>
 
-
-
-
-
-
-</script>
-
+@endif
     @stop

@@ -65,9 +65,10 @@
             </div>
             <div class="col-md-2">
                     <button class="btn btn-primary" style="width: 100%"   onclick="open_page_ajax('/list/card_edit/{{$items->id}}','#list')">Редагувати</button>
-                    <button class="btn btn-primary" style="width: 100%;margin-top: 5%;"   onclick="open_page_ajax('/list/server_edit/{{$items->id}}','#list')">Додати віртуалку</button>
+
                 <button onclick="cancel_hide('#list')" style="width: 100%; margin-top: 5%" class="btn btn-warning " id="button_cansel">Відмінити</button>
                 @if(Auth::user()->actual == 2)
+                    <button class="btn btn-primary" style="width: 100%;margin-top: 5%;"   onclick="open_page_ajax('/list/server_edit/{{$items->id}}','#list')">Додати віртуалку</button>
                     <button onclick="open_page_ajax('/card/comment_page_add/{{$items->id}}','#list')" style="width: 100%; margin-top: 5%" class="btn btn-default " id="button_cansel">Додати комент</button>
                     <button style="width: 100%; margin-top: 5%"  onclick="open_page_ajax('/upload/release_add/{{$items->id}}','#list')" class="btn btn-danger btn-sm">Звільнення</button>
 

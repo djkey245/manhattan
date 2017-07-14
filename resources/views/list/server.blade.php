@@ -3,7 +3,7 @@
 
 
 @section('content')
-
+@if(Auth::user()->actual == 2)
     <div class="container">
         <div class="row"><div id="serv">
             <div class="col-md-10">
@@ -44,7 +44,7 @@
 
 
 
-
+@endif
 
 
 

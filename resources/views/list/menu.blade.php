@@ -3,7 +3,9 @@
 
 
 @section('content')
-<div class="container-fluid">
+    @if(Auth::user()->actual == 2)
+
+        <div class="container-fluid">
     <div class="row">
         <div class="col-md-9">
             <table class="table table-bordered">
@@ -95,7 +97,7 @@
 
 
 
-
+@endif
 
 
 
