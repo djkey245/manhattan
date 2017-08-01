@@ -202,7 +202,7 @@
             }
 
         }
-        function delete_virtuals(id){
+        function delete_server(id){
 
             if (confirm("Ви впевнені?") == true) {
 
@@ -213,7 +213,7 @@
 
 
                     type: 'put',
-                    url:'/server/delete_virtual/',
+                    url:'/server/delete_server/',
                     data:{'_token':"{{csrf_token()}}",
                         'id': id,
                         'id_user': id_user,
@@ -221,7 +221,7 @@
                     },
                     dataType: 'html',
                     success: function(message){
-                        location.reload(true);
+                        document.location.replace("/server");
                         //$("#server").html(message);
 
 

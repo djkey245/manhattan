@@ -72,7 +72,7 @@
                                                     @elseif($event['model'] == 'menus')
                                                          пункту меню @foreach ($menus as $menu)
                                                             @if($menu['id'] == $event['data'])
-                                                                {{$menu['name'] .' '. $menu['surname']}}
+                                                                {{$menu['name_ukr'] }}
                                                             @endif
                                                         @endforeach
                                                     @elseif($event['model'] == 'virtual')
@@ -111,6 +111,8 @@
                                                         користувача {{$event['data']}}
                                                     @elseif($event['model'] == 'menus')
                                                         пункт меню {{$event['data']}}
+                                                    @elseif($event['model'] == 'server')
+                                                        сервер {{$event['data']}}
                                                     @elseif($event['model'] == 'virtual')
                                                         віртуалку <b>{{$event['data']}}</b> з сервера
                                                         @foreach($servers as $server)
@@ -148,7 +150,8 @@
                                             </tr>
                                         @elseif($event['event'] == 'report')
                                             <tr><td>
-                                                    <p>@foreach ($users as $usr)
+                                                    <p>Користувач
+                                                        @foreach ($users as $usr)
                                                             @if($usr['id'] == $event['id_user'])
                                                                 {{$usr['name'] .' '. $usr['surname']}}
                                                             @endif

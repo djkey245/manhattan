@@ -90,6 +90,19 @@ return 1;
 
         $this->history( $id_user ,'delete', 'virtual', $data , $plus);
     }
+    public function delete_server(Request $request, Server $server){
+        $itempost = $request->input();
+        $name = $server->select('name')->where(['id' => $itempost['id']])->firstOrFail();
+        $server->where(['id' => $itempost['id']])->delete();
+
+        //return dd($itempost['id']);
+        //history
+        $data = $name->name;
+        $plus = $itempost['id_server'];
+        $id_user = $itempost['id_user'];
+
+        $this->history( $id_user ,'delete', 'server', $data , $plus);
+    }
 
     public function edit_virtual_page(Request $request, Virtual $virtual){
 

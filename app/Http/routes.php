@@ -192,6 +192,9 @@ Route::post('/server/add_virtual',   [
 Route::put('/server/delete_virtual/',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@delete_virtual'] );
+Route::put('/server/delete_server/',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@delete_server'] );
 Route::post('/server/edit_virtual_page',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@edit_virtual_page'] );
