@@ -36,7 +36,8 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <button onclick="open_page_ajax('/server/page_add','#serv')" style="width: 100%; " class="btn btn-success ">Додати сервер</button>
+                <button onclick="open_page_ajax('/server/page_add','#serv')"  class="btn btn-success ">+</button>
+                <button onclick="open_page_ajax('/server/page_move','#serv')"  class="btn btn-primary ">Перенести</button>
             </div>
             </div></div>
     </div>

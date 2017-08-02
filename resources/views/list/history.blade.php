@@ -166,6 +166,29 @@
                                                 <td>{{$event['date']}}</td>
 
                                             </tr>
+                                        @elseif($event['event'] == 'moving')
+                                            <tr><td>
+                                                    <p>Користувач
+                                                        @foreach ($users as $usr)
+                                                            @if($usr['id'] == $event['id_user'])
+                                                                {{$usr['name'] .' '. $usr['surname']}}
+                                                            @endif
+                                                        @endforeach
+                                                        переніс віртуалку "
+                                                        @foreach($virtuals as $virtual)
+                                                            @if($event['data'] == $virtual->id)
+
+                                                                {{$virtual->name}}
+                                                            @endif
+                                                        @endforeach"
+                                                        на інший сервер.
+
+
+
+                                                    </p></td>
+                                                <td>{{$event['date']}}</td>
+
+                                            </tr>
                                             @endif
                                         @endforeach
 

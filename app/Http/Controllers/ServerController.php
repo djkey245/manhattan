@@ -151,4 +151,22 @@ return 1;
 
         return view('list.server.edit_server_page', $this->data);
     }
+
+    public function page_move(Virtual $virtual, Server $server){
+
+        $this->data['virtuals'] = $virtual->get();
+        $this->data['servers'] = $server->get();
+        return view('list.server.page_move', $this->data);
+    }
+
+    public function moving(Request $request, Virtual $virtual){
+
+        $itempost = $request->input();
+        $virtual->where(['id' => $itempost['id_virtual']])->update([ 'id_server' => $itempost['id_server']]);
+
+        //history
+
+        $this->history( $itempost['id_user'] ,'moving', 'virtual', $itempost['id_virtual'] );
+
+    }
 }

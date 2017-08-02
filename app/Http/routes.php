@@ -207,3 +207,9 @@ Route::post('/server/edit_virtual',   [
 Route::post('/server/edit_server',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@edit_server'] );
+Route::post('/server/page_move',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@page_move'] );
+Route::post('/server/moving',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@moving'] );
