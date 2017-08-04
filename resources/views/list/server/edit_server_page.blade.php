@@ -31,7 +31,6 @@
         var rdp = document.getElementById('rdp').value;
         var vnc = document.getElementById('vnc').value;
         var id_user = {{Auth::user()->id}};
-        alert('rer');
 
         $.ajax({
             type: 'post',

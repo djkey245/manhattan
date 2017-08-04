@@ -53,6 +53,7 @@
         var name_v = document.getElementsByName('name_v[]');
         var ip_v = document.getElementsByName('ip_v[]');
         var lp_v = document.getElementsByName('lp_v[]');
+        var id_user = {{Auth::user()->id}};
         var j ;
         var vrt = "";
         for(j = 0;j<=i;j++){
@@ -69,7 +70,8 @@
          data:{
          '_token': "{{csrf_token()}}" ,
              'vrt': vrt,
-             'id_serv':id
+             'id_serv':id,
+             'id_user':id_user
 
          },
          success: function (message) {

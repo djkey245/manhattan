@@ -19,30 +19,40 @@
                                                 <td>
                                                 <p>Користувач
                                                     @foreach ($users as $usr)
-                                                    @if($usr['id'] == $event['id_user'])
-                                                        {{$usr['name'] .' '. $usr['surname']}}
-                                                    @endif
+                                                        @if($usr['id'] == $event['id_user'])
+                                                            {{$usr['name'] .' '. $usr['surname']}}
+                                                        @endif
                                                     @endforeach
-                                                    додав @if($event['model'] == 'peoples' )
-                                                              нового  працівника @foreach ($peoples as $people)
-                                                            @if($people['id'] == $event['data'])
+                                                    додав
+                                                        @if($event['model'] == 'peoples' )
+                                                              нового  працівника
+                                                            @foreach ($peoples as $people)
+                                                                @if($people['id'] == $event['data'])
                                                                 <a href="/list/{{$event['data']}}">{{$people['name'] .' '. $people['surname']}}</a>
-                                                            @endif
-                                                        @endforeach
+                                                                @endif
+                                                            @endforeach
 
-                                                            @elseif($event['model'] == 'user')
-                                                              нового користувача @foreach ($users as $usr)
-                                                            @if($usr['id'] == $event['data'])
-                                                                {{$usr['name'] .' '. $usr['surname']}}
-                                                            @endif
-                                                        @endforeach
-                                                            @elseif($event['model'] == 'menus')
-                                                              новий пункт меню @foreach ($menus as $menu)
-                                                            @if($menu['id'] == $event['data'])
-                                                                {{$menu['name'] .' '. $menu['surname']}}
-                                                            @endif
-                                                        @endforeach
-                                                            @endif
+                                                        @elseif($event['model'] == 'user')
+                                                              нового користувача
+                                                            @foreach ($users as $usr)
+                                                                @if($usr['id'] == $event['data'])
+                                                                    {{$usr['name'] .' '. $usr['surname']}}
+                                                                @endif
+                                                            @endforeach
+                                                        @elseif($event['model'] == 'menus')
+                                                              новий пункт меню
+                                                            @foreach ($menus as $menu)
+                                                                @if($menu['id'] == $event['data'])
+                                                                    {{$menu['name'] .' '. $menu['surname']}}
+                                                                @endif
+                                                            @endforeach
+
+
+
+
+                                                        @endif
+
+
                                                 </p></td>
                                                 <td>{{$event['date']}}</td>
                                             </tr>
@@ -181,7 +191,13 @@
                                                                 {{$virtual->name}}
                                                             @endif
                                                         @endforeach"
-                                                        на інший сервер.
+                                                        на сервер
+                                                        @foreach($servers as $server)
+                                                            @if($event['plus'] == $server->id)
+
+                                                                <a href="/server/{{$server->id}}"> {{$server->name}}  </a> IP:{{$server->ip}}
+                                                            @endif
+                                                        @endforeach
 
 
 
@@ -189,8 +205,40 @@
                                                 <td>{{$event['date']}}</td>
 
                                             </tr>
+                                        @elseif($event['event'] == 'create')
+                                            <tr><td>
+                                                    <p>Користувач
+                                                        @foreach ($users as $usr)
+                                                            @if($usr['id'] == $event['id_user'])
+                                                                {{$usr['name'] .' '. $usr['surname']}}
+                                                            @endif
+                                                        @endforeach
+                                                        створив
+                                            @if($event['model'] == 'virtual')
+
+                                                віртуалку на сервері
+                                                @foreach($servers as $server)
+                                                    @if($event['data'] == $server->id)
+
+                                                        <a href="/server/{{$server->id}}"> {{$server->name}}  </a> IP:{{$server->ip}}
+                                                    @endif
+                                                @endforeach
+                                            @elseif($event['model'] == 'server')
+                                                сервер
+                                                @foreach($servers as $server)
+                                                    @if($event['data'] == $server->id)
+
+                                                        <a href="/server/{{$server->id}}"> {{$server->name}}  </a> IP:{{$server->ip}}
+                                                    @endif
+                                                @endforeach
                                             @endif
-                                        @endforeach
+                                                    </p></td>
+                                                <td>{{$event['date']}}</td>
+
+                                            </tr>
+
+                                        @endif
+                                    @endforeach
 
                             </tbody>
                         </table>

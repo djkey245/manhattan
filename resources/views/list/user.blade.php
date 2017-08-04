@@ -73,7 +73,16 @@
 
                             <td>{{$user->email}} </td>
 
-                            <td>{{$user->actual}}  </td>
+                            <td>@if($user['actual'] == 1)
+                                    HR
+
+                                @elseif($user['actual'] == 2)
+                                    SuperAdmin
+                                @elseif($user['actual'] == 3)
+                                    Special
+                                @elseif($user['actual'] == 4)
+                                    Admin
+                                @endif  </td>
 
                             <td>{{$user->created_at}} </td>
                             <td><button class="btn btn-danger btn-sm" onclick="delete_user({{$user->id}})">Delete</button>

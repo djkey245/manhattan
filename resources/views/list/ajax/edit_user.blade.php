@@ -50,16 +50,25 @@
             <select class="form-control" id="add_user_actual">
                 @if($usr['actual'] == 1)
                 <option value="1" selected>HR</option>
-                <option value="2">Admin</option>
+                <option value="2">SuperAdmin</option>
                 <option value="3">Special</option>
+                <option value="4">Admin</option>
+
                 @elseif($usr['actual'] == 2)
                     <option value="1" >HR</option>
-                    <option value="2" selected>Admin</option>
+                    <option value="2"  selected>SuperAdmin</option>
                     <option value="3">Special</option>
+                    <option value="4">Admin</option>
                 @elseif($usr['actual'] == 3)
                     <option value="1" >HR</option>
-                    <option value="2" >Admin</option>
-                    <option value="3" selected>Special</option>
+                    <option value="2">SuperAdmin</option>
+                    <option value="3"  selected>Special</option>
+                    <option value="4">Admin</option>
+                @elseif($usr['actual'] == 4)
+                    <option value="1" >HR</option>
+                    <option value="2">SuperAdmin</option>
+                    <option value="3">Special</option>
+                    <option value="4"  selected>Admin</option>
                 @endif
             </select>
         </th>

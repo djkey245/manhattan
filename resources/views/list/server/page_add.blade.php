@@ -4,6 +4,8 @@
         var ip = document.getElementById('ip').value;
         var vnc = document.getElementById('vnc').value;
         var rdp = document.getElementById('rdp').value;
+        var id_user = {{Auth::user()->id}};
+
         $.ajax({
 
             type: 'post',
@@ -14,7 +16,9 @@
                 'name': name,
                 'ip': ip,
                 'vnc': vnc,
-                'rdp': rdp
+                'rdp': rdp,
+                'id_user':id_user
+
 
             },
             success: function (message) {

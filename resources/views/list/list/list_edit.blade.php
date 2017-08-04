@@ -39,9 +39,9 @@ foreach ($peoples as $people){
                                 ?>
                                 @for($i = 0; $i<$a; $i++)
                                     @if($people->{$item->name_eng} == $option_name[$i])
-                                    <option value="{{$option_name[$i]}}" selected>{{$option_name[$i]}}</option>
-                                        @else
-                                    <option value="{{$option_name[$i]}}">{{$option_name[$i]}}</option>
+                                        <option value="{{$option_name[$i]}}" selected>{{$option_name[$i]}}</option>
+                                    @else
+                                        <option value="{{$option_name[$i]}}">{{$option_name[$i]}}</option>
                                     @endif
                                 @endfor
                             </select>
