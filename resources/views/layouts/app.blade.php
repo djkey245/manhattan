@@ -31,7 +31,7 @@
 
 <body  id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+        <div class="container-fluid" style="margin-left: 8%; margin-right: 8%">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -48,7 +48,7 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse"  id="app-navbar-collapse" style="display:">
                 <!-- Left Side Of Navbar -->
                 @if (Auth::guest())
                 @else
@@ -97,7 +97,7 @@
 
                     @if(Auth::user()->actual == 2)
 
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav form-inline">
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -114,6 +114,15 @@
 
 
                             </li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-search" style="width: 500px;">
+                            <form action="/list/search" class="navbar-form pull-left" style="width: 100%; display: flex"  method="post">
+                                <input type="hidden" name="_token"   value="{{ csrf_token() }}">
+                                <input id="search"  type="text"  style="width: 100%" name="referal" placeholder="Пошук..."  class="form-control" >
+
+                                <button type="submit"  class="btn btn-primary" style="margin-left: 5px"   value="Пошук">Пошук</button>
+                            </form>
                         </ul>
                 @endif
                 @endif
@@ -127,6 +136,7 @@
                     @else
 
                         <li class="dropdown">
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} {{ Auth::user()->surname }} <span class="caret"></span>
                             </a>

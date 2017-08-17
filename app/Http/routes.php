@@ -73,9 +73,12 @@ Route::post('/card/comment_add', [
 Route::post('/list/server_edit/{slug}', [
     'middleware' => 'auth',
     'uses' => 'CardController@server_edit']);
-Route::post('/list/virtual_edit/{slug}', [
+Route::post('/list/virtual_edit_vrt/{slug}', [
     'middleware' => 'auth',
-    'uses' => 'CardController@virtual_edit']);
+    'uses' => 'CardController@virtual_edit_vrt']);
+Route::post('/list/virtual_edit_rdp/{slug}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@virtual_edit_rdp']);
 Route::post('/list/save_virtual/{slug}', [
     'middleware' => 'auth',
     'uses' => 'CardController@virtual_save']);
@@ -177,9 +180,12 @@ Route::get('/server',   [
 Route::get('/server/{id}',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@card'] );
-Route::post('/server/page_add',   [
+Route::post('/server/page_add_rdp',   [
     'middleware' => 'auth',
-    'uses' =>'ServerController@page_add'] );
+    'uses' =>'ServerController@page_add_rdp'] );
+Route::post('/server/page_add_vrt',   [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@page_add_vrt'] );
 Route::post('/server/page_add_1',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@page_add_1'] );
@@ -213,3 +219,11 @@ Route::post('/server/page_move',   [
 Route::post('/server/moving',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@moving'] );
+
+
+
+
+//test
+Route::get('/test',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@test'] );

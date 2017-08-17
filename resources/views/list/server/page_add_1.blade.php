@@ -23,7 +23,7 @@
     <h4><center>Віртуалки </center></h4>
     <div class="row">
         <div class="col-md-3">
-            <h5>Ім’я:</h5>
+            <h5>Ім’я(Login):</h5>
             <input type="text" class="form-control" name="name_v[]">
         </div>
         <div class="col-md-3">
@@ -35,7 +35,7 @@
 
         </div>
         <div class="col-md-4">
-            <h5>LoginPass:</h5>
+            <h5>Pass:</h5>
             <input type="text" class="form-control" name="lp_v[]">
         </div>
         <div class="col-md-2"><div class="btn-group"><button onclick="add_virtual()" style=" margin-top: 30%" class="btn btn-success ">+</button>

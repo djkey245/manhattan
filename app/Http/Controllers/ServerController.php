@@ -16,9 +16,13 @@ class ServerController extends Controller
         return view('list.server',$this->data);
     }
 
-    public function page_add(){
-
-        return view('list.server.page_add');
+    public function page_add_rdp(){
+        $this->data['type'] = 'rdp';
+        return view('list.server.page_add', $this->data);
+    }
+    public function page_add_vrt(){
+        $this->data['type'] = 'vrt';
+        return view('list.server.page_add', $this->data);
     }
     public function page_add_1(Request $request, Server $server){
         $itempost = $request->input();
@@ -28,24 +32,45 @@ class ServerController extends Controller
             return view('list.server.page_add', $this->data);
         }
         else{
-        $this->data['name'] = $itempost['name'];
-        $this->data['ip'] = $itempost['ip'];
-        $this->data['vnc'] = $itempost['vnc'];
-        $this->data['rdp'] = $itempost['rdp'];
-        $id_user = $itempost['id_user']; //history
-        $itempost += [ 'created_at' => date("Y-m-j H:i:s"),];
-        unset($itempost['_token']);
-        unset($itempost['id_user']);
-        $server->insert($itempost);
-        $id = $server->select('id')->where(['name' => $itempost['name'],])->firstOrFail();
-        $this->data['id'] = $id->id;
+            if($itempost['purpose'] == 'rdp') {
+                $this->data['name'] = $itempost['name'];
+                $this->data['ip'] = $itempost['ip'];
+                $this->data['vnc'] = $itempost['vnc'];
+                $this->data['rdp'] = $itempost['rdp'];
+                $id_user = $itempost['id_user']; //history
+                $itempost += ['created_at' => date("Y-m-j H:i:s"),];
+                unset($itempost['_token']);
+                unset($itempost['id_user']);
+                $server->insert($itempost);
+                $id = $server->select('id')->where(['name' => $itempost['name'],])->firstOrFail();
+                $this->data['id'] = $id->id;
 
-        //history
-            $data = $id->id;
-        $this->history( $id_user ,'create', 'server', $data);
+                //history
+                $data = $id->id;
+                $this->history($id_user, 'create', 'server', $data);
 
 
-            return view('list.server.page_add_1', $this->data);
+                return view('list.server.page_add_1', $this->data);
+            }
+            elseif($itempost['purpose'] == 'vrt') {
+                $this->data['name'] = $itempost['name'];
+                $this->data['ip'] = $itempost['ip'];
+                $this->data['vnc'] = $itempost['vnc'];
+                $id_user = $itempost['id_user']; //history
+                $itempost += ['created_at' => date("Y-m-j H:i:s"),];
+                unset($itempost['_token']);
+                unset($itempost['id_user']);
+                $server->insert($itempost);
+                $id = $server->select('id')->where(['name' => $itempost['name'],])->firstOrFail();
+                $this->data['id'] = $id->id;
+
+                //history
+                $data = $id->id;
+                $this->history($id_user, 'create', 'server', $data);
+
+
+                return view('list.server.page_add_1', $this->data);
+            }
         }
     }
     public function save(Request $request, Virtual $virtual){

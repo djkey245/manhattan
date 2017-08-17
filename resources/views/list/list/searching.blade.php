@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <table class="table table-condensed">
 
 
@@ -24,18 +24,18 @@
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-6 div-sm-4">
-                                <form action="/list/search"  method="post">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <center><input id="search"  type="text" name="referal" placeholder="Пошук..."  class="form-control" ></center>
 
-                                    <center>
-                                        <button type="submit"  class="btn btn-primary" style="margin-top: 1%;"  value="Пошук">Пошук</button>
-                                    </center>
-                                </form>
                             </div>
                         </div>
                     </div>
                 @else
+                    <div class="row">
+                    <div class="col-md-2 col-sm-1">
+                    </div>
+
+
+                    </div>
+                <br>
                     <thead>
                     <tr class="info">
                         @foreach($items as $item)
@@ -82,10 +82,10 @@
                 @endif
             </table>
         </div>
-        <div class="col-md-2"><th>
+        <div class="col-md-1"><th>
                 <div class="btn-group">
-                    <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add new person</button>
-                    <button id="open_page_add" onclick="open_page_ajax('/list/page_search','#list')" class="btn btn-default btn-sm">Search</button>
+                    <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add person</button>
+                    <!--<button id="open_page_add" onclick="open_page_ajax('/list/page_search','#list')" class="btn btn-default btn-sm">Search</button>-->
                     <button onclick="cancel_hide('#list')" class="btn btn-primary btn-sm" id="button_cansel">Cancel</button>
 
                 </div>
