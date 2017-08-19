@@ -46,24 +46,43 @@
                     <div class="container ">
                         <div class="thumbnail ">
                             <div class="">
-                        <div class="row">
-                            <div class="col-md-1"> </div>
-                            <div class="col-md-2" ><h4 >Ім’я:</h4></div>
-                            <div class="col-md-2"><h4>ІР:</h4></div>
-                            <div class="col-md-2"><h4>RDP:</h4></div>
-                            <div class="col-md-2"><h4>VNC:</h4></div>
-                            <div class="col-md-3"> </div>
-                        </div>
 
-                            <div class="row">
-                                <div class="col-md-1"> </div>
-                                    <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
-                                    <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
-                                    <div class="col-md-2"><h5>{{$server->rdp}}</h5></div>
-                                    <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
-                                    <div class="col-md-3"></div>
+                                @if($server['purpose'] == 'rdp')
+
+                                <div class="row">
+                                    <div class="col-md-1"> </div>
+                                    <div class="col-md-2" ><h4 >Ім’я:</h4></div>
+                                    <div class="col-md-2"><h4>ІР:</h4></div>
+                                    <div class="col-md-2"><h4>RDP:</h4></div>
+                                    <div class="col-md-2"><h4>VNC:</h4></div>
+                                    <div class="col-md-3"> <h4><b>SRV RDP</b></h4></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"> </div>
+                                        <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->rdp}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-3"></div>
+                                </div>
+                                @elseif($server['purpose'] == 'vrt')
+                                    <div class="row">
+                                        <div class="col-md-1"> </div>
+                                        <div class="col-md-2" ><h4 >Ім’я(Login):</h4></div>
+                                        <div class="col-md-2"><h4>ІР:</h4></div>
+                                        <div class="col-md-3"><h4>Pass:</h4></div>
+                                        <div class="col-md-3"><h4><b>SRV VRT</b></h4> </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"> </div>
+                                        <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
+                                        <div class="col-md-3"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+
+                                @endif
                             </div>
-                        </div>
                             <br><br><br><br>
                         </div>
 
@@ -98,6 +117,19 @@
                                     <h4 style="color: white;">{{$virtual->name}}</h4>
                                     <p style="color: white;">{{$virtual->ip}}</p>
                                     <p style="color: white;">{{$virtual->lp}}</p>
+                                    <h4 style="color: white;">
+                                        @foreach($peoples as $people)
+                                            <?php $vrts = explode(',', $people->virtuals);  ?>
+                                            @foreach($vrts as $virt)
+                                                @if($virt == $virtual->id)
+                                                        <a href="/list/{{$people->id}}">{{$people->surname.' '.$people->name}}</a>
+                                                        <p style="margin-top: 3px; color: #4d54c7 ">{{$people->profession.' '.$people->office}}</p>
+
+                                                    @endif
+                                            @endforeach
+                                        @endforeach
+
+                                    </h4>
                                 </div>
                             </div>
 

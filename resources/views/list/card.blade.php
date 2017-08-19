@@ -104,11 +104,15 @@
                                             <button onclick="del_virtual({{$virtual->id}})" class="btn btn-sm btn-danger right" style="margin-left: 90%">x</button>
                                             <h4 style="color: black;">{{$server->name}}</h4>
                                             <p style="color: black;">{{$server->ip}}</p>
-                                            <p style="color: black;">RDP: {{$server->rdp}}</p>
-                                            <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                            @if($server->purpose == 'rdp')
+                                                <p style="color: black;">RDP: {{$server->rdp}}</p>
+                                                <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                            @elseif($server->purpose == 'vrt')
+                                                <p style="color: black;">Pass: {{$server->vnc}}</p>
+                                            @endif
                                         </div>
 
-                                        <?php break; ?>
+
                                         @endif
                                     @endforeach
                                 <div class="caption" style="background-color:  #ecb342;     font-size: 14px; text-align: center; border: 1px solid transparent;  border-radius: 4px;">

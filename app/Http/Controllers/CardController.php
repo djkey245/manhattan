@@ -40,11 +40,16 @@ class CardController extends Controller
     public function virtual_edit_vrt(Peoples $peoples, $slug, Virtual $virtual, Request $request){
         $id = $slug;
         $itempost = $request->input();
+
         $this->data['peoples'] = $peoples->perm($id);
         $this->data['id'] = $id;
         $this->data['id_server'] = $itempost['id_server'];
         $this->data['type'] = $itempost['type'];
+        $this->data['virtuals'] = $virtual->where(['id_server' => $itempost['id_server']])->get();
+
+
         return view('list.card.virtual_edit_vrt', $this->data);
+
     }
     public function virtual_edit_rdp(Peoples $peoples, $slug, Virtual $virtual, Request $request){
         $id = $slug;
@@ -53,9 +58,10 @@ class CardController extends Controller
         $this->data['id'] = $id;
         $this->data['id_server'] = $itempost['id_server'];
         $this->data['type'] = $itempost['type'];
+
         return view('list.card.virtual_edit_rdp', $this->data);
     }
-    /*public function virtual_save(Peoples $peoples, $slug,  Request $request, History $history){
+    public function virtual_save_vrt(Peoples $peoples, $slug,  Request $request, History $history){
         $id = $slug;
         $itempost = $request->input();
         $virtual_value = $peoples->where(['id' => $id])->firstOrFail();
@@ -67,7 +73,7 @@ class CardController extends Controller
         $id_user = $itempost['id_user'];
         $data = $id;
         $this->history( $id_user ,'update', 'peoples', $data );
-    }*/
+    }
     public function virtual_save(Request $request, Peoples $peoples, Virtual $virtual){
 
         $itempost = $request->input();

@@ -74,7 +74,7 @@
 <div>
 
 
-    <label>Name(Login)
+    <label>Name(Login)<p></p>
         <input type="text" id="name1"  >
     </label>
     <label>IP<p></p>

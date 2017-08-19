@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Peoples;
 use Illuminate\Http\Request;
 use App\Server;
 use App\Virtual;
@@ -106,9 +107,11 @@ class ServerController extends Controller
 return 1;
 
     }
-    public function card(Server $server, Virtual $virtual, $id){
+    public function card(Server $server, Virtual $virtual, $id, Peoples $peoples){
         $this->data['servers'] = $server->where(['id' => $id])->get();
+        $this->data['peoples'] = $peoples->get();
         $this->data['virtuals'] = $virtual->where(['id_server' => $id])->get();
+
         $this->data['id'] = $id;
         return view('list.server.card',$this->data);
 
@@ -209,5 +212,30 @@ return 1;
 
         $this->history( $itempost['id_user'] ,'moving', 'virtual', $itempost['id_virtual'] , $itempost['id_server']);
 
+    }
+
+    public function search(Request $request, Virtual $virtual, Server $server){
+
+        $word = $request->input('referal');
+        $word = htmlspecialchars(stripcslashes(trim($word)));
+        $id = [];
+        $searches = $virtual->select('id')->where('ip', 'LIKE', '%' . $word . '%')->get();//
+            foreach ($searches as $search) {
+
+                if (!empty($search)) {
+                    array_push($id, $search->id);
+                }
+            }
+        $srchs = $virtual->select('id')->where('name', 'LIKE', '%' . $word . '%')->get();
+        foreach ($srchs as $srch) {
+
+            if (!empty($srch)) {
+                array_push($id, $srch->id);
+            }
+        }
+        $this->data['servers'] = $server->get();
+        $this->data['virtuals'] = $virtual->get();
+        $this->data['ids'] = $id;
+        return view('list.server',$this->data);
     }
 }

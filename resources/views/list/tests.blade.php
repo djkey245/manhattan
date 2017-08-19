@@ -7,11 +7,12 @@
             "id":1,
             "auth":null,
             "params":{}};
+        alert(req);
         $.ajax({
             'type': 'post',
             'url': 'http://192.168.0.100/zabbix/api_jsonrpc.php',
             'contentType': 'application/json-rpc',
-            'data': JSON.stringify(req),
+            'data': req,
 
                 /*"jsonrpc":"2.0",
                 "method":"user.login",
@@ -23,7 +24,7 @@
                 "auth":null*/
 
             'success': function (mess) {
-                alert(mess);
+                alert('lok;');
                 //$('#answer').html(mess);
             },
             'error': function(error){
