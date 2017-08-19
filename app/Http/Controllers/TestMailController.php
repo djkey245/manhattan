@@ -3,28 +3,74 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Socialite;
-use Google_Client;
-use Google_Service_People;
 use App\Http\Requests;
+
+use App\Http\Controllers\ZabbixApiController;
+
+
 
 class TestMailController extends Controller
 {
-        public function test(){
 
-            $this->data['json'] = response()->json([
+    public function test(){
+        $data = [
+            "jsonrpc" => "2.0",
+            "method" => "user.login",
+            "id" => "1",
+            "auth" => null,
+            "params" => [
+                "user" => "Dimon",
+                "password" => "z1x2c3v4",
+            ]
 
-                'jsonrpc' => '2.0',
-                'method' => 'user.login',
-                'params' => [
-                    'user' => 'Dimon',
-                    'password' => 'z1x2c3v4',
-                ],
-                'id' => 1,
-                'auth'=> null
+        ];
+        $data_string = json_encode($data);
 
 
-            ]);
-            return view('list.tests', $this->data);
-        }
+
+        $zab = curl_init('http://192.168.0.100/zabbix/api_jsonrpc.php');
+        curl_setopt($zab, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($zab, CURLOPT_POSTFIELDS, $data_string);
+
+        curl_setopt($zab, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($zab, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json-rpc',
+                'Content-Length: ' . strlen($data_string))
+        );
+        $result = curl_exec($zab);
+        $result = json_decode($result);
+
+        $serv = [
+            "jsonrpc" => "2.0",
+            "method" => "history.get",
+            "id" => "1",
+            "auth" => $result->result,
+            "params" => [
+                "output" => "extend",
+                "history" => 4,
+
+                "hostids" => "10961",
+                "itemids" => "38282",
+                "sorfield" => "clock",
+                "sortorder" => "DESC",
+                "limit" =>  1
+            ]
+
+
+        ];
+
+        $serv_string = json_encode($serv);
+
+        $zab = curl_init('http://192.168.0.100/zabbix/api_jsonrpc.php');
+        curl_setopt($zab, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($zab, CURLOPT_POSTFIELDS, $serv_string);
+
+        curl_setopt($zab, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($zab, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json-rpc',
+                'Content-Length: ' . strlen($serv_string))
+        );
+
+        dd(curl_exec($zab));
+    }
 }
