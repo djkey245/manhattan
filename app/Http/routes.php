@@ -20,6 +20,9 @@ Route::get('/', 'IndexController@index');
 Route::get('/register', function (){return redirect('/login');});
 Route::auth();
 Route::get('/home', 'HomeController@index');
+Route::get('/password', function (){
+    return view('list.password');
+});
 
 //list
 Route::get('/list', [

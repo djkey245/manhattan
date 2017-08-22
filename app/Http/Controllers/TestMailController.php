@@ -48,12 +48,11 @@ class TestMailController extends Controller
             "params" => [
                 "output" => "extend",
                 "history" => 4,
-
-                "hostids" => "10961",
-                "itemids" => "38282",
+                "hostids" => "10962",
+                "itemids" => "38307",
                 "sorfield" => "clock",
                 "sortorder" => "DESC",
-                "limit" =>  1
+                "limit" =>  -1
             ]
 
 
@@ -70,7 +69,10 @@ class TestMailController extends Controller
                 'Content-Type: application/json-rpc',
                 'Content-Length: ' . strlen($serv_string))
         );
-
-        dd(curl_exec($zab));
+        $result1 = curl_exec($zab);
+        $result1 = json_decode($result1);
+        $rs = $result1->result;
+        $a = count($rs);
+        dd($rs[($a-1)]->value);
     }
 }
