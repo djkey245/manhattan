@@ -15,10 +15,13 @@
 
             </div>
 
-            <div class="col-md-6" style="border-left: 1px solid black;">
+            <div class="col-md-6" id="other" style="border-left: 1px solid black;">
+                <div style="border-bottom: 1px solid black;"></div>
             @foreach($importants as $important)
+
                     <?php $i = 0; ?>
                         @if(count($notactuals[$important->id]['0']) > 0)
+                            <div style="border-bottom: 1px solid black;">
                             @if(count($notactuals[$important->id]['0']) == 1)
                                 {{$important->info}} y {{count($notactuals[$important->id]['0'])}} працівникa!
                             @elseif(count($notactuals[$important->id]['0']) > 1)
@@ -34,20 +37,23 @@
                                     @endforeach
 
                             @else
-                                {{" та інші"}}
+                                {{" та "}}<a onclick="open_page_other('{{$important->id}}')">інші</a>
                                 @break
                             @endif
 
                     <?php $i++;?>
                 @endforeach
 
-                        <br>
+                                <br>
+                            </div>
                         @endif
                 @endforeach
-            </div>
+
 
         </div>
-        <div class="row" style="padding-top: 20%">
+
+        </div>
+        <div class="row" style="margin-top: 3%">
             <hr>
 
             <div class="col-md-2"></div>
@@ -296,4 +302,30 @@
 
         @endif
         @endif
+
+
+    <script>
+
+        function open_page_other(id) {
+
+            $.ajax({
+
+                type: 'post',
+                url: '/home/other',
+
+                data: {
+                    '_token': "{{csrf_token()}}",
+                    'id': id
+                },
+                dataType: 'html',
+                success: function (mess) {
+                    $('#other').html(mess);
+                }
+
+            });
+
+        }
+
+
+    </script>
 @endsection

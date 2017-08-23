@@ -57,8 +57,29 @@ class HomeController extends Controller
             array_push($importants[($imp_list->id)], $items);
 
         }
-        $this->data['importants'] = $imp_lists;
+        $this->data['importants'] = $important->orderBy('actual', 'desc')->get();
         $this->data['notactuals'] = $importants;
         return view('home' , $this->data);
+    }
+    public function other(Request $request, Peoples $peoples, Important $important){
+        $itempost = $request->input();
+        $peopless = $peoples->where(['active' => 'Так'])->get();
+        $importants = [];
+        $imp_lists = $important->where(['id' => $itempost['id']])->firstOrFail();
+            foreach ($peopless as $people){
+
+                if(empty($people->{$imp_lists->name})){
+
+
+                    array_push($importants, $people->id);
+                }
+
+
+            }
+
+        $this->data['peoples'] = $peoples->where(['active' => 'Так'])->get();
+        $this->data['importants'] = $importants;
+        //return dd($importants);
+        return view('list.other', $this->data);
     }
 }

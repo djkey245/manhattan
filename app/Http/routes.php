@@ -19,15 +19,25 @@ Route::get('blog/{slug}', 'BlogController@card');
 Route::get('/', 'IndexController@index');
 Route::get('/register', function (){return redirect('/login');});
 Route::auth();
-Route::get('/home', 'HomeController@index');
 Route::get('/password', function (){
     return view('list.password');
 });
+
+//home
+Route::get('/home', 'HomeController@index');
+Route::post('/home/other', [
+    'middleware' => 'auth',
+    'uses' => 'HomeController@other']);
+
+
+
+
 
 //list
 Route::get('/list', [
     'middleware' => 'auth',
     'uses' => 'ListController@index']);
+
 Route::get('/office/{office}', [
     'middleware' => 'auth',
     'uses' => 'ListController@office']);

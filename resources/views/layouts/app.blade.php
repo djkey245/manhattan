@@ -208,6 +208,8 @@
                 return 0;
             }
         }
+        function reload()
+        { location.reload(true);      }
     </script>
 
     </body>
