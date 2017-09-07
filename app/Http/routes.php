@@ -19,8 +19,11 @@ Route::get('blog/{slug}', 'BlogController@card');
 Route::get('/', 'IndexController@index');
 Route::get('/register', function (){return redirect('/login');});
 Route::auth();
-Route::get('/password', function (){
-    return view('list.password');
+//Route::get('/password', function (){
+//    return view('list.password');
+//});
+Route::get('/tests', function (){
+    return view('list.tests');
 });
 
 //home
@@ -37,7 +40,6 @@ Route::post('/home/other', [
 Route::get('/list', [
     'middleware' => 'auth',
     'uses' => 'ListController@index']);
-
 Route::get('/office/{office}', [
     'middleware' => 'auth',
     'uses' => 'ListController@office']);
@@ -238,6 +240,15 @@ Route::post('/server/moving',   [
 Route::post('/server/search',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@search'] );
+
+
+//admin
+Route::get('/admin',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@index'] );
+Route::POST('/admin',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@save'] );
 
 
 

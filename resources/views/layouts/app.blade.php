@@ -13,7 +13,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{'/css/default.css'}}"
 {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
@@ -142,6 +141,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/admin') }}">Reports Admins</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Вихід</a></li>
                             </ul>
                         </li>
@@ -153,7 +153,7 @@
 
     @yield('content')
 
-    <script src="{{'/js/default.js'}}"></script>
+    <script src="{{'/js/main.js'}}"></script>
     <script>
         function open_page_ajax(url, div){
 

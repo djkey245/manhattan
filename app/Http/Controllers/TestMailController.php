@@ -2,15 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Test;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
-use App\Http\Controllers\ZabbixApiController;
 
 
 
 class TestMailController extends Controller
 {
+
+    public function index(Test $test, User $user){
+        $this->data['users1'] = $user->where(['id' => 17])->get();
+        $this->data['users2'] = $user->where(['id' => 27])->get();
+        $this->data['tests'] = $test->latest('date')->get();
+
+
+
+        return view('list.admin.index', $this->data);
+    }
+
+    public function save(Test $test, User $user, Request $request){
+        $itempost = $request->input();
+        $data['time'] = $itempost['time'];
+        $data['comment'] = $itempost['comment'];
+        $data['date'] = date("Y-m-j");
+        $data['id_user'] = $itempost['user'];
+
+        $test->insert($data) or  die("Error");
+        /*$this->data['users1'] = $user->where(['id' => 17])->get();
+        $this->data['users2'] = $user->where(['id' => 27])->get();
+        $this->data['tests'] = $test->oldest('date')->get();
+        return view('list.admin.index', $this->data);*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function test(){
         $data = [
@@ -73,6 +117,7 @@ class TestMailController extends Controller
         $result1 = json_decode($result1);
         $rs = $result1->result;
         $a = count($rs);
-        dd($rs[($a-1)]->value);
+        //dd($rs[($a-1)]->value);
+        dd($result->result);
     }
 }
