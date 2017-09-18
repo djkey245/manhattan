@@ -256,3 +256,8 @@ Route::POST('/admin',   [
 Route::get('/test',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@test'] );
+
+
+Route::get('/casino', function (){
+    return view('test.index');
+});

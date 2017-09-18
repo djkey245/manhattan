@@ -37,6 +37,7 @@ if(type == 'rdp') {
             var name = document.getElementById('name').value;
             var ip = document.getElementById('ip').value;
             var adpass = document.getElementById('adpass').value;
+            var other = document.getElementById('other').value;
 
             $.ajax({
 
@@ -48,6 +49,7 @@ if(type == 'rdp') {
                     'name': name,
                     'ip': ip,
                     'vnc': adpass,
+                    'rdp': other,
                     'purpose':type,
                     'id_user': id_user
 
@@ -96,21 +98,27 @@ if(type == 'rdp') {
         @elseif($type == 'vrt')
             <h4><center>Сервер VRT</center></h4>
             @if(!empty($error))<h4 style="color:red"><center>{{$error}}</center></h4> @endif
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Ім’я:</h5>
                 <input type="text" class="form-control" id="name">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>ІР:</h5>
                 <input type="text" class="form-control" id="ip">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>AdminPass:</h5>
                 <input type="text" class="form-control" id="adpass">
-                <button onclick="next_page_add('vrt')" style=" margin-top: 10%" class="btn btn-success">Далі..</button>
+
 
             </div>
+            <div class="col-md-3">
+                <h5>Other:</h5>
+                <textarea class="form-control" id="other"></textarea>
+                <button onclick="next_page_add('vrt')" style=" margin-top: 10%" class="btn btn-success">Далі..</button>
 
+
+            </div>
 
         @endif
     </div>

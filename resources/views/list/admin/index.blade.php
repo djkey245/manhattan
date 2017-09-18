@@ -5,7 +5,7 @@
     <?php
         $date = "";
     ?>
-    <div class="container">
+    <div class="container" id="app">
         <div class="row">
             <div class="col-md-6">
                 <h4 style="text-align: center">{{$users1['0']->name.' '.$users1['0']->surname.' '.$users1['0']->email }}</h4>
@@ -15,15 +15,16 @@
                         <input type="hidden" id="_token" value="{{csrf_token()}}">
                         <input type="hidden" id="user" value="{{Auth::user()->id}}">
                         <input class="input-sm input-group"  type="text" id="time">
-                        <textarea class="form-control input-group" id="comment"></textarea>
+                        <input class="input-sm input-group"  type="date" id="date" >
+                        <textarea class="form-control " id="comment"></textarea>
                         <button class="input-group btn" onclick="save_test()">Enter</button>
 
                     </div>
 
 
                 @endif
-                <table style="width: 100%">
-                    <tbody style="width: 100%">
+                <table style="width: 100%; word-break: break-word ">
+                    <tbody style="width: 100%; white-space: pre-line">
                         @foreach($tests as $test)
                             @if($test->id_user == 17)
                                 @if($date == $test->date)
@@ -55,11 +56,12 @@
                 <h4 style="text-align: center">{{$users2['0']->name.' '.$users2['0']->surname.' '.$users2['0']->email }}</h4>
                 @if(Auth::user()->id == 27)
 
-                    <div class="form-inline" style="width: 100%; display: inline-block" >
+                    <div  style="width: 100%; display: inline-block" >
                         <input type="hidden" id="_token" value="{{csrf_token()}}">
                         <input type="hidden" id="user" value="{{Auth::user()->id}}">
-                        <input class="input-sm input-group"  type="text" id="time">
-                        <textarea class="form-control input-group" id="comment"></textarea>
+                        <input class="input-sm input-group"  type="text" id="time" >
+                        <input class="input-sm input-group"  type="date" id="date">
+                        <textarea class="form-control " id="comment"></textarea>
                         <button class="input-group btn" onclick="save_test()">Enter</button>
 
                     </div>
@@ -67,7 +69,7 @@
 
                 @endif
 
-                <table style="width: 100%">
+                <table style="width: 100%; word-break: break-word ">
                     <tbody style="width: 100%">
                     <?php
                     $date = "";
@@ -104,11 +106,12 @@
 
 
 <script>
-    function save_test() {
 
+    function save_test() {
         var user = {{Auth::user()->id}};
         var comment = document.getElementById('comment').value;
         var time = document.getElementById('time').value;
+        var date = document.getElementById('date').value;
 
         $.ajax({
 
@@ -118,7 +121,8 @@
                 '_token': "{{csrf_token()}}",
                 'user': user,
                 'comment': comment,
-                'time': time
+                'time': time,
+                'date': date
             },
             success: function () {
                 location.reload(true);
@@ -127,7 +131,13 @@
         });
 
     }
-
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = (now.getMonth()+1);
+    var day = now.getDate();
+    var date = ""+year+"-0"+month+"-"+day+"";
+    date = date.toString();
+    document.getElementById('date').value = date;
 </script>
 
 

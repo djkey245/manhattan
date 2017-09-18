@@ -27,7 +27,7 @@ class TestMailController extends Controller
         $itempost = $request->input();
         $data['time'] = $itempost['time'];
         $data['comment'] = $itempost['comment'];
-        $data['date'] = date("Y-m-j");
+        $data['date'] = $itempost['date'];
         $data['id_user'] = $itempost['user'];
 
         $test->insert($data) or  die("Error");

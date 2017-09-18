@@ -70,14 +70,16 @@
                                         <div class="col-md-1"> </div>
                                         <div class="col-md-2" ><h4 >Ім’я(Login):</h4></div>
                                         <div class="col-md-2"><h4>ІР:</h4></div>
-                                        <div class="col-md-3"><h4>Pass:</h4></div>
+                                        <div class="col-md-2"><h4>Pass:</h4></div>
+                                        <div class="col-md-2"><h4>Other:</h4></div>
                                         <div class="col-md-3"><h4><b>SRV VRT</b></h4> </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-1"> </div>
                                         <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
                                         <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
-                                        <div class="col-md-3"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->rdp}}</h5></div>
                                         <div class="col-md-3"></div>
                                     </div>
 

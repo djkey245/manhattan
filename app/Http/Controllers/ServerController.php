@@ -57,6 +57,7 @@ class ServerController extends Controller
                 $this->data['name'] = $itempost['name'];
                 $this->data['ip'] = $itempost['ip'];
                 $this->data['vnc'] = $itempost['vnc'];
+                $this->data['rdp'] = $itempost['rdp'];
                 $id_user = $itempost['id_user']; //history
                 $itempost += ['created_at' => date("Y-m-j H:i:s"),];
                 unset($itempost['_token']);
