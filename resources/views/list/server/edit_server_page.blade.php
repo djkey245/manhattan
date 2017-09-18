@@ -22,17 +22,21 @@
             <button onclick="save_server('rdp')" style=" margin-top: 10%" class="btn btn-success">Зберегти</button>
         </div>
 @elseif($servers['purpose'] == 'vrt')
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Ім’я(Login):</h5>
                 <input type="text" class="form-control" id="name" value="{{$servers['name']}}">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>ІР:</h5>
                 <input type="text" class="form-control" id="ip" value="{{$servers['ip']}}">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Pass:</h5>
                 <input type="text" class="form-control" id="vnc" value="{{$servers['vnc']}}">
+            </div>
+            <div class="col-md-3">
+                <h5>Other:</h5>
+                <input type="text" class="form-control" id="rdp" value="{{$servers['rdp']}}">
                 <button onclick="save_server('vrt')" style=" margin-top: 10%" class="btn btn-success">Зберегти</button>
             </div>
 
@@ -48,9 +52,10 @@
         var ip = document.getElementById('ip').value;
         var vnc = document.getElementById('vnc').value;
         var id_user = {{Auth::user()->id}};
+        var rdp = document.getElementById('rdp').value;
         if(type == 'rdp'){
 
-            var rdp = document.getElementById('rdp').value;
+
             $.ajax({
                 type: 'post',
                 url: '/server/edit_server',
@@ -82,6 +87,7 @@
                     'name': name,
                     'ip': ip,
                     'vnc': vnc,
+                    'rdp': rdp,
                     'id_user': id_user
 
                 },

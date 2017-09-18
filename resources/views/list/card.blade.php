@@ -109,6 +109,7 @@
                                                 <p style="color: black;">VNC: {{$server->vnc}}</p>
                                             @elseif($server->purpose == 'vrt')
                                                 <p style="color: black;">Pass: {{$server->vnc}}</p>
+                                                <p style="color: black;">Other: {{$server->rdp}}</p>
                                             @endif
                                         </div>
 
