@@ -1,0 +1,42 @@
+
+.autorization-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: calc(-196px/2);
+    text-align: right;
+}
+
+.autorization-form-hide {
+    transition: 0.4s;
+    opacity: 0.4;
+}
+
+.autorization-failed {
+    border-bottom-color: #F44336;
+    box-shadow: 0px 1px 0px #F44336;
+    transition: 0.2s;
+}
+
+.circle-clipper .circle {
+    border-width: 5px !important;
+}
+
+.label-autorization-failed {
+    text-align: left;
+    font-size: 12px;
+    color: #F44336;
+    padding: 5px;
+    width: 50%;
+    margin: 0;
+    opacity: 0;
+    transition: 0.2s;
+    position: absolute;
+}
+
+.active {
+    opacity: 1;
+    transition: 0.2s;
+}

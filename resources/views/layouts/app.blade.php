@@ -102,12 +102,10 @@
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Налаштування<span class="caret"></span>
+                                    Сервіси<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/menu') }}"><i class="fa fa-btn"></i>Пункти меню</a></li>
-                                    <li><a href="{{ url('/users') }}"><i class="fa fa-btn"></i>Користувачі</a></li>
                                     <li><a href="{{ url('/server') }}"><i class="fa fa-btn"></i>Сервери</a></li>
                                     <li><a href="{{ url('/history') }}"><i class="fa fa-btn"></i>Історія</a></li>
 
@@ -143,7 +141,10 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/admin') }}">Reports Admins</a></li>
+                                <li><a href="{{ url('/admin') }}">Звіти адмінів</a></li>
+                                <li><a href="{{ url('/users') }}">Користувачі</a></li>
+                                <li><a href="{{ url('/menu') }}">Пункти меню</a></li>
+
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Вихід</a></li>
                             </ul>
                         </li>

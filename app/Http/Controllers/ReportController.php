@@ -11,7 +11,7 @@ use App\Http\Requests;
 class ReportController extends Controller
 {
     public function index(Peoples $peoples,Report $report, User $user){
-        $this->data['peoples'] = $peoples->select('id','name','surname','office')->get();
+        $this->data['peoples'] = $peoples->select('id','name','surname','office')->where(['active' => 'Так'])->get();
         $this->data['users'] = $user->select('id','name','surname')->get();
         $this->data['reports'] = $report->orderBy('id', 'desc')->get();
         $reports_1 = $report->orderBy('id', 'asc')->get();
@@ -56,7 +56,7 @@ class ReportController extends Controller
 
     public function page_add_1(Peoples $peoples, $office, Request $request){
             $this->data['office'] = $office;
-            $this->data['peoples'] = $peoples->select('id','name','surname','profession')->where(['office' => $office])->get();
+            $this->data['peoples'] = $peoples->select('id','name','surname','profession')->where(['office' => $office])->where(['active' => 'Так'])->get();
             $itempost = $request->input();
             $date_up = $itempost['date_up'];
             $date_down = $itempost['date_down'];
@@ -91,7 +91,7 @@ class ReportController extends Controller
         $date_up = $itempost['date_up'];
         $date_down = $itempost['date_down'];
         $office = $itempost['office'];
-        $this->data['peoples'] = $peoples->select('id','name','surname','profession')->where(['office' => $office])->get();
+        $this->data['peoples'] = $peoples->select('id','name','surname','profession')->where(['office' => $office])->where(['active' => 'Так'])->get();
         $this->data['date_up'] = $date_up;
         $this->data['date_down'] = $date_down;
         $this->data['office'] = $office;

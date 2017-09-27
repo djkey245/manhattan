@@ -250,7 +250,10 @@ Route::POST('/admin',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@save'] );
 
-
+//ROS
+Route::get('/router',   [
+    'middleware' => 'auth',
+    'uses' =>'TestController@index'] );
 
 //test
 Route::get('/test',   [
