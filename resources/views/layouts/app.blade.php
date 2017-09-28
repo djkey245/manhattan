@@ -30,9 +30,20 @@
     </style>
 </head>
 
-<body  id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container-fluid" style="margin-left: 8%; margin-right: 8%">
+@if(Auth::user()->theme == 'black')
+
+    <nav class=" navbar-inverse navbar-default navbar-static-top">
+        <body  id="app-layout" style="background-color: black;">
+            <link rel="stylesheet" href="/css/black-theme.css">
+        @elseif(Auth::user()->theme == 'white')
+            <nav class=" navbar navbar-default navbar-static-top">
+                <body  id="app-layout">
+                <link rel="stylesheet" href="/css/white-theme.css">
+                @else
+            <nav class=" navbar navbar-default navbar-static-top">
+                <body  id="app-layout">
+                @endif
+            <div class="container-fluid" style="margin-left: 8%; margin-right: 8%">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -144,6 +155,8 @@
                                 <li><a href="{{ url('/admin') }}">Звіти адмінів</a></li>
                                 <li><a href="{{ url('/users') }}">Користувачі</a></li>
                                 <li><a href="{{ url('/menu') }}">Пункти меню</a></li>
+                                <li><a href="{{ url('/theme/black/'.Auth::user()->id) }}">Тема black</a></li>
+                                <li><a href="{{ url('/theme/white/'.Auth::user()->id) }}">Тема white</a></li>
 
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Вихід</a></li>
                             </ul>

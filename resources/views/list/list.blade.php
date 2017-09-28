@@ -3,82 +3,80 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="col-md-8">
-        <table class="table table-condensed">
-            <thead>
+    <div class="row-fluid">
+
+        <div class="span8">
+            <div class="alert-edit">
+                <div id="list" ></div>
+
+            </div>
+            <table class="table table-condensed">
+                <thead>
 
 
-            <!--  Заголовки  -->
-                <tr class="info">
+                <!--  Заголовки  -->
+                    <tr >
+                        @foreach($items as $item)
+                            @if($item->list_menu == 1)
+                                    <th>{{$item->name_ukr}}</th>
+
+
+                            @endif
+
+
+                        @endforeach
+                        <!--  Buttons  -->
+
+    <th>                    <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add </button>
+    </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <!--  Peoples  -->
+
+                @foreach($objects as $object)
+
+                <tr  id="person_{{$object->id}}">
+
+                    @if(empty($search))
+
                     @foreach($items as $item)
                         @if($item->list_menu == 1)
-                                <th>{{$item->name_ukr}}</th>
 
+                               <?php echo ' <th><a href=/list/'.$object->id.'>'.$object->{$item->name_eng}.'</a></th>'; ?>
 
                         @endif
 
-
                     @endforeach
-                    <!--  Buttons  -->
+                        <th><!--<button onclick="delete_user({--$object->id--})" class="btn btn-danger btn-sm">Delete</button> -->
+                            <button  id="open_page_edit" onclick="open_page_ajax('/upload/list_edit/{{$object->id}}','#list')" class="btn btn-primary btn-sm">Edit</button>
 
-<th></th>
-                </tr>
-            </thead>
-            <tbody>
-            <!--  Peoples  -->
+                        </th>
+                    @else
+                        @foreach($items as $item)
+                            @if($item->list_menu == 1)
+                                @foreach($search as $id)
+                                    @if($object->id == $id)
+                                        <?php echo ' <th><a href=/list/'.$object->id.'>'.$object->{$item->name_eng}.'</a></th>'; ?>
+                                    @endif
 
-            @foreach($objects as $object)
+                                @endforeach
+                            @endif
 
-            <tr class="warning" id="person_{{$object->id}}">
-
-                @if(empty($search))
-
-                @foreach($items as $item)
-                    @if($item->list_menu == 1)
-
-                           <?php echo ' <th><a href=/list/'.$object->id.'>'.$object->{$item->name_eng}.'</a></th>'; ?>
+                        @endforeach
 
                     @endif
 
+
+
+
+                            </tr>
                 @endforeach
-                    <th><!--<button onclick="delete_user({--$object->id--})" class="btn btn-danger btn-sm">Delete</button> -->
-                        <button  id="open_page_edit" onclick="open_page_ajax('/upload/list_edit/{{$object->id}}','#list')" class="btn btn-primary btn-sm">Edit</button>
 
-                    </th>
-                @else
-                    @foreach($items as $item)
-                        @if($item->list_menu == 1)
-                            @foreach($search as $id)
-                                @if($object->id == $id)
-                                    <?php echo ' <th><a href=/list/'.$object->id.'>'.$object->{$item->name_eng}.'</a></th>'; ?>
-                                @endif
+                </tbody>
+            </table>
+        </div>
 
-                            @endforeach
-                        @endif
-
-                    @endforeach
-
-                @endif
-
-
-
-
-                        </tr>
-            @endforeach
-
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-2"><th>
-            <div class="btn-group">
-                <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add new person</button>
-                <button id="open_page_add" onclick="open_page_ajax('/list/page_search','#list')" class="btn btn-default btn-sm">Search</button>
-                <button onclick="cancel_hide('#list')" class="btn btn-primary btn-sm" id="button_cansel">Cancel</button>
-
-            </div>
-        </th></div>
-    <div class="col-md-2">
-        <div id="list"></div>
 
     </div>
 </div>

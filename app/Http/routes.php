@@ -260,6 +260,15 @@ Route::get('/test',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@test'] );
 
+//theme
+Route::get('/theme/black/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'IndexController@theme_black'] );
+Route::get('/theme/white/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'IndexController@theme_white'] );
+
+
 
 Route::get('/casino', function (){
     return view('test.index');

@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="col-md-9">
+        <div id="list"></div>
             <table class="table table-condensed">
 
 
@@ -37,7 +37,7 @@
                     </div>
                 <br>
                     <thead>
-                    <tr class="info">
+                    <tr >
                         @foreach($items as $item)
                             @if($item->list_menu == 1)
                                 <th>{{$item->name_ukr}}</th>
@@ -49,13 +49,14 @@
                     @endforeach
                     <!--  Buttons  -->
 
-                        <th></th>
+                        <th>                    <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add</button>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
                 @foreach($objects as $object)
 
-                    <tr class="warning" id="person_{{$object->id}}">
+                    <tr id="person_{{$object->id}}">
 
 
                             @foreach($items as $item)
@@ -81,17 +82,16 @@
                 </tbody>
                 @endif
             </table>
-        </div>
-        <div class="col-md-1"><th>
+
+        {{--<div class="col-md-1"><th>
                 <div class="btn-group">
-                    <button id="open_page_add" onclick="open_page_ajax('/upload/list_add','#list')" class="btn btn-success btn-sm">Add person</button>
                     <!--<button id="open_page_add" onclick="open_page_ajax('/list/page_search','#list')" class="btn btn-default btn-sm">Search</button>-->
                     <button onclick="cancel_hide('#list')" class="btn btn-primary btn-sm" id="button_cansel">Cancel</button>
 
                 </div>
-            </th></div>
+            </th></div>--}}
         <div class="col-md-2">
-            <div id="list"></div>
+
 
         </div>
     </div>

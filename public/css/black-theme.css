@@ -1,0 +1,76 @@
+body{
+    color: #9d9d9d;
+}
+a {
+    color: #9d9d9d;
+}
+a:hover{
+    color:white;
+}
+hr{
+    color: white;
+}
+
+.table{
+    background-color: #263238;
+    color: #9d9d9d;
+}
+nav{
+    margin-bottom: 5px;
+}
+div.cap {
+    background-color: black;
+    color: #9d9d9d;
+}
+div>h3{
+    background-color: black;
+    color: #9d9d9d;
+}
+div.border-h{
+    margin-top: 3px;
+    border-bottom: 1px solid #9d9d9d;
+    border-top: 1px solid #9d9d9d;
+}
+div.text-green{
+    color: #2E7D32;
+}
+div.text-red{
+    color: red;
+}
+div.text-yellow{
+    color: #aeea00;
+}
+tr.back-green{
+    background-color: #2E7D32;
+}
+
+tr.back-red{
+    background-color: #ac2925;
+}
+tr.back-yellow {
+    background-color: yellow;
+}
+.alert-edit{
+    z-index: 100;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table{
+    background-color: #263238;
+}

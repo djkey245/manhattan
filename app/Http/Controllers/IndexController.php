@@ -112,4 +112,15 @@ class IndexController extends Controller
 
         return view('list.history', $this->data);
     }
+
+    public function theme_black(User $user, $id){
+
+        $user->where(['id' => $id])->update(['theme' => 'black']);
+        return redirect('/');
+    }
+    public function theme_white(User $user, $id){
+
+        $user->where(['id' => $id])->update(['theme' => 'white']);
+        return redirect('/');
+    }
 }

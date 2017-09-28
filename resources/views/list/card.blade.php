@@ -33,7 +33,7 @@
         }
     </script>
     <input type="hidden" id="id_user" value="{{Auth::user()->id}}">
-    <div class="container">
+    <div class="container ">
         <div class="row" >
 
             <div class="col-md-5" >
@@ -41,8 +41,8 @@
                     @foreach($menus as $menu)
                     <tr>
                         @if($menu->actual <50)
-                        <th class="info">{{$menu->name_ukr}} </th>
-                        <th class="warning"><?php echo $items->{$menu->name_eng} ;?> </th>
+                        <th >{{$menu->name_ukr}} </th>
+                        <th ><?php echo $items->{$menu->name_eng} ;?> </th>
                         @endif
                     </tr>
                     @endforeach
@@ -53,8 +53,8 @@
                                         @if($menu->actual >49)
 
 
-                                                <th class="info">{{$menu->name_ukr}} </th>
-                                                <th class="warning"><?php echo $items->{$menu->name_eng} ;?> </th>
+                                                <th >{{$menu->name_ukr}} </th>
+                                                <th ><?php echo $items->{$menu->name_eng} ;?> </th>
                                             @endif
                                         
                                     </tr>
@@ -85,9 +85,9 @@
     </div>
     </div>
     @if(Auth::user()->actual == 2)
-        <div class="container">
+        <div class="container border-h">
             <div class="row">
-        <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777; margin-bottom: 2%; ">
+        <div class="cap" style=" border: 1px solid transparent ;  margin-bottom: 2%; ">
             <h3 id="comments" class="text-center" >Сервери та віртуалки
             </h3>
 
@@ -131,7 +131,7 @@
                 </ul>
             </div>
         </div>
-    <div class="container">
+    <div class="container border-h" style="border-bottom: 1px solid; border-top: 1px solid;">
         <?php $sum = 0; ;?>
         @foreach($comments as $comment)
             <?php
@@ -140,15 +140,15 @@
                 $mark = $sum/$count_comments; ?>
         @endforeach
         <div class="row">
-            <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
+            <div class="cap" style=" border: 1px solid transparent ">
             <h3 id="comments" class="text-center" >Історія роботи з користувачем(kоментарі)!
                 @if(!empty($mark))
                         @if($mark>3)
-                            <div style="display: inline" class="text-success"> ({{$mark}}#)</div>
+                            <div style="display: inline" class="text-green"> ({{$mark}}#)</div>
                         @elseif($mark<3)
-                                    <div style="display: inline" class="text-danger" > ({{$mark}}#)</div>
+                                    <div style="display: inline" class="text-red" > ({{$mark}}#)</div>
                                 @else
-                                    <div style="display: inline" class="text-warning"> ({{$mark}}#)</div>
+                                    <div style="display: inline" class="text-yellow"> ({{$mark}}#)</div>
                             @endif
                     @endif
             </h3>
@@ -169,11 +169,11 @@
                             @foreach($comments as $comment)
                                 @if($i <= $count_comments/2)
                                 @if($comment['mark']>3)
-                                    <tr class="success">
+                                    <tr class="back-green">
                                 @elseif($comment['mark']<3)
-                                    <tr class="danger">
+                                    <tr class="back-red">
                                 @else
-                                    <tr class="warning">
+                                    <tr class="back-yellow">
                                         @endif
                                         <td>{{$comment['data']}}</td>
                                         <td>{{$comment['comment']}}</td>
@@ -205,11 +205,11 @@
                     @foreach($comments as $comment)
                         @if($i > $count_comments/2)
                             @if($comment['mark']>0)
-                            <tr class="success">
+                            <tr class="back-green">
                                 @elseif($comment['mark']<0)
-                                    <tr class="danger">
+                                    <tr class="back-red">
                                     @else
-                                    <tr>
+                                    <tr class="back-yellow">
                                     @endif
                                 <td>{{$comment['data']}}</td>
                                 <td>{{$comment['comment']}}</td>
@@ -242,9 +242,9 @@
 
         </div>
     </div>
-    <div class="container">
+    <div class="container border-h">
         <div class="row">
-            <div style="background-color: #f8f8f8; border-color: #e7e7e7; border: 1px solid transparent ; color: #777 ">
+            <div class="cap" style="border: 1px solid transparent ">
                 <h3 id="comments" class="text-center" >Звіти(рапорти) з поїздок.
                 </h3>
             </div>

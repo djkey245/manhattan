@@ -7,7 +7,15 @@ foreach ($peoples as $people){
 
 ?>
 <?php $mas = array(); ?>
-<table class="table-bordered table">
+
+
+<div class="row-fluid">
+    <div class="col-md-6">
+
+
+
+
+        <table class="table-bordered table">
 <input type="hidden" value="{{$people->id}}" id="add_id">
     <tbody>
     @foreach($menuses as $item)
@@ -50,8 +58,12 @@ foreach ($peoples as $people){
                 </tr>
             @endif
             <?php array_push($mas,$item->name_eng) ; ?>
-
-
+    </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table-bordered table">
+            <tbody>
         @elseif($item->actual > 49)
             @if(Auth::user()->actual == 2)
 
@@ -96,6 +108,13 @@ foreach ($peoples as $people){
     </tbody>
 
 </table>
+
+    </div>
+</div>
+
+
+
+
 <?php $add = json_encode($mas);?>
 <script>
     var mas = <?php  echo $add; ?>;

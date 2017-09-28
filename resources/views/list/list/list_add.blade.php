@@ -1,6 +1,8 @@
 
 <?php $mas = array(); ?>
-<table class="table-bordered table">
+<div class="row-fluid " >
+    <div class="col-md-6">
+<table class="table-bordered table"  >
 
     <tbody>
         @foreach($menuses as $item)
@@ -36,7 +38,13 @@
                     @endif
 <?php array_push($mas,$item->name_eng) ; ?>
 
+    </tbody>
+</table>
+</div>
+    <div class="col-md-6">
+<table class="table-bordered table">
 
+    <tbody>
             @elseif($item->actual > 49)
                 @if(Auth::user()->actual == 2)
 
@@ -81,7 +89,9 @@
     </tbody>
 
 </table>
+    </div>
 <?php $add = json_encode($mas);?>
+</div>
 <script>
     var mas = <?php  echo $add; ?>;
     var len = mas.length;

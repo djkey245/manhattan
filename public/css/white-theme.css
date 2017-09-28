@@ -1,0 +1,33 @@
+div.cap {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    color: #777;
+
+}
+div.border-h{
+    margin-top: 3px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+div.text-green{
+    color: #2E7D32;
+}
+div.text-red{
+    color: red;
+}
+div.text-yellow{
+    color: #aeea00;
+}
+tr.back-green{
+    background-color: #2E7D32;
+}
+
+tr.back-red{
+    background-color: #ac2925;
+}
+tr.back-yellow{
+    background-color: yellow;
+}
+#list{
+    background-color: #777;
+}
