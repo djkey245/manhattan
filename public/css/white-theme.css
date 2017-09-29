@@ -34,3 +34,17 @@ tr.back-yellow{
 
 }
 
+.block{
+    background-color: #f4f8f3;
+    line-height: 100%;
+    /*width: inherit;*/
+    padding: 2% 4% 4% 4%;
+    margin: 2% 2% 0 0;
+
+}
+.navbar{
+    background-color: #f4f8f3;
+}
+table{
+    background-color: #f4f8f3;
+}

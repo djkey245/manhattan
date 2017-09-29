@@ -6,21 +6,24 @@
     @else
         @if(Auth::user()->actual == 2)
             <div class="container-fluid" >
-                <div class="block row-fluid " >
-                    <div class="block">
-                        <div class="col-md-6 ">
+                <div class=" row-fluid " >
 
-                            Actual
+                        <div class="col-md-6 ">
+                            <div class="block">
+
+                                Actual
+
+                            </div>
 
                         </div>
 
-                        <div class="col-md-6 " id="other" style="border-left: 1px solid black;">
-                            <div style="border-bottom: 1px solid black;"></div>
+                        <div class="col-md-6 " id="other" >
+                            <div class="block">
                         @foreach($importants as $important)
 
                                 <?php $i = 0; ?>
                                     @if(count($notactuals[$important->id]['0']) > 0)
-                                        <div style="border-bottom: 1px solid black;">
+                                        <div>
                                         @if(count($notactuals[$important->id]['0']) == 1)
                                             {{$important->info}} y {{count($notactuals[$important->id]['0'])}} працівникa!
                                         @elseif(count($notactuals[$important->id]['0']) > 1)
@@ -52,11 +55,15 @@
                     </div>
                     </div>
                 </div>
-                <div class=" block row-fluid" >
+                <div class="  row-fluid" >
                     <hr>
 
-                    <div class="col-md-6 "></div>
-                    <div class="col-md-6 ">
+                        <div class="col-md-6 ">
+                            <div class="block"></div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="block">
                             @foreach($history as $event)
 
                                 @if($event['event'] == 'insert')
@@ -294,9 +301,9 @@
 
 
                         <center><div >{{$history->links()}}</div></center></div>
-
+                    </div>
                 </div>
-                </div>
+            </div>
 
         @endif
         @endif

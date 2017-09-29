@@ -1,8 +1,9 @@
 
 <?php $mas = array(); ?>
 <div class="row-fluid " >
+    <div class="col-md-3"></div>
     <div class="col-md-6">
-<table class="table-bordered table"  >
+        <table class="table-bordered table"  >
 
     <tbody>
         @foreach($menuses as $item)
@@ -12,9 +13,9 @@
                         <tr>
                             <th><b>{{$item->name_ukr}}</b></th>
 
-                        </tr>
+
                     @endif
-                        <tr>
+
                             <th>
                                 @if($item->type == 'text' or $item->type == 'number' or $item->type == 'email' or $item->type == 'password' or $item->type == 'date')
                                     <input type="{{$item->type}}" class="form-control" id="add_{{$item->name_eng}}" maxlength="{{$item->max}}" minlength="{{$item->min}}" >
@@ -38,31 +39,25 @@
                     @endif
 <?php array_push($mas,$item->name_eng) ; ?>
 
-    </tbody>
-</table>
-</div>
-    <div class="col-md-6">
-<table class="table-bordered table">
 
-    <tbody>
             @elseif($item->actual > 49)
                 @if(Auth::user()->actual == 2)
 
                     @if($item->type != 'button')
                         <tr>
                             <th><b>{{$item->name_ukr}}</b></th>
-                        </tr>
+
                     @endif
 
                                 @if($item->type == 'text' or $item->type == 'number' or $item->type == 'email' or $item->type == 'password' or $item->type == 'date')
 
-                                    <tr>
+
                                         <th><input type="{{$item->type}}" class="form-control" id="add_{{$item->name_eng}}" maxlength="{{$item->max}}" minlength="{{$item->min}}" ></th></tr>
                                 @elseif($item->type == 'textarea')
-                                    <tr>
+
                                         <th><textarea minlength="{{$item->min}}"  maxlength="{{$item->max}}" id="add_{{$item->name_eng}}" class="form-control"></textarea></th></tr>
                                 @elseif($item->type == 'select')
-                                    <tr>
+
                                         <th> <select class="form-control" id="add_{{$item->name_eng}}">
                                                 <?php $options = explode( ',',$item->option);
                                                 $options_name = explode(',' ,$item->option_name);
@@ -90,6 +85,7 @@
 
 </table>
     </div>
+    <div class="col-md-3"></div>
 <?php $add = json_encode($mas);?>
 </div>
 <script>
