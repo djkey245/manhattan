@@ -33,7 +33,7 @@
 @if(Auth::user()->theme == 'black')
 
     <nav class=" navbar-inverse navbar-default navbar-static-top">
-        <body  id="app-layout" style="background-color: black;">
+        <body  id="app-layout" style="">
             <link rel="stylesheet" href="/css/black-theme.css">
         @elseif(Auth::user()->theme == 'white')
             <nav class=" navbar navbar-default navbar-static-top">
@@ -55,7 +55,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand menu" href="{{ url('/home') }}">
                     Головна
                 </a>
             </div>
@@ -68,22 +68,22 @@
                     <ul class="nav navbar-nav">
 
                         <li class="dropdown">
-                            <a href="/list" class="dropdown-toggle" data-toggle="dropdown" >
+                            <a href="/list" class="dropdown-toggle menu" data-toggle="dropdown" >
                                 Працівники<span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/list') }}"><i class="fa fa-btn"></i>Усі працівники</a></li>
-                                <li><a href="{{ url('/office/Рівне') }}"><i class="fa fa-btn"></i>Рівне</a></li>
-                                <li><a href="{{ url('/office/Луцьк') }}"><i class="fa fa-btn"></i>Луцьк</a></li>
-                                <li><a href="{{ url('/office/Тернопіль') }}"><i class="fa fa-btn"></i>Тернопіль</a></li>
-                                <li><a href="{{ url('/office/Івано-Франківськ') }}"><i class="fa fa-btn"></i>Івано-Франківськ</a></li>
-                                <li><a href="{{ url('/office/Чернівці') }}"><i class="fa fa-btn"></i>Чернівці</a></li>
-                                <li><a href="{{ url('/office/Черкаси') }}"><i class="fa fa-btn"></i>Черкаси</a></li>
-                                <li><a href="{{ url('/office/Чернігів') }}"><i class="fa fa-btn"></i>Чернігів</a></li>
-                                <li><a href="{{ url('/office/Вінниця') }}"><i class="fa fa-btn"></i>Вінниця</a></li>
-                                <li><a href="{{ url('/office/Полтава') }}"><i class="fa fa-btn"></i>Полтава</a></li>
-                                <li><a href="{{ url('/office/Інші') }}"><i class="fa fa-btn"></i>Інші</a></li>
+                                <li><a href="{{ url('/list') }}" class="menu"><i class="fa fa-btn"></i>Усі працівники</a></li>
+                                <li><a href="{{ url('/office/Рівне') }}" class="menu"><i class="fa fa-btn"></i>Рівне</a></li>
+                                <li><a href="{{ url('/office/Луцьк') }}" class="menu"><i class="fa fa-btn"></i>Луцьк</a></li>
+                                <li><a href="{{ url('/office/Тернопіль') }}" class="menu"><i class="fa fa-btn"></i>Тернопіль</a></li>
+                                <li><a href="{{ url('/office/Івано-Франківськ') }}" class="menu"><i class="fa fa-btn"></i>Івано-Франківськ</a></li>
+                                <li><a href="{{ url('/office/Чернівці') }}" class="menu"><i class="fa fa-btn"></i>Чернівці</a></li>
+                                <li><a href="{{ url('/office/Черкаси') }}" class="menu"><i class="fa fa-btn"></i>Черкаси</a></li>
+                                <li><a href="{{ url('/office/Чернігів') }}" class="menu"><i class="fa fa-btn"></i>Чернігів</a></li>
+                                <li><a href="{{ url('/office/Вінниця') }}" class="menu"><i class="fa fa-btn"></i>Вінниця</a></li>
+                                <li><a href="{{ url('/office/Полтава') }}" class="menu"><i class="fa fa-btn"></i>Полтава</a></li>
+                                <li><a href="{{ url('/office/Інші') }}" class="menu"><i class="fa fa-btn"></i>Інші</a></li>
                             </ul>
 
 
@@ -93,13 +93,13 @@
 
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{{ url('/release') }}" class="dropdown-toggle" data-toggle="dropdown" >
+                            <a href="{{ url('/release') }}" class="dropdown-toggle menu" data-toggle="dropdown" >
                             Події<span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/release') }}"><i class="fa fa-btn"></i> Звільнення</a></li>
-                                <li><a href="{{ url('/report') }}"><i class="fa fa-btn"></i> Рапорт</a></li>
+                                <li><a href="{{ url('/release') }}"  class="menu"><i class="fa fa-btn"></i> Звільнення</a></li>
+                                <li><a href="{{ url('/report') }}"  class="menu"><i class="fa fa-btn"></i> Рапорт</a></li>
 
                             </ul>
 
@@ -112,13 +112,13 @@
                         <ul class="nav navbar-nav form-inline">
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle menu" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Сервіси<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/server') }}"><i class="fa fa-btn"></i>Сервери</a></li>
-                                    <li><a href="{{ url('/history') }}"><i class="fa fa-btn"></i>Історія</a></li>
+                                    <li><a href="{{ url('/server') }}"  class="menu"><i class="fa fa-btn"></i>Сервери</a></li>
+                                    <li><a href="{{ url('/history') }}"  class="menu"><i class="fa fa-btn"></i>Історія</a></li>
 
                                 </ul>
 

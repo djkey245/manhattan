@@ -54,7 +54,7 @@
 
 
                                                 </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
                                             </tr>
                                             @elseif($event['event'] == 'update')
                                             <tr><td>
@@ -102,7 +102,7 @@
 
                                                     @endif
                                                 </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
                                         @elseif($event['event'] == 'delete')
@@ -133,7 +133,7 @@
                                                         @endforeach
                                                     @endif
                                                 </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
                                         @elseif($event['event'] == 'comment')
@@ -155,7 +155,7 @@
 
 
                                                 </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
                                         @elseif($event['event'] == 'report')
@@ -173,7 +173,7 @@
 
 
                                                     </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
                                         @elseif($event['event'] == 'moving')
@@ -202,7 +202,7 @@
 
 
                                                     </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
                                         @elseif($event['event'] == 'create')
@@ -233,7 +233,7 @@
                                                 @endforeach
                                             @endif
                                                     </p></td>
-                                                <td>{{$event['date']}}</td>
+                                                <td class="td-table">{{$event['date']}}</td>
 
                                             </tr>
 
