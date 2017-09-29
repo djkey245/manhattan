@@ -37,7 +37,8 @@ if(type == 'rdp') {
             var name = document.getElementById('name').value;
             var ip = document.getElementById('ip').value;
             var adpass = document.getElementById('adpass').value;
-            var other = document.getElementById('other').value;
+            var vnc = document.getElementById('vnc').value;
+            var login = document.getElementById('login').value;
 
             $.ajax({
 
@@ -48,8 +49,9 @@ if(type == 'rdp') {
                     '_token': "{{csrf_token()}}",
                     'name': name,
                     'ip': ip,
-                    'vnc': adpass,
-                    'rdp': other,
+                    'vnc': vnc,
+                    'rdp': adpass,
+                    'login': login,
                     'purpose':type,
                     'id_user': id_user
 
@@ -106,15 +108,22 @@ if(type == 'rdp') {
                 <h5>ІР:</h5>
                 <input type="text" class="form-control" id="ip">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <h5>Login:</h5>
+                <input type="text" class="form-control" id="login">
+
+
+
+            </div>
+            <div class="col-md-2">
                 <h5>AdminPass:</h5>
                 <input type="text" class="form-control" id="adpass">
 
 
             </div>
-            <div class="col-md-3">
-                <h5>Other:</h5>
-                <textarea class="form-control" id="other"></textarea>
+            <div class="col-md-2">
+                <h5>VNC:</h5>
+                <input type="text" class="form-control" id="vnc">
                 <button onclick="next_page_add('vrt')" style=" margin-top: 10%" class="btn btn-success">Далі..</button>
 
 

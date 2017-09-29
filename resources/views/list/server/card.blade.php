@@ -38,14 +38,13 @@
     @foreach($servers as $server)
 
     <input type="hidden" id="id" value="{{$id}}">
-    <div class="container">
+    <div class="container-fluid">
         <div id="serv">
             <div id="server">
         <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="container ">
-                        <div class="thumbnail ">
-                            <div class="">
+                            <div class="block">
 
                                 @if($server['purpose'] == 'rdp')
 
@@ -68,23 +67,24 @@
                                 @elseif($server['purpose'] == 'vrt')
                                     <div class="row">
                                         <div class="col-md-1"> </div>
-                                        <div class="col-md-2" ><h4 >Ім’я(Login):</h4></div>
+                                        <div class="col-md-2" ><h4 >Ім’я:</h4></div>
                                         <div class="col-md-2"><h4>ІР:</h4></div>
+                                        <div class="col-md-2"><h4>Login:</h4></div>
                                         <div class="col-md-2"><h4>Pass:</h4></div>
-                                        <div class="col-md-2"><h4>Other:</h4></div>
-                                        <div class="col-md-3"><h4><b>SRV VRT</b></h4> </div>
+                                        <div class="col-md-2"><h4>VNC:</h4></div>
+                                        <div class="col-md-1"><h4><b>SRV VRT</b></h4> </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-1"> </div>
                                         <div class="col-md-2" ><h5>{{$server->name}}</h5></div>
                                         <div class="col-md-2"><h5>{{$server->ip}}</h5></div>
-                                        <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-2"><h5>{{$server->login}}</h5></div>
                                         <div class="col-md-2"><h5>{{$server->rdp}}</h5></div>
-                                        <div class="col-md-3"></div>
+                                        <div class="col-md-2"><h5>{{$server->vnc}}</h5></div>
+                                        <div class="col-md-1"></div>
                                     </div>
 
                                 @endif
-                            </div>
                             <br><br><br><br>
                         </div>
 
@@ -94,14 +94,14 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
-                    <button onclick="next_page_add()" style="width: 100%; margin-top: 10%" class="btn btn-success ">Додати віртуалку</button>
+                <div class="block col-md-2" style="margin-top: 1.45%">
+                    <button onclick="next_page_add()" style="width: 100%; margin-top: 5%" class="btn btn-success ">Додати віртуалку</button>
                     <button onclick="edit_server({{$server->id}})" style="width: 100%; margin-top: 5%" class="btn btn-primary ">Редагувати сервер</button>
                     <button onclick="delete_server({{$server->id}})" style="width: 100%; margin-top: 5%" class="btn btn-danger ">Видалити сервер</button>
                 </div>
             </div>
 
-        <div class="row">
+        <div class="row block">
             <ul class="thumbnails">
             @foreach($virtuals as $virtual)
 
