@@ -44,7 +44,7 @@
                                 <script>
 
 
-                                    /*$(".link-alert").hover(
+                                    $(".link-alert").hover(
                                     function() {
                                         $(".hidden-alert" ).show();
                                     },
