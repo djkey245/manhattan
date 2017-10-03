@@ -191,7 +191,7 @@ class ListController extends Controller
             $word = htmlspecialchars(stripcslashes(trim($word)));
             $names = $menus->select('name_eng')->get();
             $this->data['objects'] = $peoples->list_people();
-            $this->data['items'] = $menus->get();
+            $this->data['items'] = $menus->orderBy('actual')->get();
             $this->data['search'] = $word;
             $name;
             $search = '';

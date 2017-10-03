@@ -1,0 +1,7 @@
+.link-alert{
+    display: inline;
+    color: #4796c4;
+}
+.link-alert:hover{
+    text-decoration: underline;
+}

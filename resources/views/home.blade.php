@@ -25,34 +25,46 @@
                                     @if(count($notactuals[$important->id]['0']) > 0)
                                         <div>
                                         @if(count($notactuals[$important->id]['0']) == 1)
-                                            {{$important->info}} y {{count($notactuals[$important->id]['0'])}} працівникa!
+                                            {{$important->info}} y <div class="link-alert" onclick="link_alert()">{{count($notactuals[$important->id]['0'])}}</div>  працівникa!
                                         @elseif(count($notactuals[$important->id]['0']) > 1)
-                                            {{$important->info}} y {{count($notactuals[$important->id]['0'])}} працівників!
+                                                {{$important->info}} y <div class="link-alert" onclick="link_alert()">{{count($notactuals[$important->id]['0'])}}</div> працівників!
                                         @endif
-                                @foreach($notactuals[$important->id]['0'] as $notactual)
-                                        @if($i <= 2)
-
-                                            @foreach($peoples as $people )
-                                                @if($people->id == $notactual)
-                                                    <a href="/list/{{$people->id}}">{{$people->surname.' '.$people->name}}</a>,
-                                                @endif
-                                                @endforeach
-
-                                        @else
-                                            {{" та "}}<a onclick="open_page_other('{{$important->id}}')">інші</a>
-                                            @break
-                                        @endif
-
-                                <?php $i++;?>
-                            @endforeach
 
                                             <br>
                                         </div>
                                     @endif
                             @endforeach
+                                        {{-- script Alert, hover class:link-alert --}}
+                                <script>
+
+
+                                        $(".link-alert").hover(
+                                            function() {
+                                                $(".hidden-alert" ).show();
+
+
+
+
+                                            }, function() {
+                                                $(".hidden-alert" ).hide();
+                                            }
+                                        );
+                                        function link_alert() {
+                                            $(".hidden-alert" ).show();
+
+                                        }
+
+
+
+                                </script>
 
 
                     </div>
+                            <div class='hidden-alert'>
+                                <div class='row-fluid'>
+                                  re
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="  row-fluid" >

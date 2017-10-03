@@ -91,8 +91,23 @@ p{
     padding: 2% 4% 4% 4%;
     margin: 2% 2% 0 0;
 
+
 }
 
+.hidden-alert{
+    display: none;
+    width: 70%;
+    position: absolute;
+    z-index: 1000;
+    padding: 15px 10px 10px 10px;
+    background-color: #2b2b2b;
+    border: 1px solid #383838;
+    border-bottom-color: #353535;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+
+}
 
 
 
