@@ -6,6 +6,7 @@
     @else
         @if(Auth::user()->actual == 2)
             <div class="container-fluid" >
+
                 <div class=" row-fluid " >
 
                         <div class="col-md-6 ">
@@ -19,6 +20,11 @@
 
                         <div class="col-md-6 " id="other" >
                             <div class="block">
+                                    <div class='hidden-alert'>
+                                        <div class='row-fluid'>
+                                            re
+                                        </div>
+                                </div>
                         @foreach($importants as $important)
 
                                 <?php $i = 0; ?>
@@ -38,21 +44,20 @@
                                 <script>
 
 
-                                        $(".link-alert").hover(
-                                            function() {
-                                                $(".hidden-alert" ).show();
+                                    /*$(".link-alert").hover(
+                                    function() {
+                                        $(".hidden-alert" ).show();
+                                    },
 
+                                    function() {
+                                        $(".hidden-alert" ).hide();
+                                    }
+                                    );*/
 
+                                    function link_alert() {
+                                        $(".hidden-alert" ).show();
 
-
-                                            }, function() {
-                                                $(".hidden-alert" ).hide();
-                                            }
-                                        );
-                                        function link_alert() {
-                                            $(".hidden-alert" ).show();
-
-                                        }
+                                    }
 
 
 
@@ -60,11 +65,7 @@
 
 
                     </div>
-                            <div class='hidden-alert'>
-                                <div class='row-fluid'>
-                                  re
-                                </div>
-                            </div>
+
                     </div>
                 </div>
                 <div class="  row-fluid" >
