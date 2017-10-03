@@ -7,7 +7,7 @@
         @if(Auth::user()->actual == 2)
             <div class="container-fluid" >
 
-                <div class=" row-fluid " >
+                <div class="row-fluid" >
 
                         <div class="col-md-6 ">
                             <div class="block">
@@ -53,7 +53,7 @@
                                     function() {
                                         $(".hidden-alert" ).hide();
                                     }
-                                    );*/
+                                    );
 
                                     function link_alert() {
                                         $(".hidden-alert" ).show();
