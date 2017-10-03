@@ -20,8 +20,8 @@
 
                         <div class="col-md-6 " id="other" >
                             <div class="block">
-                                    <div class='hidden-alert'>
-                                        <div class='row-fluid'>
+                                    <div class="hidden-alert">
+                                        <div class="row-fluid">
                                             re
                                         </div>
                                 </div>
