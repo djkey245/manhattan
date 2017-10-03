@@ -88,10 +88,10 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="24" column="46" lean-forward="true" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+            <state relative-caret-position="340">
+              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding>
-                <element signature="e#2852#16740#0#HTML" expanded="false" />
+                <element signature="e#2873#16761#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -558,12 +558,12 @@
       <workItem from="1504766976654" duration="10827000" />
       <workItem from="1504873994354" duration="1422000" />
       <workItem from="1505224130312" duration="8285000" />
-      <workItem from="1505718981730" duration="50481000" />
+      <workItem from="1505718981730" duration="50632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="704494000" />
+    <option name="totallyTimeSpent" value="704645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1041,10 +1041,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="24" column="46" lean-forward="true" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+        <state relative-caret-position="340">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding>
-            <element signature="e#2852#16740#0#HTML" expanded="false" />
+            <element signature="e#2873#16761#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>

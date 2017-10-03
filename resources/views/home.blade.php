@@ -18,6 +18,7 @@
 
                         </div>
 
+
                         <div class="col-md-6 " id="other" >
                             <div class="block">
                                     <div class="hidden-alert">
