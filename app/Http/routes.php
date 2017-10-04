@@ -25,6 +25,9 @@ Route::auth();
 Route::get('/tests', function (){
     return view('list.tests');
 });
+Route::get('/otrs', [
+    'middleware' => 'auth',
+    'uses' => 'OTRSAPIController@index']);
 
 //home
 Route::get('/home', 'HomeController@index');
