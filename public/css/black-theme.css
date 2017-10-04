@@ -96,7 +96,7 @@ p{
 
 .hidden-alert{
     display: none;
-    width: 17%;
+    width: 20%;
     position: absolute;
     z-index: 1000;
     padding: 15px 10px 10px 10px;

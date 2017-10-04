@@ -10,10 +10,11 @@
                 <div class="row-fluid" >
                     <div class="hidden-alert" id="hidden-alert">
                         <div class="row-fluid">
-                            <div class="btn-x">
-                                <button class="btn-xs"  onclick="link_alert_none()">X</button>
-                            </div>
+
                             <div id="actual1">
+                                <div class="btn-x">
+                                    <button class="btn-xs"  onclick="link_alert_none(1)">X</button>
+                                </div>
                                 <?php $i = 0;?>
                                 @foreach($notactuals['1']['0'] as $peopler)
                                     @foreach($peoples as $people)
@@ -27,6 +28,10 @@
                                 @endforeach
                             </div>
                             <div id="actual2">
+                                <div class="btn-x">
+                                    <button class="btn-xs"  onclick="link_alert_none(2)">X</button>
+                                </div>
+
                                 <?php $i = 0;?>
                             @foreach($notactuals['2']['0'] as $peopler)
                                     @foreach($peoples as $people)
@@ -40,6 +45,9 @@
                                 @endforeach
                             </div>
                             <div id="actual3">
+                                <div class="btn-x">
+                                    <button class="btn-xs"  onclick="link_alert_none(3)">X</button>
+                                </div>
                                 <?php $i = 0;?>
                                 @foreach($notactuals['3']['0'] as $peopler=>$key)
                                     @foreach($peoples as $people)
@@ -53,6 +61,9 @@
                                 @endforeach
                             </div>
                             <div id="actual4">
+                                <div class="btn-x">
+                                    <button class="btn-xs"  onclick="link_alert_none(4)">X</button>
+                                </div>
                                 <?php $i = 0;?>
                                 @foreach($notactuals['4']['0'] as $peopler)
                                     @foreach($peoples as $people)
@@ -66,6 +77,9 @@
                                 @endforeach
                             </div>
                             <div id="actual5">
+                                <div class="btn-x">
+                                    <button class="btn-xs"  onclick="link_alert_none(5)">X</button>
+                                </div>
                                 <?php $i = 0;?>
                                 @foreach($notactuals['5']['0'] as $peopler)
                                     @foreach($peoples as $people)
@@ -99,9 +113,9 @@
                                     @if(count($notactuals[$important->id]['0']) > 0)
                                         <div>
                                         @if(count($notactuals[$important->id]['0']) == 1)
-                                            {{$important->info}} y <div class="link-alert" id="{{$important->id}}" onclick="link_alert()">{{count($notactuals[$important->id]['0'])}}</div>  працівникa!
+                                            {{$important->info}} y <div class="link-alert" id="{{$important->id}}" onclick="link_alert({{$important->id}})">{{count($notactuals[$important->id]['0'])}}</div>  працівникa!
                                         @elseif(count($notactuals[$important->id]['0']) > 1)
-                                                {{$important->info}} y <div class="link-alert" id="{{$important->id}}" onclick="link_alert()">{{count($notactuals[$important->id]['0'])}}</div> працівників!
+                                                {{$important->info}} y <div class="link-alert" id="{{$important->id}}" onclick="link_alert({{$important->id}})">{{count($notactuals[$important->id]['0'])}}</div> працівників!
                                         @endif
 
                                             <br>
@@ -118,7 +132,12 @@
                                         Y = e.pageY; // положения по оси Y
                                     });
                                     //id = 1
-                                    $("#1").hover(function() {i=0;var elem = document.getElementById("hidden-alert");
+                                    $("#1").hover(function() {i=0;
+                                            $("#actual2").hide();
+                                            $("#actual3").hide();
+                                            $("#actual4").hide();
+                                            $("#actual5").hide();
+                                    var elem = document.getElementById("hidden-alert");
                                     elem.style.cssText = "top: "+Y+"px;left:"+X+"px;";
                                     $(".hidden-alert").show();
                                     $("#actual1").show();},
@@ -126,7 +145,12 @@
                                         $("#actual1").hide();
                                     }});
                                     // id = 2
-                                    $("#2").hover(function() {i=0;var elem = document.getElementById("hidden-alert");
+                                    $("#2").hover(function() {i=0;
+                                            $("#actual1").hide();
+                                            $("#actual3").hide();
+                                            $("#actual4").hide();
+                                            $("#actual5").hide();
+                                    var elem = document.getElementById("hidden-alert");
                                             elem.style.cssText = "top: "+Y+"px;left:"+X+"px;";
                                             $(".hidden-alert").show();
                                             $("#actual2").show();},
@@ -134,7 +158,12 @@
                                             $("#actual2").hide();
                                         }});
                                     // id = 3
-                                    $("#3").hover(function() {i=0;var elem = document.getElementById("hidden-alert");
+                                    $("#3").hover(function() {i=0;
+                                            $("#actual2").hide();
+                                            $("#actual1").hide();
+                                            $("#actual4").hide();
+                                            $("#actual5").hide();
+                                    var elem = document.getElementById("hidden-alert");
                                             elem.style.cssText = "top: "+Y+"px;left:"+X+"px;";
                                             $(".hidden-alert").show();
                                             $("#actual3").show();},
@@ -142,7 +171,12 @@
                                             $("#actual3").hide();
                                         }});
                                     // id = 4
-                                    $("#4").hover(function() {i=0;var elem = document.getElementById("hidden-alert");
+                                    $("#4").hover(function() {i=0;
+                                            $("#actual2").hide();
+                                            $("#actual3").hide();
+                                            $("#actual1").hide();
+                                            $("#actual5").hide();
+                                    var elem = document.getElementById("hidden-alert");
                                             elem.style.cssText = "top: "+Y+"px;left:"+X+"px;";
                                             $(".hidden-alert").show();
                                             $("#actual4").show();},
@@ -150,7 +184,12 @@
                                             $("#actual4").hide();
                                         }});
                                     // id = 5
-                                    $("#5").hover(function() {i=0;var elem = document.getElementById("hidden-alert");
+                                    $("#5").hover(function() {i=0;
+                                            $("#actual2").hide();
+                                            $("#actual3").hide();
+                                            $("#actual4").hide();
+                                            $("#actual1").hide();
+                                    var elem = document.getElementById("hidden-alert");
                                             elem.style.cssText = "top: "+Y+"px;left:"+X+"px;";
                                             $(".hidden-alert").show();
                                             $("#actual5").show();},
@@ -158,15 +197,16 @@
                                             $("#actual5").hide();
                                         }});
 
-                                    function link_alert() {
+                                    function link_alert(elem) {
                                         i = 1;
 
-                                        $(".hidden-alert" ).show();
+                                        $("#actual"+elem ).show();
 
                                     }
-                                    function link_alert_none() {
-                                        i=0;
-                                        $(".hidden-alert" ).hide();
+                                    function link_alert_none(elem) {
+                                        i = 0;
+                                        $("#actual"+elem).hide();
+                                        $(".hidden-alert").hide();
                                     }
 
 
