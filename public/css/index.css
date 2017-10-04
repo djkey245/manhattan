@@ -5,3 +5,29 @@
 .link-alert:hover{
     text-decoration: underline;
 }
+.btn-x{
+    display: inline;
+    left: 93%;
+    top: 0;
+    width: 5%;
+    position: absolute;
+    padding-top: 5px;
+}
+#actual1{
+    display: none;
+}
+#actual2{
+    display: none;
+}
+#actual3{
+    display: none;
+}
+#actual4{
+     display: none;
+ }
+#actual5{
+      display: none;
+  }
+
+
+

@@ -48,3 +48,21 @@ tr.back-yellow{
 table{
     background-color: #f4f8f3;
 }
+.hidden-alert{
+    display: none;
+    width: 70%;
+    position: absolute;
+    z-index: 1000;
+    padding: 15px 10px 10px 10px;
+    background-color: #f4f8f3;
+    border: 1px solid #383838;
+    border-bottom-color: #353535;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.btn-x>button{
+    background-color: #ac2925 ;
+    color: #f4f8f3 ;
+    border: none;
+}
