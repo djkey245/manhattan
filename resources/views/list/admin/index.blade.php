@@ -14,9 +14,9 @@
                     <div class="form-inline" style="width: 100%; display: inline-block" >
                         <input type="hidden" id="_token" value="{{csrf_token()}}">
                         <input type="hidden" id="user" value="{{Auth::user()->id}}">
-                        <input class="input-sm input-group"  type="text" id="time">
-                        <input class="input-sm input-group"  type="date" id="date" >
-                        <textarea class="form-control " id="comment"></textarea>
+                        <input class="input-sm input-group" style="color: black !important;" type="text" id="time">
+                        <input class="input-sm input-group" style="color: black !important;" type="date" id="date" >
+                        <textarea class="form-control " style="color: black !important;" id="comment"></textarea>
                         <button class="input-group btn" onclick="save_test()">Enter</button>
 
                     </div>
@@ -59,9 +59,9 @@
                     <div  style="width: 100%; display: inline-block" >
                         <input type="hidden" id="_token" value="{{csrf_token()}}">
                         <input type="hidden" id="user" value="{{Auth::user()->id}}">
-                        <input class="input-sm input-group"  type="text" id="time" >
-                        <input class="input-sm input-group"  type="date" id="date">
-                        <textarea class="form-control " id="comment"></textarea>
+                        <input class="input-sm input-group" style="color: black !important;"  type="text" id="time" >
+                        <input class="input-sm input-group" style="color: black !important;" type="date" id="date">
+                        <textarea class="form-control " style="color: black !important;" id="comment"></textarea>
                         <button class="input-group btn" onclick="save_test()">Enter</button>
 
                     </div>

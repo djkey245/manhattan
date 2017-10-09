@@ -50,7 +50,7 @@ table{
 }
 .hidden-alert{
     display: none;
-    width: 70%;
+    width: 20%;
     position: absolute;
     z-index: 1000;
     padding: 15px 10px 10px 10px;
@@ -60,6 +60,8 @@ table{
     -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.5);
+    top: 10px;
+    left: 10px;
 }
 .btn-x>button{
     background-color: #ac2925 ;
