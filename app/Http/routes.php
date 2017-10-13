@@ -244,6 +244,36 @@ Route::post('/server/search',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@search'] );
 
+//contracts
+Route::get('/contracts',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@index'] );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //admin
 Route::get('/admin',   [

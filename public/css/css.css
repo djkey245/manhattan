@@ -1,0 +1,25 @@
+.table-contracts{
+    width: 100%;
+    text-align: center;
+}
+.table-contracts>thead>tr>th{
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+.ppp-block{
+    display: none;
+}
+.nat-block{
+    display: none;
+}
+.add{
+    display: none;
+}
+
+.form-edit{
+    color:black;
+    width: 40%;
+    border-radius: 5px;
+    border-color: #333333;
+}
