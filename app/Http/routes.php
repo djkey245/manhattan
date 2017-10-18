@@ -248,6 +248,21 @@ Route::post('/server/search',   [
 Route::get('/contracts',   [
     'middleware' => 'auth',
     'uses' =>'ContractController@index'] );
+Route::post('/contracts/add',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@add'] );
+Route::post('/contracts/edit/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@edit_page'] );
+Route::post('/contracts/save',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@save'] );
+Route::post('/contracts/del/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@del'] );
+Route::post('/contracts/virtual',   [
+    'middleware' => 'auth',
+    'uses' =>'ContractController@virtual'] );
 
 
 

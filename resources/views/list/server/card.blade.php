@@ -102,6 +102,28 @@
             </div>
 
         <div class="row block">
+            <div class="alert-contr">
+                <div class="exit">
+                    <button class="btn btn-sm btn-danger left" onclick="$('.alert-contr').hide()">x</button>
+                </div>
+<?php $i = 0; ?>
+                @foreach($contracts as $contract)
+                    <input type="radio" checked name="contr" value="{{$contract->id}}">
+                    <label class="radio-inline"><b>
+                        {{$contract->name.' '.$contract->ip.' '}}
+                        @if($contract->ppp0e == 1)
+                            ppp0e
+                        @elseif($contract->nat == 1)
+                            nat
+                        @elseif($contract->mac == 1)
+                            mac
+                        @endif</b>
+                    </label>
+                    <br>
+
+                @endforeach
+                <button class="btn btn-primary" onclick="save_contr()">Save</button>
+            </div>
             <ul class="thumbnails">
             @foreach($virtuals as $virtual)
 
@@ -111,6 +133,7 @@
 
                                 <div class="caption">
                                     <div class="btn-group" style="padding-left: 80%">
+                                        <button onclick="add_contr({{$virtual->id}})" class="btn btn-sm btn-success right " >+</button>
                                         <button onclick="edit_vrt( {{$virtual->id}} )" class="btn btn-sm btn-primary right " >-</button>
 
                                         <button onclick="delete_virtuals({{$virtual->id}})" class="btn btn-sm btn-danger right" >x</button>
@@ -119,7 +142,7 @@
                                     <h4 style="color: white;">{{$virtual->name}}</h4>
                                     <p style="color: white;">{{$virtual->ip}}</p>
                                     <p style="color: white;">{{$virtual->lp}}</p>
-                                    <h4 style="color: white;">
+                                    <h4 style="color: white; display: inline-block">
                                         @foreach($peoples as $people)
                                             <?php $vrts = explode(',', $people->virtuals);  ?>
                                             @foreach($vrts as $virt)
@@ -132,6 +155,29 @@
                                         @endforeach
 
                                     </h4>
+                                    <a style="display: inline-block; text-align: right; padding-left: 70%" onclick="$('#contr-{{$virtual->id}}').toggle()"  >Detail</a>
+                                </div>
+                                <div class="card-contr" id="contr-{{$virtual->id}}">
+                                    @foreach($contracts as $contract)
+                                        @if($contract->id == $virtual->contracts_id)
+                                            <b style="color: black">
+                                            Name: {{$contract->name}}<br>
+                                            Type: @if($contract->ppp0e == 1)
+                                                ppp0e <br>
+                                                      ppp0e: {{$contract->ppp0e_login}}<br>
+                                                      pass: {{$contract->pass}}<br>
+                                            @elseif($contract->nat == 1)
+                                                nat<br>
+                                                      nat: {{$contract->nat_login}}<br>
+                                            @elseif($contract->mac == 1)
+                                                mac<br>
+                                            @endif
+                                            MAC: {{$contract->mac_address}}<br>
+                                            IP: {{$contract->ip}}
+
+                                            </b>
+                                        @endif
+                                        @endforeach
                                 </div>
                             </div>
 
@@ -266,6 +312,34 @@
                 return 0;
             }
 
+        }
+        var  contr_vrt_id = 0;
+        function add_contr(vrt_id) {
+                $('.alert-contr').show();
+                contr_vrt_id = vrt_id;
+        }
+
+        function save_contr() {
+            var name_contr = document.getElementsByName('contr');
+            var a = name_contr.length;
+            var id_contr;
+            for(var i = 0; i<a; i++){
+                if(name_contr[i].checked){
+                    id_contr = name_contr[i].value;
+                }
+            }
+            $.ajax({
+                type: "POST",
+                url: "/contracts/virtual",
+                data:{
+                    _token: "{{csrf_token()}}",
+                    id_contr: id_contr,
+                    id_vrt: contr_vrt_id
+                },
+                success: function () {
+                    location.reload(true);
+                }
+            });
         }
     </script>
 @stop

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts;
 use App\Peoples;
 use Illuminate\Http\Request;
 use App\Server;
@@ -109,9 +110,10 @@ class ServerController extends Controller
 return 1;
 
     }
-    public function card(Server $server, Virtual $virtual, $id, Peoples $peoples){
+    public function card(Server $server, Virtual $virtual, $id, Peoples $peoples, Contracts $contracts){
         $this->data['servers'] = $server->where(['id' => $id])->get();
         $this->data['peoples'] = $peoples->get();
+        $this->data['contracts'] = $contracts->get();
         $this->data['virtuals'] = $virtual->where(['id_server' => $id])->get();
 
         $this->data['id'] = $id;

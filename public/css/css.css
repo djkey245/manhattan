@@ -14,7 +14,7 @@
     display: none;
 }
 .add{
-    display: none;
+    /*display: none;*/
 }
 
 .form-edit{
@@ -22,4 +22,30 @@
     width: 40%;
     border-radius: 5px;
     border-color: #333333;
+}
+input {
+    color: black;
+}
+tr>td>input{
+    color: black;
+}
+.alert-contr{
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 400px;
+    width: 20%;
+    height: auto;
+    background-color: #263238;
+    z-index: 1000;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.exit{
+    width: 100%;
+    text-align: right;
+}
+.card-contr{
+    display: none;
 }

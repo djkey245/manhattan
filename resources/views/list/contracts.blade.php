@@ -16,10 +16,10 @@
                         <th>ppp0e</th>
                         <th>Pass</th>
                         <th>NAT</th>
-                        <th colspan="2">Type</th>
+                        <th>Type</th>
                         <th><button  class="btn btn-success" onclick="$('.add').show();">Add</button></th>
                     </thead>
-                    <tbody>
+                    <tbody id="">
 
                             @foreach($contracts as $contract)
                                 <tr class="table-contracts-tr">
@@ -30,10 +30,17 @@
                                     <td id="t_ppp0e_login" ondblclick="edit(this);">  <div id="t_ppp0e_login1">{{$contract->ppp0e_login}}</div></td>
                                     <td id="t_pass" ondblclick="edit(this);">         <div id="t_pass1">{{$contract->pass}}</div></td>
                                     <td id="t_nat_login" ondblclick="edit(this);">    <div id="t_nat_login1">{{$contract->nat_login}}</div></td>
-                                    <td id="t_type" colspan="2"></td>
+                                    <td id="t_type"> @if($contract->ppp0e == 1)
+                                                        ppp0e
+                                                         @elseif($contract->nat == 1)
+                                                            nat
+                                                         @elseif($contract->mac == 1)
+                                                            mac
+                                                         @endif
+                                    </td>
                                     <td>
-                                        <button  class="btn btn-primary">Edit</button>
-                                        <button  class="btn btn-danger">Del</button>
+                                        <button  class="btn btn-primary" onclick="edit({{$contract->id}})">Edit</button>
+                                        <button  class="btn btn-danger" onclick="del({{$contract->id}})">Del</button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -46,9 +53,9 @@
 
 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" id="edit">
                 <table  class="table-contracts table-condensed contract-add">
-                    <tbody class="add">
+                    <tbody class="add" style="display: none;">
                         <tr>
                             <th>
                                 Name:
@@ -87,7 +94,7 @@
                                 <b>pass:</b>
                             </th>
                             <td colspan="2">
-                                <input type="text" name="pass" class="form-control">
+                                <input type="text" id="pass" class="form-control">
                             </td>
                         </tr>
 
@@ -153,7 +160,7 @@
             $(".ppp-block").hide();
             $(".nat-block").hide();
         };
-
+        $(".add").hide();
     //Edit-block(refactoring in input td-blocks)
 
         /*var i_id = document.getElementById("i_id") ;
@@ -170,12 +177,89 @@
         var i_nat_login = document.getElementById("i_nat_login").ondblclick = function () {
             $("#i_nat_login").html('<input class="form-edit" type="text" id="i_nat_login">');};
         var i_type = document.getElementById("i_type");*/
-
         function edit(id) {
-            //alert($(id).text());
-            $(id).append('<form onsubmit="editing()"> <input class="form-edit" value="'+$(id).text()+'" type="text" id="edi'+id.id+'" ></form> ');
-            $('#'+id.id+'1').hide();
+            $.ajax({
+                type: "POST",
+                url: "/contracts/edit/"+id,
+                data:{'_token':"{{csrf_token()}}"},
+                dataType: 'html',
+                success: function (msg) {
+                    $(".add").show();
+
+                    $("#edit").html(msg);
+
+                }
+            });
+
         }
+    function del(id) {
+        if (confirm("Ви впевнені?") == true) {
+            $.ajax({
+
+                type: "POST",
+                url: "/contracts/del/" + id,
+                data: {"_token": "{{csrf_token()}}"},
+                success: function () {
+                    location.reload(true);
+                }
+
+            });
+        }else {
+            return 0;
+        }
+    }
+    function add(){
+            var name = document.getElementById('name').value;
+            var ppp0e = document.getElementById('ppp0e').valueOf().checked;
+            var mac = document.getElementById('mac').valueOf().checked;
+            var nat = document.getElementById('nat').valueOf().checked;
+            if(ppp0e == true){
+                ppp0e = 1;
+            }
+            else{
+                ppp0e = 0;
+            }
+            if(mac == true){
+                mac = 1;
+            }
+            else{
+                mac = 0;
+            }
+            if(nat == true){
+                nat = 1;
+            }
+            else{
+                nat = 0;
+            }
+        var ppp0e_login = document.getElementById('ppp0e-login').value;
+        var pass = document.getElementById('pass').value;
+        var mac_address = document.getElementById('mac-address').value;
+        var ip = document.getElementById('ip').value;
+        var nat_login = document.getElementById('nat-login').value;
+        $.ajax({
+
+            type: "POST",
+            url: "/contracts/add",
+            data: {
+                "_token" : "{{csrf_token()}}",
+                name: name,
+                ppp0e: ppp0e,
+                mac: mac,
+                nat: nat,
+                ppp0e_login: ppp0e_login,
+                pass: pass,
+                mac_address: mac_address,
+                ip: ip,
+                nat_login: nat_login
+            },
+            success: function () {
+                location.reload(true);
+            }
+
+        });
+
+        }
+
 
 
 
