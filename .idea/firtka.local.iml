@@ -37,7 +37,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kelunik/acme" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/elixir" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/socialite" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -70,6 +72,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/instagram" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/socialiteproviders/manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />
@@ -131,7 +135,9 @@
           <root url="file://$MODULE_DIR$/vendor/kelunik/acme" />
           <root url="file://$MODULE_DIR$/vendor/laravel/elixir" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
+          <root url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -164,6 +170,8 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/vendor/socialiteproviders/instagram" />
+          <root url="file://$MODULE_DIR$/vendor/socialiteproviders/manager" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />
@@ -221,7 +229,9 @@
           <root url="file://$MODULE_DIR$/vendor/kelunik/acme" />
           <root url="file://$MODULE_DIR$/vendor/laravel/elixir" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/socialite" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
+          <root url="file://$MODULE_DIR$/vendor/league/oauth1-client" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -254,6 +264,8 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/vendor/socialiteproviders/instagram" />
+          <root url="file://$MODULE_DIR$/vendor/socialiteproviders/manager" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />

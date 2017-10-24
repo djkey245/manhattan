@@ -12,7 +12,8 @@
         "laravel/elixir": "dev-master",
         "kelunik/acme": "v0.3.2",
         "alexusmai/ruslug": "0.5",
-        "google/apiclient": "v2.2.0"
+        "google/apiclient": "v2.2.0",
+        "socialiteproviders/instagram": "v2.0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
