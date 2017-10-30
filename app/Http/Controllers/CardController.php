@@ -123,6 +123,7 @@ class CardController extends Controller
         $people = $peoples->where(['id' => $id])->firstOrFail();
         $login_wifi = explode('@', $people->mail);
         $login_wifi = $login_wifi['0'];
+        $login_wifi = hasToString($login_wifi);
         $pass_wifi = rand('1000', '9999');
         require('Class/RouterosAPI.php');
         $API = new RouterosAPI();
@@ -136,7 +137,8 @@ class CardController extends Controller
                     "password" => $pass_wifi
             )
             )){
-                $people->update(['wifi_login' => $login_wifi, "wifi_pass" => $pass_wifi]);
+                $peoples->where(['id' => $id])->update(["wifi_pass" => $pass_wifi]);
+                $peoples->where(['id' => $id])->update(['wifi_login' => $login_wifi]);
             }
 
 
