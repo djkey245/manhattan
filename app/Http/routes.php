@@ -106,6 +106,9 @@ Route::post('/list/save_virtual_vrt/{slug}', [
 Route::post('/list/delete_virtual/{slug}', [
     'middleware' => 'auth',
     'uses' => 'CardController@virtual_delete']);
+Route::post('/list/wifi/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'CardController@wifi']);
 
 
 //history

@@ -118,4 +118,31 @@ class CardController extends Controller
         $data = $people_id;
         $this->history( $id_user ,'update', 'peoples', $data );
     }
+
+    public function wifi($id, Peoples $peoples){
+        $people = $peoples->where(['id' => $id])->firstOrFail();
+        $login_wifi = explode('@', $people->mail);
+        $login_wifi = $login_wifi['0'];
+        $pass_wifi = rand('1000', '9999');
+        require('Class/RouterosAPI.php');
+        $API = new RouterosAPI();
+
+        $API->debug = false;
+
+        if($API->connect('192.168.11.32', 'admin', 'mikrotikcore')){
+            //$API->write('/caps-man/registration-table/print');
+            if($API->comm("/ip/hotspot/user/add", array(
+                    "name" => $login_wifi,
+                    "password" => $pass_wifi
+            )
+            )){
+                $people->update(['wifi_login' => $login_wifi, "wifi_pass" => $pass_wifi]);
+            }
+
+
+
+            $API->disconnect();
+        }
+
+    }
 }

@@ -14,7 +14,7 @@ class TestController extends Controller
 
         $API->debug = false;
 
-        if($API->connect('192.168.11.17', 'admin', 'admin')){
+        if($API->connect('192.168.11.32', 'admin', 'mikrotikcore')){
             //$API->write('/caps-man/registration-table/print');
             $API->write('/ip/hotspot/active/print');
             $READ = $API->read(false);
@@ -24,6 +24,7 @@ class TestController extends Controller
             $cap_users = $API->parseResponse($cap);
             //print_r($cap_users);
             //print_r($hotspots);
+
             echo '<br>';
             foreach ($hotspots as $hotspot){
 
