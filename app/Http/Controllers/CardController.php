@@ -133,7 +133,7 @@ class CardController extends Controller
         if($API->connect('192.168.11.32', 'admin', 'mikrotikcore')){
             //$API->write('/caps-man/registration-table/print');
             if($API->comm("/ip/hotspot/user/add", array(
-                    "name" => $login_wifi,
+                    "name" => $login_wifi['0'],
                     "password" => $pass_wifi
             )
             )){
