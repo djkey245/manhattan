@@ -122,6 +122,13 @@
                     <br>
 
                 @endforeach
+                <input type="radio" checked name="contr" value="0">
+                <label class="radio-inline">
+                    <b>none
+                    </b>
+                </label>
+                <br>
+                <br>
                 <button class="btn btn-primary" onclick="save_contr()">Save</button>
             </div>
             <ul class="thumbnails">
@@ -155,7 +162,7 @@
                                         @endforeach
 
                                     </h4>
-                                    <a style="display: inline-block; text-align: right; padding-left: 70%" onclick="$('#contr-{{$virtual->id}}').toggle()"  >Detail</a>
+                                    <a style="display: inline-block; text-align: right; padding-left: 70%; cursor: pointer" onclick="$('#contr-{{$virtual->id}}').toggle()"  >Detail</a>
                                 </div>
                                 <div class="card-contr" id="contr-{{$virtual->id}}">
                                     @foreach($contracts as $contract)

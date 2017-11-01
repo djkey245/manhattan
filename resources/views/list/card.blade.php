@@ -8,7 +8,6 @@
                 var id_people = {{$items->id}};
                 var id_user = document.getElementById('id_user').value;
 
-
                 $.ajax({
 
 
