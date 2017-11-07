@@ -124,7 +124,7 @@ class CardController extends Controller
         $login_wifi = explode('@', $people->mail);
 
 
-        $pass_wifi = rand('1000', '9999');
+        $pass_wifi = rand('10000', '99999');
         require('Class/RouterosAPI.php');
         $API = new RouterosAPI();
 
