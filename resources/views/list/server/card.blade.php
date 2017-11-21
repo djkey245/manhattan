@@ -205,7 +205,8 @@
     @endforeach
     <script>
         function edit_vrt(id){
-
+            var block_a = document.querySelectorAll("a .block-sidebar-menu .all-text-sidebar-menu .text-sidebar-menu");
+            block_a.text();
 
             $.ajax({
 
