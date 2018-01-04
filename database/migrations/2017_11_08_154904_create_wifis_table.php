@@ -16,7 +16,7 @@ class CreateWifisTable extends Migration
             $table->increments('id');
             $table->integer('id_user');
             $table->string('cap');
-            $table->time('time_at');
+            $table->time('time');
             $table->date('date_at');
         });
     }

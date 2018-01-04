@@ -14,7 +14,7 @@ class TestController extends Controller
 
         $API->debug = false;
 
-        if($API->connect('192.168.11.32', 'admin', 'mikrotikcore')){
+        if($API->connect('192.168.11.16', 'admin', 'mikrotikcore')){
             //$API->write('/caps-man/registration-table/print');
             $API->write('/ip/hotspot/active/print');
             $READ = $API->read(false);
