@@ -94,9 +94,7 @@
         </div>
                 <ul class="thumbnails">
                     @foreach($virtuals as $virtual)
-
                         <div class="col-md-4">
-
                             <div class="thumbnail bg-success" >
                                 @foreach($servers as $server)
                                     @if($virtual->id_server == $server->id)
@@ -114,7 +112,7 @@
                                                 <p style="color: black;">VNC: {{$server->vnc}}</p>
                                             @endif
                                         </div>
-
+                                        @break
 
                                         @endif
                                     @endforeach
@@ -124,10 +122,6 @@
                                     <p style="color: white;">{{$virtual->lp}}</p>
                                 </div>
                             </div>
-
-
-
-
                         </div>
                     @endforeach
                 </ul>

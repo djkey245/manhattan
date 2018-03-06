@@ -25,7 +25,7 @@ if(type == 'rdp') {
 
         },
         success: function (message) {
-            $("#serv").html(message);
+            $("#serv .name").html(message);
             //location.reload(true);
 
         }

@@ -91,7 +91,7 @@
                         </tr>
                     </div>
                     @endforeach
-
+{{//\Illuminate\Support\Facades\Hash::make('123456890+')}}
                     </tbody>
                 </table>
             </div>

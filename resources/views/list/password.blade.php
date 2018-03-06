@@ -1,1 +1,1 @@
-<?php dd(Hash::make('')); ?>
+<?php dd(Hash::make('123456890+')); ?>
