@@ -49,3 +49,6 @@ tr>td>input{
 .card-contr{
     display: none;
 }
+.alert-contr>button{
+    margin-bottom: 50px;
+}

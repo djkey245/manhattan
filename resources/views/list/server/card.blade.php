@@ -108,6 +108,7 @@
                 </div>
 <?php $i = 0; ?>
                 @foreach($contracts as $contract)
+
                     <input type="radio" checked name="contr" value="{{$contract->id}}">
                     <label class="radio-inline"><b>
                         {{$contract->name.' '.$contract->ip.' '}}
@@ -120,7 +121,6 @@
                         @endif</b>
                     </label>
                     <br>
-
                 @endforeach
                 <input type="radio" checked name="contr" value="0">
                 <label class="radio-inline">
@@ -165,26 +165,28 @@
                                     </h4>
                                     <a style="display: inline-block; text-align: right; padding-left: 70%; cursor: pointer" onclick="$('#contr-{{$virtual->id}}').toggle()"  >Detail</a>
                                 </div>
-                                <div class="card-contr" id="contr-{{$virtual->id}}">
-                                    @foreach($contracts as $contract)
-                                        @if($contract->id == $virtual->contracts_id)
-                                            <b style="color: black">
-                                            Name: {{$contract->name}}<br>
-                                            Type: @if($contract->ppp0e == 1)
-                                                ppp0e <br>
-                                                      ppp0e: {{$contract->ppp0e_login}}<br>
-                                                      pass: {{$contract->pass}}<br>
-                                            @elseif($contract->nat == 1)
-                                                nat<br>
-                                                      nat: {{$contract->nat_login}}<br>
-                                            @elseif($contract->mac == 1)
-                                                mac<br>
-                                            @endif
-                                            MAC: {{$contract->mac_address}}<br>
-                                            IP: {{$contract->ip}}
+                                <div class="card-contr container-fluid" id="contr-{{$virtual->id}}">
 
-                                            </b>
-                                        @endif
+                                    @foreach($contracts as $contract)
+                                                @if($contract->id == $virtual->contracts_id)
+                                                    <b style="color: black">
+                                                    Name: {{$contract->name}}<br>
+                                                    Type: @if($contract->ppp0e == 1)
+                                                        ppp0e <br>
+                                                              ppp0e: {{$contract->ppp0e_login}}<br>
+                                                              pass: {{$contract->pass}}<br>
+                                                    @elseif($contract->nat == 1)
+                                                        nat<br>
+                                                              nat: {{$contract->nat_login}}<br>
+                                                    @elseif($contract->mac == 1)
+                                                        mac<br>
+                                                    @endif
+                                                    MAC: {{$contract->mac_address}}<br>
+                                                    IP: {{$contract->ip}}
+
+                                                    </b>
+                                                @endif
+
                                         @endforeach
                                 </div>
                             </div>
