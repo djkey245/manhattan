@@ -50,6 +50,7 @@
                 'name': name1,
                 'lp': pass1,
                 'ip': ip1,
+                'os': os1,
                 'id_server': id_server1,
                 'id_user': id_user,
                 'id_people': id_people
