@@ -34,6 +34,7 @@
     }*/
     function save_virtual() {
         var name1 = document.getElementById('name1').value;
+        var os1 = document.getElementById('os1').value;
         var pass1 = document.getElementById('pass1').value;
         var ip1 = document.getElementById('ip1').value;
         var id_server1 = {{$id_server}};
@@ -76,6 +77,9 @@
 
     <label>Name(Login)<p></p>
         <input type="text" id="name1"  >
+    </label>
+    <label>OS<p></p>
+        <input type="text" id="os1"  >
     </label>
     <label>IP<p></p>
         <input type="text" id="ip1"  >
