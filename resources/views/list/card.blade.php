@@ -118,6 +118,7 @@
                                     @endforeach
                                 <div class="caption" style="background-color:  #ecb342;     font-size: 14px; text-align: center; border: 1px solid transparent;  border-radius: 4px;">
                                     <h4 style="color: white;">{{$virtual->name}}</h4>
+                                    <h4 style="color: red;">{{$virtual->os}}</h4>
                                     <p style="color: white;">{{$virtual->ip}}</p>
                                     <p style="color: white;">{{$virtual->lp}}</p>
                                 </div>

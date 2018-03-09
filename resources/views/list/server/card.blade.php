@@ -147,7 +147,7 @@
 
                                     </div>
                                     <h4 style="color: white;">{{$virtual->name}}</h4>
-                                    <h4 style="color: white;">{{$virtual->os}}</h4>
+                                    <h4 style="color: red;">{{$virtual->os}}</h4>
                                     <p style="color: white;">{{$virtual->ip}}</p>
                                     <p style="color: white;">{{$virtual->lp}}</p>
                                     <h4 style="color: white; display: inline-block">
@@ -207,7 +207,7 @@
     <script>
         function edit_vrt(id){
             var block_a = document.querySelectorAll("a .block-sidebar-menu .all-text-sidebar-menu .text-sidebar-menu");
-            block_a.text();
+            //block_a.text();
 
             $.ajax({
 
