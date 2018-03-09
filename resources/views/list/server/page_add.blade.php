@@ -2,7 +2,7 @@
     function next_page_add(type){
 
 
-        var id_user = {{Auth::user()->id}};
+        var id_user ={{Auth::user()->id}};
 if(type == 'rdp') {
     var name = document.getElementById('name').value;
     var ip = document.getElementById('ip').value;
@@ -25,7 +25,7 @@ if(type == 'rdp') {
 
         },
         success: function (message) {
-            $("#serv ").html(message);
+            $("#serv").html(message);
             //location.reload(true);
 
         }

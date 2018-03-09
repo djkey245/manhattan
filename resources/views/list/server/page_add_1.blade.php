@@ -48,52 +48,51 @@
 
     </div>
     <div id="add_v"></div>
-</div>
-<div id="prob"></div>
-<script>
-    function save_server(){
+    <script>
+        function save_server(){
+
+            var id = document.getElementById('id').value;
+            var name_v = document.getElementsByName('name_v[]');
+            var ip_v = document.getElementsByName('ip_v[]');
+            var lp_v = document.getElementsByName('lp_v[]');
+            var os_v = document.getElementsByName('os_v[]');
+            var id_user ={{Auth::user()->id}};
+            var j ;
+            var vrt = "";
+            for(j = 0;j<=i;j++){
+
+                vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+','+os_v[j].value+';';
+
+            }
+
+            $.ajax({
+
+                type: 'post',
+                url: '/server/save',
+                dataType: 'html',
+                data:{
+                    '_token': "{{csrf_token()}}" ,
+                    'vrt': vrt,
+                    'id_serv':id,
+                    'id_user':id_user
+
+                },
+                success: function (message) {
+                    //alert(message);
+                    //$("#prob").html(message);
+                    location.reload(true);
+
+                }
 
 
-        var id = document.getElementById('id').value;
-        var name_v = document.getElementsByName('name_v[]');
-        var ip_v = document.getElementsByName('ip_v[]');
-        var lp_v = document.getElementsByName('lp_v[]');
-        var os_v = document.getElementsByName('os_v[]');
-        var id_user = {{Auth::user()->id}};
-        var j ;
-        var vrt = "";
-        for(j = 0;j<=i;j++){
 
-            vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+','+os_v[j].value+';';
+            });
+
 
         }
 
-        $.ajax({
-
-         type: 'post',
-         url: '/server/save',
-         dataType: 'html',
-         data:{
-         '_token': "{{csrf_token()}}" ,
-             'vrt': vrt,
-             'id_serv':id,
-             'id_user':id_user
-
-         },
-         success: function (message) {
-            //alert(message);
-             //$("#prob").html(message);
-         location.reload(true);
-
-         }
 
 
-
-         });
-
-
-    }
-
-
-
-</script>
+    </script>
+</div>
+<div id="prob"></div>

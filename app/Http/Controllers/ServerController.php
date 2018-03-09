@@ -80,9 +80,6 @@ class ServerController extends Controller
     public function save(Request $request, Virtual $virtual){
         $itempost = $request->input();
         $insert = $itempost;
-        $name;
-        $ip;
-        $lp;
         $id_user = $itempost['id_user']; //history
         $data = $itempost['id_serv']; //history
         unset($insert['_token']);
