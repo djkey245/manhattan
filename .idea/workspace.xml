@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb7e9e71-1f37-4fdd-a890-712bb910537b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/list/card/virtual_edit_rdp.blade.php" afterPath="$PROJECT_DIR$/resources/views/list/card/virtual_edit_rdp.blade.php" />
-    </list>
+    <list default="true" id="cb7e9e71-1f37-4fdd-a890-712bb910537b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,8 +89,8 @@
       <file leaf-file-name="virtual_edit_rdp.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/list/card/virtual_edit_rdp.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+            <state relative-caret-position="297">
+              <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -995,12 +993,12 @@
       <workItem from="1518193595162" duration="1842000" />
       <workItem from="1519028293079" duration="3065000" />
       <workItem from="1519725183731" duration="2040000" />
-      <workItem from="1519894432845" duration="12574000" />
+      <workItem from="1519894432845" duration="12699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="880395000" />
+    <option name="totallyTimeSpent" value="880520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1446,8 +1444,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/list/card/virtual_edit_rdp.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        <state relative-caret-position="297">
+          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
           <folding />
         </state>
       </provider>
