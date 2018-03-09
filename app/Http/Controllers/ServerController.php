@@ -99,6 +99,7 @@ class ServerController extends Controller
                 $insert = ['name' => $items[0],];
                 $insert += ['ip' => $items[1],];
                 $insert += ['lp' => $items[2],];
+                $insert += ['os' => $items[3],];
                 $insert += ['id_server' => $itempost['id_serv'],];
                 $virtual->insert($insert);
 

@@ -7,8 +7,9 @@
         $("kl:last").remove();
     }
     function add_virtual() {
-        var virtual = '<kl><div class="row" id="virt'+i+'"><div class="col-md-3"><h5>Ім’я:</h5><input type="text" class="form-control" name="name_v[]"></div><div class="col-md-3">' +
-            '<h5>ІР:</h5><input type="text" class="form-control" name="ip_v[]"></div><div class="col-md-4"><h5>LoginPass:</h5><input type="text" class="form-control" name="lp_v[]"></div>' +
+        var virtual = '<kl><div class="row" id="virt'+i+'"><div class="col-md-3"><h5>Ім’я(Login):</h5><input type="text" class="form-control" name="name_v[]"></div><div class="col-md-3">' +
+            '<h5>ІР:</h5><input type="text" class="form-control" name="ip_v[]"></div><div class="col-md-2"><h5>Pass:</h5><input type="text" class="form-control" name="lp_v[]"></div>' +
+                '<div class="col-md-2"><h5>OS:</h5><input type="text" class="form-control" name="os_v[]"></div>'+
             '<div class="col-md-2"><button id='+i+' onclick="del_virtual()" style=" margin-top: 21%" class="btn btn-danger ">-</button></div></div></kl>';
         $("#add_v").append(virtual);
         i++;
@@ -34,9 +35,13 @@
 
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <h5>Pass:</h5>
             <input type="text" class="form-control" name="lp_v[]">
+        </div>
+        <div class="col-md-2">
+            <h5>OS:</h5>
+            <input type="text" class="form-control" name="os_v[]">
         </div>
         <div class="col-md-2"><div class="btn-group"><button onclick="add_virtual()" style=" margin-top: 30%" class="btn btn-success ">+</button>
                 <button onclick="save_server()" style=" margin-top: 30%"  class="btn btn-primary ">Зберегти</button></div></div>
@@ -53,12 +58,13 @@
         var name_v = document.getElementsByName('name_v[]');
         var ip_v = document.getElementsByName('ip_v[]');
         var lp_v = document.getElementsByName('lp_v[]');
+        var os_v = document.getElementsByName('os_v[]');
         var id_user = {{Auth::user()->id}};
         var j ;
         var vrt = "";
         for(j = 0;j<=i;j++){
 
-            vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+';';
+            vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+','+os_v[j].value+';';
 
         }
 

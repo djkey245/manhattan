@@ -25,7 +25,7 @@ if(type == 'rdp') {
 
         },
         success: function (message) {
-            $("#serv .name").html(message);
+            $("#serv ").html(message);
             //location.reload(true);
 
         }
@@ -75,7 +75,7 @@ if(type == 'rdp') {
 </script>
 
 <div class="container">
-    <div class="row">
+    <div class="row" id="serv">
         @if($type == 'rdp')
         <h4><center>Сервер RDP</center></h4>
         @if(!empty($error))<h4 style="color:red"><center>{{$error}}</center></h4> @endif

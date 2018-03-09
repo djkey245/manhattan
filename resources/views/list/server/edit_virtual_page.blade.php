@@ -8,7 +8,7 @@
         <div class="row">
 
         <div class="col-md-3">
-            <h5>Ім’я:</h5>
+            <h5>Login:</h5>
             <input type="text" class="form-control" name="name_v[]" id="name_v" value="{{$virtuals['name']}}">
         </div>
         <div class="col-md-3">
@@ -19,10 +19,14 @@
 
 
         </div>
-        <div class="col-md-4">
-            <h5>LoginPass:</h5>
+        <div class="col-md-2">
+            <h5>Pass:</h5>
             <input type="text" class="form-control" name="lp_v[]" id="lp_v" value="{{$virtuals['lp']}}">
         </div>
+            <div class="col-md-2">
+                <h5>OS:</h5>
+                <input type="text" class="form-control" name="os_v[]" id="os_v" value="{{$virtuals['os']}}">
+            </div>
 
                 <button onclick="save_virtual()"   class="btn btn-primary ">Зберегти</button>
 
@@ -36,6 +40,7 @@
         var name = document.getElementById('name_v').value;
         var ip = document.getElementById('ip_v').value;
         var lp = document.getElementById('lp_v').value;
+        var os = document.getElementById('os_v').value;
         var id_user = {{Auth::user()->id}};
         $.ajax({
             type: 'post',
@@ -46,6 +51,7 @@
                 'name': name,
                 'ip': ip,
                 'lp': lp,
+                'os': os,
                 'id_user': id_user
 
             },
