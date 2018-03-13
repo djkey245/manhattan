@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts;
+use App\Server;
 use App\Virtual;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,11 @@ use App\Http\Requests;
 
 class ContractController extends Controller
 {
-    public function index(Contracts $contracts){
+    public function index(Contracts $contracts, Virtual $virtual, Server $server){
 
         $this->data['contracts'] = $contracts->get();
+        $this->data['virtuals'] = $virtual->get();
+        $this->data['servers'] = $server->get();
         return view('list.contracts', $this->data);
     }
     public function add(Contracts $contracts, Request $request){

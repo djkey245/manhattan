@@ -38,6 +38,16 @@
                                                             mac
                                                          @endif
                                     </td>
+                                    <td>         <div>
+                                            @foreach($virtuals as $virtual)
+                                                @if($virtual->contracts_id == $contract->id)
+                                                    <a href="/server/{{$virtual->id_server}}">{{$virtual->name}} </a>
+
+                                                    @endif
+
+                                                @endforeach
+
+                                        </div></td>
                                     <td>
                                         <button  class="btn btn-primary" onclick="edit({{$contract->id}})">Edit</button>
                                         <button  class="btn btn-danger" onclick="del({{$contract->id}})">Del</button>
@@ -54,6 +64,12 @@
 
             </div>
             <div class="col-md-3" id="edit">
+                <table  class="table-contracts table-condensed contract-add">
+                    <tbody class="edit" style="display: none;">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3" id="">
                 <table  class="table-contracts table-condensed contract-add">
                     <tbody class="add" style="display: none;">
                         <tr>
@@ -161,6 +177,7 @@
             $(".nat-block").hide();
         };
         $(".add").hide();
+        $(".edit").hide();
     //Edit-block(refactoring in input td-blocks)
 
         /*var i_id = document.getElementById("i_id") ;
@@ -184,7 +201,7 @@
                 data:{'_token':"{{csrf_token()}}"},
                 dataType: 'html',
                 success: function (msg) {
-                    $(".add").show();
+                    $(".edit").show();
 
                     $("#edit").html(msg);
 
