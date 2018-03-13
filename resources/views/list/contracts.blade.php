@@ -17,6 +17,7 @@
                         <th>Pass</th>
                         <th>NAT</th>
                         <th>Type</th>
+                        <th>Virtuals</th>
                         <th><button  class="btn btn-success" onclick="$('.add').show();">Add</button></th>
                     </thead>
                     <tbody id="">

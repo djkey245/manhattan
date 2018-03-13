@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb7e9e71-1f37-4fdd-a890-712bb910537b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Contracts.php" afterPath="$PROJECT_DIR$/app/Contracts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ContractController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContractController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/list/contracts.blade.php" afterPath="$PROJECT_DIR$/resources/views/list/contracts.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -97,8 +94,8 @@
       <file leaf-file-name="contracts.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/list/contracts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="43" column="113" lean-forward="false" selection-start-line="43" selection-start-column="113" selection-end-line="43" selection-end-column="113" />
+            <state relative-caret-position="257">
+              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1011,12 +1008,12 @@
       <workItem from="1519725183731" duration="2040000" />
       <workItem from="1519894432845" duration="15225000" />
       <workItem from="1520839439507" duration="16000" />
-      <workItem from="1520846094196" duration="4715000" />
+      <workItem from="1520846094196" duration="5060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="887777000" />
+    <option name="totallyTimeSpent" value="888122000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1460,8 +1457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/list/contracts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="43" column="113" lean-forward="false" selection-start-line="43" selection-start-column="113" selection-end-line="43" selection-end-column="113" />
+        <state relative-caret-position="257">
+          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding />
         </state>
       </provider>
