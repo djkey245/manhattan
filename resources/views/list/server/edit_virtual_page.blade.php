@@ -7,11 +7,11 @@
 
         <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h5>Login:</h5>
             <input type="text" class="form-control" name="name_v[]" id="name_v" value="{{$virtuals['name']}}">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
 
             <h5>ІР:</h5>
             <input type="text" class="form-control" name="ip_v[]" id="ip_v" value="{{$virtuals['ip']}}">
@@ -23,6 +23,21 @@
             <h5>Pass:</h5>
             <input type="text" class="form-control" name="lp_v[]" id="lp_v" value="{{$virtuals['lp']}}">
         </div>
+            <div class="col-md-2">
+                <h5>Призначення:</h5>
+                <select class="form-control" name="purpose_v[]" id="purpose_v" value="{{$virtuals['purpose']}}">
+                    @if($virtuals['purpose'] == "Sales")
+                        <option class="form-control" value="Sales" selected>Sales</option>
+                        <option class="form-control" value="Developer">Developer</option>
+                    @elseif($virtuals['purpose'] == "Developer")
+                        <option class="form-control" value="Sales" >Sales</option>
+                        <option class="form-control" value="Developer" selected>Developer</option>
+                        @else
+                        <option class="form-control" value="Sales" >Sales</option>
+                        <option class="form-control" value="Developer" >Developer</option>
+                    @endif
+                </select>
+            </div>
             <div class="col-md-2">
                 <h5>OS:</h5>
                 <input type="text" class="form-control" name="os_v[]" id="os_v" value="{{$virtuals['os']}}">
@@ -41,6 +56,7 @@
         var ip = document.getElementById('ip_v').value;
         var lp = document.getElementById('lp_v').value;
         var os = document.getElementById('os_v').value;
+        var purpose = document.getElementById('purpose_v').value;
         var id_user = {{Auth::user()->id}};
         $.ajax({
             type: 'post',
@@ -52,6 +68,7 @@
                 'ip': ip,
                 'lp': lp,
                 'os': os,
+                'purpose': purpose,
                 'id_user': id_user
 
             },

@@ -7,8 +7,10 @@
         $("kl:last").remove();
     }
     function add_virtual() {
-        var virtual = '<kl><div class="row" id="virt'+i+'"><div class="col-md-3"><h5>Ім’я(Login):</h5><input type="text" class="form-control" name="name_v[]"></div><div class="col-md-3">' +
+        var virtual = '<kl><div class="row" id="virt'+i+'"><div class="col-md-2"><h5>Ім’я(Login):</h5><input type="text" class="form-control" name="name_v[]"></div><div class="col-md-2">' +
             '<h5>ІР:</h5><input type="text" class="form-control" name="ip_v[]"></div><div class="col-md-2"><h5>Pass:</h5><input type="text" class="form-control" name="lp_v[]"></div>' +
+                '<div class="col-md-2"><h5>Призначення:</h5><select class="form-control" name="purpose_v[]"><option value="Sales">Sales</option><option value="Developer">Developer</option>'+
+            '</select></div>'+
                 '<div class="col-md-2"><h5>OS:</h5><input type="text" class="form-control" name="os_v[]"></div>'+
             '<div class="col-md-2"><button id='+i+' onclick="del_virtual()" style=" margin-top: 21%" class="btn btn-danger ">-</button></div></div></kl>';
         $("#add_v").append(virtual);
@@ -23,21 +25,26 @@
 <div class="container">
     <h4><center>Віртуалки </center></h4>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h5>Ім’я(Login):</h5>
             <input type="text" class="form-control" name="name_v[]">
-        </div>
-        <div class="col-md-3">
-
-            <h5>ІР:</h5>
-            <input type="text" class="form-control" name="ip_v[]">
-
-
-
         </div>
         <div class="col-md-2">
             <h5>Pass:</h5>
             <input type="text" class="form-control" name="lp_v[]">
+        </div>
+        <div class="col-md-2">
+
+            <h5>ІР:</h5>
+            <input type="text" class="form-control" name="ip_v[]">
+        </div>
+
+        <div class="col-md-2">
+            <h5>Призначення:</h5>
+            <select class="form-control" name="purpose_v[]">
+                <option value="Sales">Sales</option>
+                <option value="Developer">Developer</option>
+            </select>
         </div>
         <div class="col-md-2">
             <h5>OS:</h5>
@@ -56,12 +63,13 @@
             var ip_v = document.getElementsByName('ip_v[]');
             var lp_v = document.getElementsByName('lp_v[]');
             var os_v = document.getElementsByName('os_v[]');
+            var purpose_v = document.getElementsByName('purpose_v[]');
             var id_user ={{Auth::user()->id}};
             var j ;
             var vrt = "";
             for(j = 0;j<=i;j++){
 
-                vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+','+os_v[j].value+';';
+                vrt += name_v[j].value+','+ip_v[j].value+','+lp_v[j].value+','+os_v[j].value+','+purpose_v[j].value+';';
 
             }
 

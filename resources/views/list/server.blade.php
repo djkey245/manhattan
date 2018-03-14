@@ -93,6 +93,19 @@
                         @endforeach
 
                     @endif
+                <div class="row" >
+                    <a href="/servers/without">
+                        <div class="col-md-3">Віртуалки без сервера</div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2"><?php $i = count($virtualWithoutServer);?>
+
+                            {{$i}}
+                        </div>
+                        <div class="col-md-2"></div>
+
+                    </a>
+                </div>
+                <br>
                 </div>
             </div>
             <div class="col-md-2">

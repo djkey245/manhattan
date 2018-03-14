@@ -121,6 +121,7 @@
                                     <h4 style="color: red;">{{$virtual->os}}</h4>
                                     <p style="color: white;">{{$virtual->ip}}</p>
                                     <p style="color: white;">{{$virtual->lp}}</p>
+                                    <h4 style="color: red;">{{$virtual->purpose}}</h4>
                                 </div>
                             </div>
                         </div>

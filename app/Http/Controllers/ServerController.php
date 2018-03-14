@@ -15,8 +15,39 @@ class ServerController extends Controller
     public function index(Server $server,Virtual $virtual){
         $this->data['servers'] = $server->get();
         $this->data['virtuals'] = $virtual->get();
+        $virtualWithoutServer = [] ;
+        foreach ($virtual->get() as $virt){
+            if(Server::find($virt->id_server)){
+
+            }
+            else{
+                array_push($virtualWithoutServer, $virt->id);
+            }
+
+        }
+        $this->data['virtualWithoutServer'] = $virtualWithoutServer;
         return view('list.server',$this->data);
     }
+    public function without(Virtual $virtual, Contracts $contracts, Peoples $peoples){
+        $virtualWithoutServer = [] ;
+        $this->data['virtuals'] =[];
+        $this->data['contracts'] = $contracts->get();
+        $this->data['peoples'] = $peoples->get();
+
+        foreach ($virtual->get() as $virt){
+            if(Server::find($virt->id_server)){
+
+            }
+            else{
+                array_push($this->data['virtuals'], $virt);
+            }
+
+        }
+        $this->data['virtualWithoutServer'] = $virtualWithoutServer;
+        return view('list.server.without',$this->data);
+
+    }
+
 
     public function page_add_rdp(){
         $this->data['type'] = 'rdp';
@@ -44,7 +75,7 @@ class ServerController extends Controller
                 unset($itempost['_token']);
                 unset($itempost['id_user']);
                 $server->insert($itempost);
-                $id = $server->select('id')->where(['name' => $itempost['name'],])->firstOrFail();
+                $id = $server->select('id')->where(['name' => $itwhereempost['name'],])->firstOrFail();
                 $this->data['id'] = $id->id;
 
                 //history
@@ -97,6 +128,7 @@ class ServerController extends Controller
                 $insert += ['ip' => $items[1],];
                 $insert += ['lp' => $items[2],];
                 $insert += ['os' => $items[3],];
+                $insert += ['purpose' => $items[4],];
                 $insert += ['id_server' => $itempost['id_serv'],];
                 $virtual->insert($insert);
 

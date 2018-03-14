@@ -246,6 +246,9 @@ Route::post('/server/moving',   [
 Route::post('/server/search',   [
     'middleware' => 'auth',
     'uses' =>'ServerController@search'] );
+Route::get('/servers/without', [
+    'middleware' => 'auth',
+    'uses' =>'ServerController@without'] );
 
 //contracts
 Route::get('/contracts',   [
