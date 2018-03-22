@@ -127,6 +127,14 @@
 
                             </li>
 
+
+                        </ul>
+                        <ul class="nav navbar-nav form-inline">
+                            <li>
+                                <a href="/doc" class="menu">
+                                    Документація
+                                </a>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-search" style="width: 500px;">
                             <form action="/list/search" class="navbar-form pull-left" style="width: 100%; display: flex"  method="post">

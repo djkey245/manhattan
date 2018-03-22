@@ -270,7 +270,19 @@ Route::post('/contracts/virtual',   [
     'middleware' => 'auth',
     'uses' =>'ContractController@virtual'] );
 
-
+//documentation
+Route::get('/doc',[
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@viewDocumentationCategory'
+    ]);
+Route::post('/doc-addCategory',[
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@addDocumentationCategory'
+    ]);
+Route::get('/doc/{id}',[
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@viewDocumentationList'
+]);
 
 
 
