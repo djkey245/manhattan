@@ -57,7 +57,6 @@
         var vnc = document.getElementById('vnc').value;
         var id_user = {{Auth::user()->id}};
         var rdp = document.getElementById('rdp').value;
-        var login = document.getElementById('login').value;
         if(type == 'rdp'){
 
 
@@ -81,6 +80,7 @@
             })
         }
         if(type == 'vrt') {
+            var login = document.getElementById('login').value;
 
 
             $.ajax({

@@ -12,10 +12,14 @@
                     <input type="text" name="name" class="form-control " >
                 </div>
                 <div class="col-xs-1">
-                    <input type="submit" class="btn btn-success" value="Додати">
+                    <input type="submit" class="btn btn-success" value="Додати категорію">
                 </div>
             </form>
-
+        <div class="col-xs-1 " style="position: relative; right: 50px">
+    <button class="btn btn-success">
+        Додати статтю
+    </button>
+</div>
 
         </div>
         <div class="row-fluid">
