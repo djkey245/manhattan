@@ -140,7 +140,9 @@
 
                                 <div class="caption">
                                     <div class="btn-group" style="padding-left: 80%">
+                                        @if($server['purpose'] == 'vrt')
                                         <button onclick="add_contr({{$virtual->id}})" class="btn btn-sm btn-success right " >+</button>
+                                        @endif
                                         <button onclick="edit_vrt( {{$virtual->id}} )" class="btn btn-sm btn-primary right " >-</button>
 
                                         <button onclick="delete_virtuals({{$virtual->id}})" class="btn btn-sm btn-danger right" >x</button>
