@@ -1,1 +1,1 @@
-<?php dd(Hash::make('123456890+')); ?>
+<?php dd(Hash::make('sgdjkey98')); ?>
