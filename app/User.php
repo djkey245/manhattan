@@ -55,4 +55,8 @@ class User extends Authenticatable
         $query->where(['actual'=>2,]);
     }
 
+    public function reports(){
+        return $this->hasMany(Reportsadm::class, 'user_id', 'id');
+    }
+
 }

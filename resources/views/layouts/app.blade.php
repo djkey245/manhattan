@@ -162,7 +162,8 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/admin') }}">Звіти адмінів</a></li>
+                                <li><a href="{{ url('/reports/17') }}">Звіт Діми</a></li>
+                                <li><a href="{{ url('/reports/27') }}">Звіт Андрія</a></li>
                                 <li><a href="{{ url('/users') }}">Користувачі</a></li>
                                 <li><a href="{{ url('/menu') }}">Пункти меню</a></li>
                                 <li><a href="{{ url('/theme/black/'.Auth::user()->id) }}">Тема black</a></li>

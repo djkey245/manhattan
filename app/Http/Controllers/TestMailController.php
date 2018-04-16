@@ -2,35 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Point;
+use App\Reportsadm;
 use App\Test;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
 
 
 
 class TestMailController extends Controller
 {
 
-    public function index(Test $test, User $user){
-        $this->data['users1'] = $user->where(['id' => 17])->get();
-        $this->data['users2'] = $user->where(['id' => 27])->get();
-        $this->data['tests'] = $test->latest('date')->get();
-
-
-
+    public function index(Reportsadm $reportsadm, User $user, $id){
+        $this->data['user'] = $user->where(['id' => $id])->get();
+        $auth = Auth::user();
+        $this->data['tests'] = $reportsadm->with('points')->where(['user_id' => $id])->orderBy('date', 'desc')->get();
         return view('list.admin.index', $this->data);
     }
 
-    public function save(Test $test, User $user, Request $request){
+    public function save(Reportsadm $reportsadm, Request $request, Point $tblpoint){
         $itempost = $request->input();
         $data['time'] = $itempost['time'];
-        $data['comment'] = $itempost['comment'];
+        $data['title'] = $itempost['title'];
+        $data['type'] = $itempost['type'];
         $data['date'] = $itempost['date'];
-        $data['id_user'] = $itempost['user'];
+        $data['user_id'] = Auth::user()->id;
+        $points = $itempost['points'];
+        $reportsadm->create($data);
+        $id = $reportsadm->orderBy('id', 'desc')->first();
+        foreach ($points as $point){
+            $tblpoint->create(['text' => $point, 'reportsadm_id' => $id['id']]);
+        }
+            return dd($id['id']);
 
-        $test->insert($data) or  die("Error");
+
         /*$this->data['users1'] = $user->where(['id' => 17])->get();
         $this->data['users2'] = $user->where(['id' => 27])->get();
         $this->data['tests'] = $test->oldest('date')->get();

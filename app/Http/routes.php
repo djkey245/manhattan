@@ -309,10 +309,10 @@ Route::get('/doc/{id}',[
 
 
 //admin
-Route::get('/admin',   [
+Route::get('/reports/{id}',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@index'] );
-Route::POST('/admin',   [
+Route::POST('/reportsAdm',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@save'] );
 

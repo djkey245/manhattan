@@ -119,7 +119,9 @@ p{
 
 
 
-
+input, select, button{
+    color: black !important;
+}
 
 
 
