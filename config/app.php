@@ -160,7 +160,8 @@ return [
         //dev
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
         //prod
         Frozennode\Administrator\AdministratorServiceProvider::class,
         Alexusmai\Ruslug\RuslugServiceProvider::class,
@@ -213,6 +214,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Slug' => Alexusmai\Ruslug\RuslugFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

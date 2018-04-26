@@ -274,7 +274,7 @@ Route::post('/contracts/virtual',   [
 Route::get('/doc',[
     'middleware' => 'auth',
     'uses' =>'DocumentationController@viewDocumentationCategory'
-    ]);
+    ])->name('documentation.index');
 Route::post('/doc-addCategory',[
     'middleware' => 'auth',
     'uses' =>'DocumentationController@addDocumentationCategory'
@@ -284,9 +284,26 @@ Route::get('/doc/{id}',[
     'uses' =>'DocumentationController@viewDocumentationList'
 ]);
 
+Route::get('/article/{id}', 'DocumentationController@articleShow');
+
+Route::post('/doc/{id}/add-popup', [
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@addPopup'
+]);
+
+Route::post('/doc/create-article', [
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@store'
+])->name('article.store');
+
+Route::post('/doc/upload-file-for-article', 'DocumentationController@upload')->name('article.upload-file');
 
 
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/elfinder/ckeditor', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
+    Route::any('/elfinder/ckeditor/send', 'DocumentationController@upload');
+});
 
 
 
