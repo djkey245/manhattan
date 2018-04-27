@@ -15,7 +15,8 @@
                     <script>
                         var editor = CKEDITOR.replace( 'chizi1',
                             {
-                                filebrowserBrowseUrl: '/elfinder/ckeditor'
+                                filebrowserBrowseUrl: '/elfinder/ckeditor',
+                                language: 'en-us'
                             }
                         );
                     </script>
