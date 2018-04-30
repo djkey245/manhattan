@@ -10,7 +10,6 @@
                 <p>
                     <a style="cursor: pointer" onclick="accept({{$doc->id}})">{{$doc->title}}</a>
                 </p>
-                <br>
 
 
                 @endforeach
