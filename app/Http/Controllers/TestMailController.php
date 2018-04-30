@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Documentation;
+use App\DocumentationCategory;
 use App\Point;
 use App\Reportsadm;
 use App\Test;
@@ -30,12 +32,14 @@ class TestMailController extends Controller
         $data['date'] = $itempost['date'];
         $data['user_id'] = Auth::user()->id;
         $points = $itempost['points'];
+        $docs = $itempost['docs'];
         $reportsadm->create($data);
         $id = $reportsadm->orderBy('id', 'desc')->first();
-        foreach ($points as $point){
-            $tblpoint->create(['text' => $point, 'reportsadm_id' => $id['id']]);
+        foreach ($points as $key=>$point){
+            $tblpoint->create(['text' => $point, 'reportsadm_id' => $id['id'],'documentation_id' => $docs[$key]]);
         }
-            return dd($id['id']);
+
+        return dd($docs);
 
 
         /*$this->data['users1'] = $user->where(['id' => 17])->get();
@@ -44,7 +48,16 @@ class TestMailController extends Controller
         return view('list.admin.index', $this->data);*/
     }
 
+    public function showDoc(){
+        $categories = DocumentationCategory::all();
+        return view('list.admin.category', compact('categories'));
+    }
 
+    public function showDocs($id){
+        $docs = Documentation::where('documentationCategory_id', $id)->get();
+
+        return view('list.admin.docs', compact('docs'));
+    }
 
 
 

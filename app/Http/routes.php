@@ -290,20 +290,23 @@ Route::post('/doc/{id}/add-popup', [
     'middleware' => 'auth',
     'uses' =>'DocumentationController@addPopup'
 ]);
-
+Route::get('/doc-article-add-show', 'DocumentationController@addPopup')->name('article.upload-file');
 Route::post('/doc/create-article', [
     'middleware' => 'auth',
     'uses' =>'DocumentationController@store'
 ])->name('article.store');
+Route::post('/article/{id}/edit-show', 'DocumentationController@editShow');
+Route::post('/article/{id}/remove', 'DocumentationController@remove');
+Route::post('/article/edit', [
+    'middleware' => 'auth',
+    'uses' =>'DocumentationController@edit'
+])->name('article.edit');
 
-Route::post('/doc/upload-file-for-article', 'DocumentationController@upload')->name('article.upload-file');
 
 
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/elfinder/ckeditor', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
-    Route::any('/elfinder/ckeditor/send', 'DocumentationController@upload');
-});
+
+
 
 
 
@@ -332,6 +335,12 @@ Route::get('/reports/{id}',   [
 Route::POST('/reportsAdm',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@save'] );
+Route::POST('/reports-show-doc',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@showDoc'] );
+Route::POST('/reports-show-doc/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@showDocs'] );
 
 //ROS
 Route::get('/router',   [

@@ -2,7 +2,7 @@
 <div class="container" style="z-index: 100; background-color: gray; position: absolute; left: 10%; top: 10%;">
     <div class="row">
         <div class="position-ref full-height">
-            <div class="content" style="text-align: center">
+            <div class="content editor" style="text-align: center">
                 <form action=" {{ route('article.store') }} " method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
