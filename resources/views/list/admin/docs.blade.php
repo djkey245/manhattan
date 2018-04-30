@@ -19,10 +19,8 @@
 </div>
 <script>
     function accept(id) {
-        alert(openDoc);
         document.getElementById('doc'+openDoc).value = id;
         $('#docPopup').remove();
-        openDoc = 0;
 
     }
     function addDoc(){
