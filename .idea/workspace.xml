@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb7e9e71-1f37-4fdd-a890-712bb910537b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/list/card.blade.php" afterPath="$PROJECT_DIR$/resources/views/list/card.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/list/history.blade.php" afterPath="$PROJECT_DIR$/resources/views/list/history.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,13 +47,13 @@
         <entry file="file://$PROJECT_DIR$/resources/views/list/list/card.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-140">
-              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+              <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="card.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/list/card.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="640">
@@ -63,6 +62,16 @@
                 <element signature="e#4488#4508#0#HTML" expanded="true" />
                 <element signature="e#5399#5420#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="history.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/list/history.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-120">
+              <caret line="219" column="62" lean-forward="true" selection-start-line="219" selection-start-column="62" selection-end-line="219" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,20 +137,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/list/documentation/article.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-              <folding>
-                <element signature="e#565#641#0#HTML" expanded="true" />
-                <element signature="e#758#805#0#HTML" expanded="true" />
-                <element signature="e#1194#1255#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -196,7 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/WIFIConsole.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TestController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
@@ -247,6 +241,7 @@
         <option value="$PROJECT_DIR$/resources/views/list/documentation/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/list/admin/docs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/list/card.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/list/history.blade.php" />
       </list>
     </option>
   </component>
@@ -971,12 +966,12 @@
       <workItem from="1521715328390" duration="3977000" />
       <workItem from="1521735115945" duration="4701000" />
       <workItem from="1522405478768" duration="18144000" />
-      <workItem from="1523602158745" duration="54564000" />
+      <workItem from="1523602158745" duration="54850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="983907000" />
+    <option name="totallyTimeSpent" value="984193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1054,13 +1049,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/list/server/edit_server_page.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1660">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/list/password.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1374,7 +1362,7 @@
         <state relative-caret-position="237">
           <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
+            <element signature="e#40#62#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1471,7 +1459,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/list/list/card.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-140">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1484,6 +1472,14 @@
             <element signature="e#4488#4508#0#HTML" expanded="true" />
             <element signature="e#5399#5420#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/list/history.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="219" column="62" lean-forward="true" selection-start-line="219" selection-start-column="62" selection-end-line="219" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>

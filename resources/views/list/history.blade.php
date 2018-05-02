@@ -89,14 +89,14 @@
                                                         віртуалки @foreach($virtuals as $virtual)
                                                             @if($event['data'] == $virtual->id)
 
-                                                                {{$virtual->name}} {{$virtual->ip}}
+                                                                <a href="/server/{{$virtual->id_server}}">{{$virtual->name}} {{$virtual->ip}}</a>
                                                             @endif
                                                         @endforeach
                                                     @elseif($event['model'] == 'server')
                                                         сервера @foreach($servers as $server)
                                                             @if($event['data'] == $server->id)
 
-                                                                {{$server->name}} {{$server->ip}}
+                                                                <a href="/server/{{$server->id}}">{{$server->name}} {{$server->ip}}</a>
                                                             @endif
                                                         @endforeach
 
