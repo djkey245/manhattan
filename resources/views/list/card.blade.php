@@ -100,16 +100,23 @@
                                     @if($virtual->id_server == $server->id)
                                         <div class="caption" style="background-color:  #d9edf7;     font-size: 14px; text-align: center; border: 1px solid transparent;  border-radius: 4px;">
                                             <button onclick="del_virtual({{$virtual->id}})" class="btn btn-sm btn-danger right" style="margin-left: 90%">x</button>
-                                            <h4 style="color: black;">{{$server->name}}</h4>
+                                            <a href="/server/{{$server->id}}"><h4 style="color: blue;">{{$server->name}}</h4></a>
                                             <p style="color: black;">{{$server->ip}}</p>
                                             @if($server->purpose == 'rdp')
+                                                @if(!empty($server->rdp))
                                                 <p style="color: black;">RDP: {{$server->rdp}}</p>
-                                                <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                                @endif
+                                                @if(!empty($server->vnc))
+                                                    <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                                    @endif
+
                                             @elseif($server->purpose == 'vrt')
 
                                                 <p style="color: black;">Login: {{$server->login}}</p>
                                                 <p style="color: black;">Pass: {{$server->rdp}}</p>
-                                                <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                                @if(!empty($server->vnc))
+                                                    <p style="color: black;">VNC: {{$server->vnc}}</p>
+                                                @endif
                                             @endif
                                         </div>
                                         @break
