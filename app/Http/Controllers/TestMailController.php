@@ -6,8 +6,10 @@ use App\Documentation;
 use App\DocumentationCategory;
 use App\Point;
 use App\Reportsadm;
+use App\Server;
 use App\Test;
 use App\User;
+use App\Virtual;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -25,18 +27,21 @@ class TestMailController extends Controller
     }
 
     public function save(Reportsadm $reportsadm, Request $request, Point $tblpoint){
-        $itempost = $request->input();
+        $itempost = $request->all();
         $data['time'] = $itempost['time'];
         $data['title'] = $itempost['title'];
         $data['type'] = $itempost['type'];
         $data['date'] = $itempost['date'];
+        $data['otrs_id'] = $itempost['otrs_id'];
         $data['user_id'] = Auth::user()->id;
         $points = $itempost['points'];
         $docs = $itempost['docs'];
-        $reportsadm->create($data);
+        $virtuals = $itempost['virtuals'];
+//        dd($data);
+        $reportsadm->insert($data);
         $id = $reportsadm->orderBy('id', 'desc')->first();
         foreach ($points as $key=>$point){
-            $tblpoint->create(['text' => $point, 'reportsadm_id' => $id['id'],'documentation_id' => $docs[$key]]);
+            $tblpoint->insert(['text' => $point, 'reportsadm_id' => $id['id'],'documentation_id' => $docs[$key], 'virtual_id' => $virtuals[$key]]);
         }
 
         return dd($docs);
@@ -60,6 +65,17 @@ class TestMailController extends Controller
     }
 
 
+    public function showSrv()
+    {
+        $servers = Server::all();
+        return view('list.admin.servers', compact('servers'));
+
+    }
+    public function showVRT($id){
+        $virtuals = Virtual::where('id_server', $id)->get();
+        return view('list.admin.virtuals', compact('virtuals'));
+
+    }
 
 
 

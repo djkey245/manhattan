@@ -338,9 +338,15 @@ Route::POST('/reportsAdm',   [
 Route::POST('/reports-show-doc',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@showDoc'] );
+Route::POST('//reports-show-srv',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@showSrv'] );
 Route::POST('/reports-show-doc/{id}',   [
     'middleware' => 'auth',
     'uses' =>'TestMailController@showDocs'] );
+Route::POST('/reports-show-vrt/{id}',   [
+    'middleware' => 'auth',
+    'uses' =>'TestMailController@showVRT'] );
 
 //ROS
 Route::get('/router',   [
