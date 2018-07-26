@@ -52,11 +52,12 @@ class DocumentationController extends Controller
     }
     public function edit(Request $request){
         $itempost = $request->all();
+        $doc = Documentation::find($itempost['article_id']);
         try {
             Documentation::where('id', $itempost['article_id'])->update([
                 'title' => $itempost['title'],
                 'text' => $itempost['text'],
-                'documentationCategory_id' => $itempost['documentationCategory_id'],
+                'documentationCategory_id' => $doc->documentationCategory_id,
                 'user_id' => $itempost['user_id']
             ]);
         }
